@@ -18,7 +18,7 @@ function App() {
           <Route path="music" element={<Music />}></Route>
           <Route path="profile" element={<Profile />}></Route>
         </Route>
-        <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/landing" element={<LandingPage />}></Route>
         <Route path="/user/:action" element={<RegisterLogin />}></Route>
         <Route path="*" element={<Navigate to="/user/register" />}> </Route>
       </Routes>

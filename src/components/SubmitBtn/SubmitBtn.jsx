@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './SubmitBtn.scss';
 
 const SubmitBtn = () => {
     return (
-        <div>
-
+        <div className='submitBtnBox'>
+            <button className='submitBtn'>SIGN UP</button>
         </div>
     )
 }

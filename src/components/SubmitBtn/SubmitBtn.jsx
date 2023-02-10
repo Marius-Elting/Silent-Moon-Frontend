@@ -1,10 +1,10 @@
 import React from 'react';
 import './SubmitBtn.scss';
 
-const SubmitBtn = ({ children }) => {
+const SubmitBtn = ({ children, handleSubmit }) => {
     return (
         <div className='submitBtnBox'>
-            <button className='submitBtn'>{children}</button>
+            <button onClick={handleSubmit} className='submitBtn'>{children}</button>
         </div>
     )
 }

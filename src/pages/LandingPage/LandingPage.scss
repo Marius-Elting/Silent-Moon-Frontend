@@ -9,11 +9,11 @@
 .landingPageArticle {
 
     .landingPageHeading {
-        @include h2Styles;
+        @include headlineSmall;
     }
 
     .landingPageText {
-        @include h3Styles;
+        @include Subtitle;
         width: 80%;
         margin: 2vh auto;
     }

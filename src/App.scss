@@ -37,15 +37,22 @@ $SSP500: SourceSansPro400;
 }
 
 // ------------MIXINS-------------
-@mixin h2Styles {
+@mixin headlineSmall {
   font-family: $SSP700;
   text-align: center;
   font-size: 3rem;
   color: $darkGreenColor;
 }
 
+@mixin headlineBig {
+  font-family: $SSP900;
+  text-align: center;
+  font-size: 3.6rem;
+  color: $darkGreenColor;
+}
 
-@mixin h3Styles {
+
+@mixin Subtitle {
   font-family: $SSP600;
   color: $grayColor;
   font-size: 1.6rem;

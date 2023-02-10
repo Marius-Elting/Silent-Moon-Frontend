@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
 
     .registerLoginHeading {
-        @include h2Styles;
+        @include headlineBig;
         margin-bottom: 13vh;
         padding-top: 5vh;
     }
@@ -31,7 +31,7 @@
     }
 
     .registerLoginText {
-        @include h3Styles;
+        @include Subtitle;
         width: 80%;
         margin: 2vh auto;
     }

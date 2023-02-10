@@ -1,0 +1,31 @@
+@font-face {
+  font-family: SourceSansPro400;
+  src: url("./assets/font/SourceSansPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: SourceSansPro600;
+  src: url("./assets/font/SourceSansPro-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: SourceSansPro700;
+  src: url("./assets/font/SourceSansPro-Bold.ttf");
+}
+
+@font-face {
+  font-family: SourceSansPro900;
+  src: url("./assets/font/SourceSansPro-Black.ttf");
+}
+
+$grayColor: #A1A4B2;
+$orangeColor: #E28F83;
+$darkGreenColor: #4A503D;
+$lightGreenColor: #8E9775;
+$whiteColor: #FEFCF8;
+$beigeColor: #FAF2DA;
+
+$SSP900: SourceSansPro900;
+$SSP700: SourceSansPro700;
+$SSP600: SourceSansPro600;
+$SSP500: SourceSansPro400;

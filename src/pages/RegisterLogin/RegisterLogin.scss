@@ -31,7 +31,7 @@
     }
 
     .registerLoginText {
-        @include Subtitle;
+        @include subtitle;
         width: 80%;
         margin: 2vh auto;
     }

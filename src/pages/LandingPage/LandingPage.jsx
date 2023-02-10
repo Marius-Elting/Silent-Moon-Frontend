@@ -14,15 +14,15 @@ const LandingPage = () => {
                 <h2 className='landingPageHeading'>
                     We are what we do
                 </h2>
-                <p className='landingPageParagraph'>
+                <h3 className='landingPageText'>
                     Thousand of people are using silent moon for meditation and yoga classes.
-                </p>
+                </h3>
             </article>
-            <SubmitBtn />
+            <SubmitBtn>SIGN UP</SubmitBtn>
             <article className='landingPageArticle'>
-                <p className='landingPageParagraph'>
+                <h3 className='landingPageText'>
                     ALREADY HAVE AN ACCOUNT? <Link className='landingPageLink'>LOG IN</Link>
-                </p>
+                </h3>
             </article>
 
         </section>

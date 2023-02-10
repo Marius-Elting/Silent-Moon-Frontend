@@ -5,18 +5,16 @@
     padding-bottom: 40vh;
     background-repeat: no-repeat;
 
+    .registerLoginHeading {
+        @include h2Styles;
+        margin-bottom: 13vh;
+        padding-top: 5vh;
+    }
+
     .login {
         width: 90%;
         margin: 0 auto;
 
-        .registerLoginHeading {
-            margin-bottom: 13vh;
-            padding-top: 5vh;
-            font-family: $SSP700;
-            text-align: center;
-            font-size: 3rem;
-            color: $darkGreenColor;
-        }
     }
 
     .registerLoginInput {
@@ -32,12 +30,9 @@
         border-radius: 30px;
     }
 
-    .registerLoginParagraph {
-        font-family: $SSP600;
-        color: $grayColor;
-        font-size: 1.6rem;
+    .registerLoginText {
+        @include h3Styles;
         width: 80%;
-        text-align: center;
         margin: 2vh auto;
     }
 
@@ -50,14 +45,5 @@
     .register {
         width: 90%;
         margin: 0 auto;
-
-        .registerLoginHeading {
-            margin-bottom: 13vh;
-            padding-top: 5vh;
-            font-family: $SSP700;
-            text-align: center;
-            font-size: 3rem;
-            color: $darkGreenColor;
-        }
     }
 }

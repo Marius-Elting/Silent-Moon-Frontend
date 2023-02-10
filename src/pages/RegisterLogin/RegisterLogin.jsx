@@ -14,16 +14,16 @@ const RegisterLogin = () => {
         <section className='registerLoginSection'>
             <ReturnBtn />
             {
-                false ? (
+                true ? (
                     <article className='login'>
                         <h2 className='registerLoginHeading'>Welcome Back!</h2>
                         <input className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>
                         <input className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
-                        <SubmitBtn />
-                        <p className='registerLoginParagraph'>
+                        <SubmitBtn>LOGIN</SubmitBtn>
+                        <h3 className='registerLoginText'>
                             DON’T HAVE AN ACCOUNT YET?
                             <Link className='registerLoginLink'> SIGN UP</Link>
-                        </p>
+                        </h3>
                     </article>
                 ) :
                     <article className='register'>
@@ -32,7 +32,7 @@ const RegisterLogin = () => {
                         <input className='registerLoginInput' type='text' placeholder='SURNAME' ref={surnameRef}></input>
                         <input className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>
                         <input className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
-                        <SubmitBtn />
+                        <SubmitBtn>REGISTER</SubmitBtn>
                     </article>
             }
         </section>

@@ -35,3 +35,19 @@ $SSP500: SourceSansPro400;
   margin: 0;
   padding: 0;
 }
+
+// ------------MIXINS-------------
+@mixin h2Styles {
+  font-family: $SSP700;
+  text-align: center;
+  font-size: 3rem;
+  color: $darkGreenColor;
+}
+
+
+@mixin h3Styles {
+  font-family: $SSP600;
+  color: $grayColor;
+  font-size: 1.6rem;
+  text-align: center;
+}

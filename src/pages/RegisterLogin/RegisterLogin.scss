@@ -1,0 +1,49 @@
+@import '../../App';
+
+.registerLoginSection {
+    background-image: url('../../assets/img/loginRegisterImg.png');
+    padding-bottom: 40vh;
+    background-repeat: no-repeat;
+
+    .registerLoginHeading {
+        @include headlineBig;
+        margin-bottom: 13vh;
+        padding-top: 5vh;
+    }
+
+    .login {
+        width: 90%;
+        margin: 0 auto;
+
+    }
+
+    .registerLoginInput {
+        width: 100%;
+        margin-bottom: 6%;
+        padding: 4% 0;
+        text-align: center;
+        font-family: $SSP600;
+        font-size: 1.6rem;
+        color: $grayColor;
+        background-color: transparent;
+        border: 1px solid $orangeColor;
+        border-radius: 30px;
+    }
+
+    .registerLoginText {
+        @include Subtitle;
+        width: 80%;
+        margin: 2vh auto;
+    }
+
+    .registerLoginLink {
+        text-decoration: none;
+        color: $orangeColor;
+        font-size: 1.6rem;
+    }
+
+    .register {
+        width: 90%;
+        margin: 0 auto;
+    }
+}

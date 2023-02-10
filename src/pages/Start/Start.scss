@@ -1,0 +1,25 @@
+@import '../../App';
+
+.startSection {
+    background-image: url('../../assets/img/startImg.png');
+    background-repeat: no-repeat;
+    padding-bottom: 120%;
+
+
+    .startHeading {
+        text-align: center;
+        padding-top: 2vh;
+        font-size: 1.6rem;
+        font-family: $SSP700;
+        color: $whiteColor;
+    }
+
+    .startParagraph {
+        width: 36vw;
+        margin: 18% 0 0 10%;
+        padding-bottom: 115%;
+        font-family: $SSP900;
+        color: $whiteColor;
+        font-size: 3.6rem;
+    }
+}

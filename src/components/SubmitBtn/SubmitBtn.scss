@@ -1,0 +1,16 @@
+@import '../../App';
+
+.submitBtnBox {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.submitBtn {
+    width: 100%;
+    background-color: $orangeColor;
+    color: $beigeColor;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    padding: 5% 0;
+}

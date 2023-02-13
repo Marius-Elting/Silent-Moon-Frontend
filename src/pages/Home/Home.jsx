@@ -1,10 +1,16 @@
 import React from 'react'
+import AppHeadline from '../../components/AppHeadline/AppHeadline'
+import Navbar from '../../components/Navbar/Navbar'
 
 const Home = () => {
     return (
-        <div>
+        <section className='homeSection'>
+            <AppHeadline />
+            <div className='homeDiv'>
 
-        </div>
+            </div>
+            <Navbar />
+        </section>
     )
 }
 

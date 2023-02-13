@@ -1,0 +1,77 @@
+@import "../../App";
+
+.RemindMeTimeChoiceWrapper,
+.RemindMeDayChoiceWrapper {
+    width: 90%;
+    margin: 0 auto;
+
+    h2 {
+        @include headlineMedium;
+        margin-top: 1.5rem
+    }
+
+    h3 {
+        @include Subtitle;
+        margin-top: 1.5rem;
+    }
+
+}
+
+.MuiPickerStaticWrapper-root,
+.css-u0soqy-MuiPickerStaticWrapper-root,
+.MuiPickerStaticWrapper-content,
+.css-xelq0e-MuiPickerStaticWrapper-content,
+.MuiCalenderOrClockPicker-root,
+.css-j3g793-MuiCalenderOrClockPicker-root {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.css-1mgnakj-MuiTypography-root-PrivatePickersToolbarText-root {
+    font-size: 1rem;
+}
+
+.RemindMeDaysWrapper {
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+
+        width: 3rem;
+        border-radius: 50%;
+        height: 3rem;
+    }
+
+    .brightDay {
+        border: 2px solid $beigeColor;
+        background-color: transparent;
+        color: $darkGreenColor;
+    }
+
+    .darkDay {
+        border: 2px solid $lightGreenColor;
+        background-color: $lightGreenColor;
+        color: $beigeColor;
+    }
+}
+
+
+.RemindMeBtnWrapper {
+    width: 90vw;
+    margin: 3rem auto;
+
+    .noThxBtn {
+        display: inline-block;
+        width: 100%;
+        color: $orangeColor;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.6rem;
+        padding: 5% 0;
+        text-decoration: none;
+        text-align: center;
+    }
+
+}

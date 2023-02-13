@@ -39,14 +39,18 @@ $SSP500: SourceSansPro400;
 // ------------MIXINS-------------
 @mixin headlineSmall {
   font-family: $SSP700;
-  text-align: center;
   font-size: 3rem;
+  color: $darkGreenColor;
+}
+
+@mixin headlineMedium {
+  font-family: $SSP900;
+  font-size: 2.4rem;
   color: $darkGreenColor;
 }
 
 @mixin headlineBig {
   font-family: $SSP900;
-  text-align: center;
   font-size: 3.6rem;
   color: $darkGreenColor;
 }
@@ -56,5 +60,4 @@ $SSP500: SourceSansPro400;
   font-family: $SSP600;
   color: $grayColor;
   font-size: 1.6rem;
-  text-align: center;
 }

@@ -56,15 +56,16 @@ const RemindMe = () => {
     return (
         <>
             <AppHeadline />
-            <section className="ReminMeTimeChoiceWrapper">
-                <h2>What time would you like to meditate?</h2>
-                <h3>Feel free to choose the time that suits you best, but we recommend to make it the first thing you do in the morning.</h3>
-                <p> --- Platzhalter Zeitauswahl --- </p>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <section className="RemindMeTimeChoiceWrapper">
+                <h2>When would you like to meditate?</h2>
+                <h3>Feel free to choose the time that suits you best, but we recommend meditating first thing in the morning.</h3>
+
+                <LocalizationProvider dateAdapter={AdapterDayjs} className="timePicker">
                     <StaticTimePicker
                         ampm
-                        orientation="landscape"
-                        openTo="minutes"
+                        displayStaticWrapperAs="mobile"
+                        orientation="portrait"
+                        openTo="hours"
                         value={value}
                         onChange={(newValue) => {
                             setValue(newValue);
@@ -87,8 +88,8 @@ const RemindMe = () => {
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">
-                <SubmitBtn />
-                <Link to="/home">NO THANKS</Link>
+                <Link to="/home"><SubmitBtn>SAVE</SubmitBtn></Link>
+                <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
         </>
     );

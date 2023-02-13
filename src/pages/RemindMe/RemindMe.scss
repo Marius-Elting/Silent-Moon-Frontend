@@ -11,7 +11,7 @@
     }
 
     h3 {
-        @include Subtitle;
+        @include subtitle;
         margin-top: 1.5rem;
     }
 
@@ -75,3 +75,12 @@
     }
 
 }
+
+.swiperContainer {
+    height: 60px;
+    // overflow: hidden;
+}
+
+// .sliderSlide {
+//     height: 5px;
+// }

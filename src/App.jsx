@@ -16,6 +16,7 @@ function App() {
           <Route path="detail/:type/:id" element={<Detail />}></Route>
           <Route path="overview/:type" element={<Overview />}></Route>
           <Route path="music" element={<Music />}></Route>
+          <Route path="music/:playlistid" element={<Music />}></Route>
           <Route path="profile" element={<Profile />}></Route>
         </Route>
         <Route path="/landing" element={<LandingPage />}></Route>

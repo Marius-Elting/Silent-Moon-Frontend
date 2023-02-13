@@ -1,0 +1,8 @@
+@import '../../App';
+
+.homeSection {
+
+    .homeDiv {
+        @include headlineMedium;
+    }
+}

@@ -19,14 +19,17 @@
         }
 
         .navBarDiv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-            .navBarImg img {
+            .navBarImg {
                 width: 22px;
-                height: 20px;
+                height: 22px;
             }
 
             .navBarParagraph {
-                margin-top: 20%;
+                margin-top: 10px;
             }
         }
     }

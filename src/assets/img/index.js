@@ -7,6 +7,9 @@ import NavMeditate from '../img/nav-meditate.svg';
 import NavMoon from '../img/nav-moon.svg';
 import NavMusic from '../img/nav-music.svg';
 import NavProfile from '../img/nav-profile.svg';
+import HealthyBack from '../img/healthyBack.jpeg';
+import Meditate from '../img/meditateImg.jpeg';
+import Lupe from '../img/lupe.svg';
 
 
 export {
@@ -19,4 +22,7 @@ export {
     NavMoon,
     NavMusic,
     NavProfile,
+    HealthyBack,
+    Meditate,
+    Lupe
 }

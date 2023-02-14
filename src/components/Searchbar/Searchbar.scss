@@ -1,0 +1,19 @@
+@import '../../App';
+
+.searchBarDiv {
+    width: 90%;
+    margin: 0 auto;
+
+    .search {
+        position: relative;
+        padding: 2% 0;
+        width: 100%;
+        border: transparent;
+        background-color: #ecedf0;
+        border-radius: 10px;
+        background-image: url('../../assets/img/lupe.svg');
+        background-repeat: no-repeat;
+        background-position: 320px;
+        background-size: 15px;
+    }
+}

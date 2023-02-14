@@ -1,8 +1,148 @@
 @import '../../App';
 
 .homeSection {
+    margin-bottom: 100px;
 
-    .homeDiv {
-        @include headlineMedium;
+    .homeFirstDiv {
+        margin: 15% 0 0 5%;
+
+        .homeHeading {
+            @include headlineMedium;
+            margin-bottom: 3%
+        }
+
+        .homeParagraph {
+            @include subtitle;
+        }
+    }
+
+    .homeArticle {
+        width: 90%;
+        height: 20rem;
+        margin: 10% auto 5% auto;
+        display: flex;
+        justify-content: space-between;
+
+        .homeSecondDiv {
+            width: 48%;
+            background-image: url('../../assets/img/healthyBack.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-bottom: 5rem;
+
+
+            .homeSecondDivName {
+                font-family: $SSP900;
+                color: $beigeColor;
+                font-size: 1.8rem;
+                padding: 18% 0 0 0;
+                margin: 15% 0 3% 7%;
+                width: 15%;
+                line-height: 20px;
+            }
+
+            .homeSecondDivLevel {
+                color: $beigeColor;
+                font-family: $SSP600;
+                margin-left: 7%;
+                font-size: 1.4rem;
+            }
+
+            .homeSecondDivTimeButton {
+                display: flex;
+                align-items: center;
+                margin: 15% 0 0 7%;
+
+                .homeSecondDivTime {
+                    color: $beigeColor;
+                    margin: 0 20% 0 4%;
+                }
+
+                Button {
+                    border: transparent;
+                    border-radius: 20px;
+                    font-size: 1.1rem;
+                    background-color: $beigeColor;
+                    color: $darkGreenColor;
+                    padding: 12px 15px;
+                }
+            }
+        }
+
+        .homeThirdDiv {
+            width: 48%;
+            background-image: url('../../assets/img/meditateImg.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-bottom: 5rem;
+
+
+            .homeThirdDivName {
+                font-family: $SSP900;
+                color: $darkGreenColor;
+                font-size: 1.8rem;
+                padding: 18% 0 0 0;
+                margin: 30% 0 3% 7%;
+                width: 15%;
+                line-height: 15px;
+            }
+
+            .homeSecondDivLevel {
+                color: $darkGreenColor;
+                font-family: $SSP600;
+                margin-left: 7%;
+                font-size: 1.4rem;
+            }
+
+            .homeThirdDivTimeButton {
+                display: flex;
+                align-items: center;
+                margin: 15% 0 0 7%;
+
+                .homeThirdDivTime {
+                    color: $beigeColor;
+                    margin: 0 20% 0 4%;
+                }
+
+                Button {
+                    border: transparent;
+                    border-radius: 20px;
+                    font-size: 1.1rem;
+                    background-color: $darkGreenColor;
+                    color: $beigeColor;
+                    padding: 12px 15px;
+                }
+            }
+        }
+
+    }
+
+
+    .homeYoga {
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: 4;
+        grid-template-rows: 2;
+        overflow-x: scroll;
+
+        p {
+            grid-column: 1/5;
+            @include headlineMedium;
+            margin: 7% 0 4% 3%;
+        }
+    }
+
+    .homeMeditation {
+        display: grid;
+        column-gap: 10px;
+        grid-template-columns: 4;
+        grid-template-rows: 2;
+        overflow-x: scroll;
+
+        p {
+            grid-column: 1/5;
+            @include headlineMedium;
+            margin: 7% 0 4% 3%;
+        }
     }
 }

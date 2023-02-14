@@ -7,7 +7,10 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import { Pagination } from "@mui/material";
-import EmblaCarousel from "../../components/TimePicker/EmblaCarousel";
+import EmblaTimePicker from "../../components/TimePicker/EmblaCarousel";
+import EmblaCarousel from 'embla-carousel'
+import emblaCarouselReact from "embla-carousel-react";
+
 
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 // import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
@@ -122,7 +125,7 @@ const RemindMe = () => {
                     </Swiper>
                 </div> */}
 
-                <EmblaCarousel />
+                <EmblaTimePicker />
 
             </section>
             <section className="RemindMeDayChoiceWrapper">

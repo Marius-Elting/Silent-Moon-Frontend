@@ -2,12 +2,12 @@
 
 .registerLoginSection {
     background-image: url('../../assets/img/loginRegisterImg.png');
-    padding-bottom: 40vh;
+
     background-repeat: no-repeat;
 
     .registerLoginHeading {
         @include headlineBig;
-        margin-bottom: 13vh;
+        margin-bottom: 9vh;
         padding-top: 5vh;
     }
 

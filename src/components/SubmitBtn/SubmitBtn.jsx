@@ -1,10 +1,10 @@
 import React from 'react';
 import './SubmitBtn.scss';
 
-const SubmitBtn = ({ children, handleSubmit }) => {
+const SubmitBtn = ({ children, handleSubmit, disabled }) => {
     return (
         <div className='submitBtnBox'>
-            <button onClick={handleSubmit} className='submitBtn'>{children}</button>
+            <button disabled={disabled} onClick={handleSubmit} className='submitBtn'>{children}</button>
         </div>
     )
 }

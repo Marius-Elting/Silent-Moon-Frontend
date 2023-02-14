@@ -12,10 +12,11 @@ import Meditate from '../img/meditateImg.jpeg';
 import Lupe from '../img/lupe.svg';
 import Heart from '../img/heart.svg';
 import Headphones from '../img/headphones.svg';
-import BackArrowTopNav from '../img/backArrowTopNav.jpeg';
-import DownloadTopNav from '../img/downloadTopNav.jpeg';
-import HeartTopNav from '../img/heartTopNav.jpeg';
-import CloseTopNav from '../img/closeTopNav.jpeg';
+import BackArrowTopNav from '../img/backArrowTopNav.svg';
+import DownloadTopNav from '../img/downloadTopNav.svg';
+import HeartTopNav from '../img/heartTopNav.svg';
+import CloseTopNav from '../img/closeTopNav.svg';
+import Playlist from '../img/playlist.svg';
 
 
 export {
@@ -36,5 +37,6 @@ export {
     BackArrowTopNav,
     DownloadTopNav,
     HeartTopNav,
-    CloseTopNav
+    CloseTopNav,
+    Playlist
 }

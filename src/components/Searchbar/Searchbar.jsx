@@ -4,7 +4,7 @@ import './Searchbar.scss';
 const Searchbar = () => {
     return (
         <div className='searchBarDiv'>
-            <input className='search'></input>
+            <input className='search' ></input>
         </div>
     )
 }

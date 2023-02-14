@@ -5,7 +5,6 @@
     padding-left: 5%;
 
     .img {
-        background-color: aqua;
         height: 100px;
         border-radius: 10px;
     }
@@ -27,6 +26,7 @@
             @include subtitle;
             font-size: 1rem;
             margin-right: 2%;
+            margin-bottom: 10%;
         }
     }
 }

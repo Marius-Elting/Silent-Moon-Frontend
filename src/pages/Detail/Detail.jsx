@@ -1,10 +1,12 @@
 import React from 'react'
+import TopNav from '../../components/TopNav/TopNav'
 
 const Detail = () => {
     return (
-        <div>
+        <section className='detailSection'>
+            <TopNav symbol='arrow' />
 
-        </div>
+        </section>
     )
 }
 

@@ -1,0 +1,17 @@
+@import '../../App';
+
+.topNavArticle {
+    display: flex;
+    height: 50px;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+
+    div {
+
+        img {
+            height: 50px;
+            margin-left: 10px;
+        }
+    }
+}

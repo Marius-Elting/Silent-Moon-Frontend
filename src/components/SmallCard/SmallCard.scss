@@ -1,1 +1,32 @@
 @import '../../App';
+
+.smallCard {
+    width: 100%;
+    padding-left: 5%;
+
+    .img {
+        background-color: aqua;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+    h3 {
+        font-family: $SSP900;
+        color: $darkGreenColor;
+        margin: 5% 0 0 3%;
+        font-size: 1.2rem;
+    }
+
+    .smallCardBox {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        p {
+            color: $grayColor;
+            @include subtitle;
+            font-size: 1rem;
+            margin-right: 2%;
+        }
+    }
+}

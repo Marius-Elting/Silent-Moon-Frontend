@@ -1,0 +1,18 @@
+@import '../../App';
+
+
+.alert {
+    display: flex;
+    justify-content: center;
+
+    div {
+        width: 90%;
+        text-align: center;
+        padding: 20px 0px;
+        font-size: 20px;
+        color: $whiteColor;
+        border-radius: 20px;
+        margin: 20px;
+        font-family: $SSP600;
+    }
+}

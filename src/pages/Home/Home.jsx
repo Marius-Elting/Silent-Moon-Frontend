@@ -5,11 +5,17 @@ import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
+import { useSelector } from 'react-redux';
+import TopNav from '../../components/TopNav/TopNav';
+
+
 
 const Home = () => {
-    const user = "Steffi";
+
     const [data, setData] = useState();
     console.log(data);
+    const user = useSelector(state => state.user?.userData?.firstname)
+    console.log(user)
 
     useEffect(() => {
         async function getData() {

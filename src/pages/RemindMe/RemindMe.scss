@@ -17,19 +17,12 @@
 
 }
 
-.MuiPickerStaticWrapper-root,
-.css-u0soqy-MuiPickerStaticWrapper-root,
-.MuiPickerStaticWrapper-content,
-.css-xelq0e-MuiPickerStaticWrapper-content,
-.MuiCalenderOrClockPicker-root,
-.css-j3g793-MuiCalenderOrClockPicker-root {
-    max-width: 90%;
-    margin: 0 auto;
+.RemindMeTimeChoiceWrapper {
+    h3 {
+        margin-bottom: 2rem;
+    }
 }
 
-.css-1mgnakj-MuiTypography-root-PrivatePickersToolbarText-root {
-    font-size: 1rem;
-}
 
 .RemindMeDaysWrapper {
     width: 90%;
@@ -75,12 +68,3 @@
     }
 
 }
-
-.swiperContainer {
-    height: 60px;
-    // overflow: hidden;
-}
-
-// .sliderSlide {
-//     height: 5px;
-// }

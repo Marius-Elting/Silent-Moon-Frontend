@@ -62,3 +62,12 @@ $SSP500: SourceSansPro400;
   color: $grayColor;
   font-size: 1.6rem;
 }
+
+button {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: not-allowed;
+  filter: grayscale(50%);
+}

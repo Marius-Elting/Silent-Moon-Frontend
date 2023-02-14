@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './Home.scss';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Navbar from '../../components/Navbar/Navbar';
-import { HealthyBack } from '../../assets/img';
-import { Meditate } from '../../assets/img/'
 import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
-import TopNav from '../../components/TopNav/TopNav';
 
 const Home = () => {
     const user = "Steffi";
@@ -28,7 +25,7 @@ const Home = () => {
     return (
         <section className='homeSection'>
             <AppHeadline />
-            <TopNav symbol='arrow' />
+
             <div className='homeFirstDiv'>
                 <h2 className='homeHeading'>Good morning {user}</h2>
                 <p className='homeParagraph'>
@@ -59,7 +56,6 @@ const Home = () => {
                 </div>
             </article>
             <Searchbar />
-
             <article className='homeYoga'>
                 <p>Recomended Yoga for you</p>
                 {

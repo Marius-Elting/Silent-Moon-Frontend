@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useSelector } from 'react-redux';
+import TopNav from '../../components/TopNav/TopNav';
+
 
 const Home = () => {
 
@@ -30,6 +32,7 @@ const Home = () => {
     return (
         <section className='homeSection'>
             <AppHeadline />
+            <TopNav symbol='arrow' />
             <div className='homeFirstDiv'>
                 <h2 className='homeHeading'>Good morning {user}</h2>
                 <p className='homeParagraph'>

@@ -11,35 +11,35 @@ const Navbar = () => {
     return (
         <article className='navBarArticle'>
             <nav className='navBarNav'>
-                <Link className='navBarLink'>
+                <Link to='/overview/yoga' className='navBarLink'>
                     <div className='navBarDiv'>
                         <img className='navBarImg' src={NavMoon} alt='Moon Icon'></img>
                         <p className='navBarParagraph'>Yoga</p>
                     </div>
                 </Link>
 
-                <Link className='navBarLink'>
+                <Link to='/overview/meditate' className='navBarLink'>
                     <div className='navBarDiv'>
                         <img className='navBarImg' src={NavMeditate} alt='Meditate Icon'></img>
                         <p className='navBarParagraph'>Meditate</p>
                     </div>
                 </Link>
 
-                <Link className='navBarLink'>
+                <Link to='/home' className='navBarLink'>
                     <div className='navBarDiv'>
                         <img className='navBarImg' src={NavHome} alt='Home Icon'></img>
                         <p className='navBarParagraph'>Home</p>
                     </div>
                 </Link>
 
-                <Link className='navBarLink'>
+                <Link to='/music' className='navBarLink'>
                     <div className='navBarDiv'>
                         <img className='navBarImg' src={NavMusic} alt='Music Icon'></img>
                         <p className='navBarParagraph'>Music</p>
                     </div>
                 </Link>
 
-                <Link className='navBarLink'>
+                <Link to='/profile' className='navBarLink'>
                     <div className='navBarDiv'>
                         <img className='navBarImg' src={NavProfile} alt='Profile Icon'></img>
                         <p className='navBarParagraph'>Name</p>

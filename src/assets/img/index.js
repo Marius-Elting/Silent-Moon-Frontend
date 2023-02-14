@@ -1,22 +1,26 @@
-import landingImg from '../img/landingImg.png';
-import LoginRegisterImg from '../img/loginRegisterImg.png';
-import BackArrow from '../img/backArrow.png';
-import StartImg from '../img/startImg.png';
-import NavHome from '../img/nav-home.svg';
-import NavMeditate from '../img/nav-meditate.svg';
-import NavMoon from '../img/nav-moon.svg';
-import NavMusic from '../img/nav-music.svg';
-import NavProfile from '../img/nav-profile.svg';
-import HealthyBack from '../img/healthyBack.jpeg';
-import Meditate from '../img/meditateImg.jpeg';
-import Lupe from '../img/lupe.svg';
-import Heart from '../img/heart.svg';
-import Headphones from '../img/headphones.svg';
-import BackArrowTopNav from '../img/backArrowTopNav.jpeg';
-import DownloadTopNav from '../img/downloadTopNav.jpeg';
-import HeartTopNav from '../img/heartTopNav.jpeg';
-import CloseTopNav from '../img/closeTopNav.jpeg';
-
+import landingImg from './landingImg.png';
+import LoginRegisterImg from './loginRegisterImg.png';
+import BackArrow from './backArrow.png';
+import StartImg from './startImg.png';
+import NavHome from './nav-home.svg';
+import NavMeditate from './nav-meditate.svg';
+import NavYoga from './nav-yoga.svg';
+import NavMusic from './nav-music.svg';
+import NavProfile from './nav-profile.svg';
+import HealthyBack from './healthyBack.jpeg';
+import Meditate from './meditateImg.jpeg';
+import Lupe from './lupe.svg';
+import Heart from './heart.svg';
+import Headphones from './headphones.svg';
+import BackArrowTopNav from './backArrowTopNav.jpeg';
+import DownloadTopNav from './downloadTopNav.jpeg';
+import HeartTopNav from './heartTopNav.jpeg';
+import CloseTopNav from './closeTopNav.jpeg';
+import NavYogaActive from "./nav-yoga-active.svg"
+import NavMeditateActive from "./nav-meditate-active.svg"
+import NavMusicActive from "./nav-music-active.svg"
+import NavProfileActive from "./nav-profile-active.svg"
+import NavHomeActive from "./nav-home-active.svg"
 
 export {
     landingImg,
@@ -25,7 +29,7 @@ export {
     StartImg,
     NavHome,
     NavMeditate,
-    NavMoon,
+    NavYoga,
     NavMusic,
     NavProfile,
     HealthyBack,
@@ -36,5 +40,10 @@ export {
     BackArrowTopNav,
     DownloadTopNav,
     HeartTopNav,
-    CloseTopNav
+    CloseTopNav,
+    NavYogaActive,
+    NavMeditateActive,
+    NavMusicActive,
+    NavProfileActive,
+    NavHomeActive
 }

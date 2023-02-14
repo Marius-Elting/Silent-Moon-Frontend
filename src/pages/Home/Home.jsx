@@ -102,7 +102,7 @@ const Home = () => {
                 </article>
             </article>
 
-            <Navbar />
+            <Navbar page="home" />
         </section>
     )
 }

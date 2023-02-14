@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
-        <section className='landingPageSection'>
+        <section className='landingPageWrapper'>
             <div className='landingPageImg'>
                 <AppHeadline />
             </div>
@@ -18,10 +18,10 @@ const LandingPage = () => {
                     Thousand of people are using silent moon for meditation and yoga classes.
                 </h3>
             </article>
-            <SubmitBtn>SIGN UP</SubmitBtn>
+            <SubmitBtn type={"link"} link="/user/register">SIGN UP</SubmitBtn>
             <article className='landingPageArticle'>
-                <h3 className='landingPageText'>
-                    ALREADY HAVE AN ACCOUNT? <Link className='landingPageLink'>LOG IN</Link>
+                <h3>
+                    ALREADY HAVE AN ACCOUNT? <Link to="/user/login" className='landingPageLink'>LOG IN</Link>
                 </h3>
             </article>
 

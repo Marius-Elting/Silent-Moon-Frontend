@@ -3,6 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { flushSync } from 'react-dom'
 import "./Embla.css"
 
+
 const CIRCLE_DEGREES = 360
 const WHEEL_ITEM_SIZE = 30
 const WHEEL_ITEM_COUNT = 18

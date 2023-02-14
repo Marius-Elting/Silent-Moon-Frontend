@@ -2,9 +2,9 @@ import React from 'react'
 
 const TopNav = () => {
     return (
-        <div>
+        <article className='topNavArticle'>
 
-        </div>
+        </article>
     )
 }
 

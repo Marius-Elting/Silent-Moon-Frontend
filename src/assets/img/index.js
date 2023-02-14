@@ -10,6 +10,8 @@ import NavProfile from '../img/nav-profile.svg';
 import HealthyBack from '../img/healthyBack.jpeg';
 import Meditate from '../img/meditateImg.jpeg';
 import Lupe from '../img/lupe.svg';
+import Heart from '../img/heart.svg';
+import Headphones from '../img/headphones.svg';
 
 
 export {
@@ -24,5 +26,7 @@ export {
     NavProfile,
     HealthyBack,
     Meditate,
-    Lupe
+    Lupe,
+    Heart,
+    Headphones
 }

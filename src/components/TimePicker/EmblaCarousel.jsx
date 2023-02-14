@@ -1,7 +1,7 @@
 import React from 'react'
 import { IosPickerItem } from './EmblaCarouselIosPickerItem'
 
-const EmblaCarousel = (props) => {
+const EmblaTimePicker = (props) => {
     const { loop } = props
 
     return (
@@ -22,4 +22,4 @@ const EmblaCarousel = (props) => {
     )
 }
 
-export default EmblaCarousel
+export default EmblaTimePicker

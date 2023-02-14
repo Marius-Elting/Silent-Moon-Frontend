@@ -5,6 +5,7 @@ import { userActions } from "./user-slice"
 
 export const loginUser = ({ user, navToHome }) => {
     return async (dispatch) => {
+        dispatch(uiActions.showLoading())
         dispatch(uiActions.showAlert({
             message: "Logging in...",
             color: "orange",
@@ -32,8 +33,8 @@ export const loginUser = ({ user, navToHome }) => {
                 color: "green",
                 type: "success"
             }))
-
             setTimeout(() => {
+                dispatch(uiActions.unShowLoading())
                 dispatch(uiActions.unshowAlert())
                 navToHome()
             }, 2000);
@@ -46,6 +47,7 @@ export const loginUser = ({ user, navToHome }) => {
             }))
             console.log(err)
             setTimeout(() => {
+                dispatch(uiActions.unShowLoading())
                 dispatch(uiActions.unshowAlert())
             }, 1000);
         }

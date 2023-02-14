@@ -1,10 +1,6 @@
 import React from 'react';
 import './Navbar.scss';
-import { NavHome } from '../../assets/img';
-import { NavMeditate } from '../../assets/img';
-import { NavMoon } from '../../assets/img';
-import { NavMusic } from '../../assets/img';
-import { NavProfile } from '../../assets/img';
+import { NavHome, NavMeditate, NavMoon, NavMusic, NavProfile } from '../../assets/img/';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {

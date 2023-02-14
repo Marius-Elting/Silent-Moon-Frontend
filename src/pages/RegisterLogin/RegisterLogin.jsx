@@ -37,6 +37,8 @@ const RegisterLogin = () => {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify(user)
         });
+
+
         const data = await response.json();
         console.log(data);
     }
@@ -60,6 +62,7 @@ const RegisterLogin = () => {
                 true ? (
                     <article className='login'>
                         <h2 className='registerLoginHeading'>Welcome Back!</h2>
+                        {!alert && <div className="AlertPlaceholder"></div>}
                         {alert && <Alert />}
 
                         <input disabled={alert ? true : false} className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>
@@ -73,8 +76,8 @@ const RegisterLogin = () => {
                 ) :
                     <article className='register'>
                         <h2 className='registerLoginHeading'>Create your account</h2>
+                        {!alert && <div className="AlertPlaceholder"></div>}
                         {alert && <Alert />}
-
                         <input disabled={alert ? true : false} className='registerLoginInput' type='text' placeholder='FIRSTNAME' ref={firstNameRef}></input>
                         <input disabled={alert ? true : false} className='registerLoginInput' type='text' placeholder='SURNAME' ref={surNameRef}></input>
                         <input disabled={alert ? true : false} className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>

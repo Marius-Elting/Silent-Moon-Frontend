@@ -80,6 +80,6 @@ export {
     CatFilterKids,
     CatFilterKidsActive,
     CatFilterSleep,
-    CatFilterSleepActive
+    CatFilterSleepActive,
     DetailMeditationImg
 }

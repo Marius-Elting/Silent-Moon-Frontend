@@ -11,7 +11,6 @@ import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
 
 
-
 const Home = () => {
     const dispatch = useDispatch()
     const [data, setData] = useState();
@@ -86,6 +85,7 @@ const Home = () => {
                         })
                     }
                 </article>
+
             </article>
 
             <article className='homeRecomended'>
@@ -100,6 +100,7 @@ const Home = () => {
                         })
                     }
                 </article>
+
             </article>
 
             <Navbar page="home" />

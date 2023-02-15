@@ -1,12 +1,67 @@
-import React from 'react'
-import TopNav from '../../components/TopNav/TopNav'
+import React, { useEffect, useState } from 'react';
+import './Detail.scss';
+import { useParams } from 'react-router-dom';
+import TopNav from '../../components/TopNav/TopNav';
+import Stats from '../../components/Stats/Stats';
+import SongItem from '../../components/SongItem/SongItem';
+import { DetailYogaImg, YogaPlayButton } from '../../assets/img';
+import Navbar from '../../components/Navbar/Navbar';
 
 const Detail = () => {
+    let { id } = useParams();
+    const [data, setData] = useState();
+    console.log(data);
+    console.log(id);
+
+    useEffect(() => {
+        async function getData() {
+            const response = await fetch(`https://abschlussprojekt-server.up.railway.app/api/getsingleexercise/${id}`);
+            const data = await response.json();
+            setData(data);
+        }
+        getData();
+    }, []);
+
+
     return (
         <section className='detailSection'>
             <TopNav symbol='arrow' />
 
-        </section>
+            {
+                true ? (
+                    <article className='yoga'>
+                        <div>
+                            <img src={YogaPlayButton}></img>
+                        </div>
+                        {/* <div>
+                            <img src={data[0]?.image.url}></img>
+                            <h2>{data[0]?.name}</h2>
+                            <p>{data[0]?.level}</p>
+                            <p>{data[0]?.description}</p>
+                        </div> */}
+                        <Stats />
+                        <Navbar />
+                    </article>
+                ) : <article className='meditation'>
+                    {/* <div>
+                        <img></img>
+                        <h2>{data[0].name}</h2>
+                        <p>{data[0].level}</p>
+                        <p>{data[0].description}</p>
+                    </div> */}
+                    <Stats />
+                    <div>
+                        <h3>Playlist</h3>
+                        <SongItem />
+                        <SongItem />
+                        <SongItem />
+                    </div>
+                </article>
+            }
+
+
+
+        </section >
     )
 }
 

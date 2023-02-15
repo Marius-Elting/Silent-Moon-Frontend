@@ -2,12 +2,12 @@
 
 .topNavArticle {
     display: flex;
-    height: 50px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 5%;
+    padding: 10px 20px;
     justify-content: space-between;
-    box-shadow: 10px 10px 10px black;
+    box-shadow: 1px 1px 10px rgb(150, 150, 150);
+    position: fixed;
 
     div {
 

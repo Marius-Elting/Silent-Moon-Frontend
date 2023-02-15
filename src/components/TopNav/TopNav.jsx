@@ -8,7 +8,9 @@ import { CloseTopNav } from '../../assets/img';
 const TopNav = (props) => {
     return (
         <article className='topNavArticle'>
-            <img src={props.symbol === 'arrow' ? BackArrowTopNav : CloseTopNav} alt='Arrow Back'></img>
+            <div>
+                <img src={props.symbol === 'arrow' ? BackArrowTopNav : CloseTopNav} alt='Arrow Back'></img>
+            </div>
             <div>
                 <img src={HeartTopNav} alt='Heart'></img>
                 <img src={DownloadTopNav} alt='Download'></img>

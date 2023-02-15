@@ -6,7 +6,7 @@ const SmallCard = (props) => {
         <div className='smallCard'>
             <img alt='Bild' src={props.image}></img>
             <h3>{props.name}</h3>
-            <div className='smallCardBox'>
+            <div className="smallCardBottom">
                 <p>BEGINNER</p>
                 <p>3-10 MIN</p>
             </div>

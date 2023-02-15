@@ -2,13 +2,13 @@
 
 .registerLoginSection {
     background-image: url('../../assets/img/loginRegisterImg.png');
-
     background-repeat: no-repeat;
 
     .registerLoginHeading {
         @include headlineBig;
         margin-bottom: 9vh;
         padding-top: 5vh;
+        text-align: center;
     }
 
     .login {
@@ -45,5 +45,13 @@
     .register {
         width: 90%;
         margin: 0 auto;
+    }
+
+
+    .AlertPlaceholder {
+        height: 105px;
+        width: 90%;
+        opacity: 0;
+        user-select: none;
     }
 }

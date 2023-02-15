@@ -1,52 +1,46 @@
 import React from 'react';
 import './Navbar.scss';
-import { NavHome } from '../../assets/img';
-import { NavMeditate } from '../../assets/img';
-import { NavMoon } from '../../assets/img';
-import { NavMusic } from '../../assets/img';
-import { NavProfile } from '../../assets/img';
+import { NavHome, NavMeditate, NavYoga, NavMusic, NavProfile, NavYogaActive, NavMeditateActive, NavHomeActive, NavMusicActive, NavProfileActive } from '../../assets/img/';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = ({ page }) => {
+    const user = useSelector(state => state.user?.userData?.firstname)
+
     return (
-        <article className='navBarArticle'>
-            <nav className='navBarNav'>
-                <Link to='/overview/yoga' className='navBarLink'>
-                    <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavMoon} alt='Moon Icon' id='navYogaIcon'></img>
-                        <p className='navBarParagraph' id='navYogaText'>Yoga</p>
-                    </div>
-                </Link>
+        <nav className='navBarWrapper'>
+            <Link to='/overview/yoga'>
+                <div>
+                    <img src={page === "yoga" ? NavYogaActive : NavYoga} className={page === "yoga" ? "active" : ""} alt='Moon Icon'></img>
+                    <p>Yoga</p>
+                </div>
+            </Link>
+            <Link to='/overview/meditate'>
+                <div>
+                    <img src={page === "meditate" ? NavMeditateActive : NavMeditate} className={page === "meditate" ? "active" : ""} alt='Meditate Icon'></img>
+                    <p>Meditate</p>
+                </div>
+            </Link>
+            <Link to='/home'>
+                <div>
+                    <img src={page === "home" ? NavHomeActive : NavHome} className={page === "home" ? "active" : ""} alt='Home Icon'></img>
+                    <p>Home</p>
+                </div>
+            </Link>
+            <Link to='/music'>
+                <div>
+                    <img src={page === "music" ? NavMusicActive : NavMusic} className={page === "music" ? "active" : ""} alt='Music Icon'></img>
+                    <p>Music</p>
+                </div>
+            </Link>
+            <Link to='/profile'>
+                <div>
+                    <img src={page === "profile" ? NavProfileActive : NavProfile} className={page === "profile" ? "active" : ""} alt='Profile Icon'></img>
+                    <p>{user}</p>
+                </div>
+            </Link>
+        </nav>
 
-                <Link to='/overview/meditate' className='navBarLink'>
-                    <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavMeditate} alt='Meditate Icon'></img>
-                        <p className='navBarParagraph'>Meditate</p>
-                    </div>
-                </Link>
-
-                <Link to='/home' className='navBarLink'>
-                    <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavHome} alt='Home Icon'></img>
-                        <p className='navBarParagraph'>Home</p>
-                    </div>
-                </Link>
-
-                <Link to='/music' className='navBarLink'>
-                    <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavMusic} alt='Music Icon'></img>
-                        <p className='navBarParagraph'>Music</p>
-                    </div>
-                </Link>
-
-                <Link to='/profile' className='navBarLink'>
-                    <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavProfile} alt='Profile Icon'></img>
-                        <p className='navBarParagraph'>Name</p>
-                    </div>
-                </Link>
-            </nav>
-        </article>
     )
 }
 

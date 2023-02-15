@@ -4,7 +4,7 @@ import BackArrow from '../img/backArrow.png';
 import StartImg from '../img/startImg.png';
 import NavHome from '../img/nav-home.svg';
 import NavMeditate from '../img/nav-meditate.svg';
-import NavMoon from '../img/nav-moon.svg';
+import NavYoga from '../img/nav-yoga.svg';
 import NavMusic from '../img/nav-music.svg';
 import NavProfile from '../img/nav-profile.svg';
 import HealthyBack from '../img/healthyBack.jpeg';
@@ -16,8 +16,6 @@ import BackArrowTopNav from '../img/backArrowTopNav.jpeg';
 import DownloadTopNav from '../img/downloadTopNav.jpeg';
 import HeartTopNav from '../img/heartTopNav.jpeg';
 import CloseTopNav from '../img/closeTopNav.jpeg';
-import PlayBtn from '../img/playBtnGreen.png';
-import DailyBackground from '../img/backgroundDailyCalm.png'
 
 
 export {
@@ -27,7 +25,7 @@ export {
     StartImg,
     NavHome,
     NavMeditate,
-    NavMoon,
+    NavYoga,
     NavMusic,
     NavProfile,
     HealthyBack,
@@ -40,5 +38,10 @@ export {
     HeartTopNav,
     CloseTopNav,
     PlayBtn,
-    DailyBackground
+    DailyBackground,
+    NavYogaActive,
+    NavMeditateActive,
+    NavMusicActive,
+    NavProfileActive,
+    NavHomeActive
 }

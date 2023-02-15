@@ -3,14 +3,32 @@
 .submitBtnBox {
     width: 90vw;
     margin: 0 auto;
-}
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.submitBtn {
-    width: 100%;
-    background-color: $orangeColor;
-    color: $beigeColor;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.6rem;
-    padding: 5% 0;
+    button,
+    a {
+        width: 100%;
+        background-color: $orangeColor;
+        color: $beigeColor;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.6rem;
+        padding: 5% 0;
+        font-family: $SSP600;
+        text-decoration: initial;
+        text-align: center;
+    }
+
+    .loading {
+        position: absolute;
+        // top: 50%;
+        // // left: 50%;
+        // // right: 50%;
+        // bottom: 50%;
+        z-index: 2;
+    }
 }

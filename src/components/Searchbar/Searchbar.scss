@@ -4,15 +4,33 @@
     width: 90%;
     margin: 0 auto;
 
+    position: relative;
+
     .search {
-        padding: 2% 0;
+        padding: 10px 0;
         width: 100%;
         border: 1px solid black;
         background-color: #ecedf0;
         border-radius: 10px;
-        background-image: url('../../assets/img/lupe.svg');
-        background-repeat: no-repeat;
-        background-position: 320px;
-        background-size: 15px;
+        z-index: 1;
+        border: none;
+        // background-image: url('../../assets/img/lupe.svg');
+        // background-repeat: no-repeat;
+        // background-position: 320px;
+        // background-size: 15px;
     }
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url('../../assets/img/lupe.svg');
+        background-size: cover;
+        height: 20px;
+        width: 20px;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 2;
+    }
+
 }

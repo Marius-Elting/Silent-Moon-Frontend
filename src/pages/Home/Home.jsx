@@ -5,23 +5,34 @@ import Navbar from '../../components/Navbar/Navbar';
 import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import TopNav from '../../components/TopNav/TopNav';
+import { uiActions } from '../../store/ui-slice';
+import Loading from '../../components/Loading/Loading';
 
 
 
 const Home = () => {
-
+    const dispatch = useDispatch()
     const [data, setData] = useState();
-    console.log(data);
     const user = useSelector(state => state.user?.userData?.firstname)
-    console.log(user)
-
+    const isLoading = useSelector(state => state.ui.isLoading)
     useEffect(() => {
+        dispatch(uiActions.showLoading())
         async function getData() {
-            const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getexercise');
-            const data = await response.json();
-            setData(data);
+            try {
+                const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getexercise');
+                const data = await response.json();
+                setData(data);
+                dispatch(uiActions.unShowLoading())
+            } catch (err) {
+                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.showAlert({
+                    type: "error",
+                    message: "Database Error",
+                    color: "red"
+                }))
+            }
         }
         getData();
     }, []);
@@ -32,59 +43,66 @@ const Home = () => {
         <section className='homeSection'>
             <AppHeadline />
 
-            <div className='homeFirstDiv'>
-                <h2 className='homeHeading'>Good morning {user}</h2>
-                <p className='homeParagraph'>
+            <div className='homeHeaderWrapper'>
+                <h2 >Good morning {user}</h2>
+                <p>
                     We hope you have a good day
                 </p>
             </div>
-            <article className='homeArticle'>
-                <div className='homeSecondDiv'>
-                    <p className='homeSecondDivName'>Healthy Back</p>
-                    <p className='homeSecondDivLevel'>BEGINNER</p>
-                    <div className='homeSecondDivTimeButton'>
-                        <p className='homeSecondDivTime'>3-10 MIN</p>
-                        <Link className='homeLink'>
+            <article className='homeTopTilesWrapper'>
+                <div className='homeSingleTileWrapper'>
+                    <p className='homeSingleTileHeadline'>Healthy Back</p>
+                    <p className='homeSingleTileLevel'>BEGINNER</p>
+                    <div>
+                        <p>3-10 MIN</p>
+                        <Link>
                             <button>START</button>
                         </Link>
                     </div>
                 </div>
 
-                <div className='homeThirdDiv'>
-                    <p className='homeThirdDivName'>Meditation</p>
-                    <p className='homeSecondDivLevel'>BEGINNER</p>
-                    <div className='homeThirdDivTimeButton'>
-                        <p className='homeThirdDivTime'>3-10 MIN</p>
-                        <Link className='homeLink'>
-                            <button className='homeThirdDivBtn'>START</button>
+                <div className='homeSingleTileWrapper'>
+                    <p className='homeSingleTileHeadline'>Meditation</p>
+                    <p className='homeSingleTileLevel'>BEGINNER</p>
+                    <div>
+                        <p>3-10 MIN</p>
+                        <Link >
+                            <button>START</button>
                         </Link>
                     </div>
                 </div>
             </article>
             <Searchbar />
-            <article className='homeYoga'>
+            <article className='homeRecomended'>
                 <p>Recomended Yoga for you</p>
-                {
-                    data?.filter(element => element.type === 'yoga').map((element, index) => {
-                        return (
-                            <SmallCard key={index} image={element.image.url} name={element.name} />
-                        )
-                    })
-                }
+                <article>
+                    {isLoading && <Loading center={true} />}
+
+                    {
+                        data?.filter(element => element.type === 'yoga').map((element, index) => {
+                            return (
+                                <SmallCard key={index} image={element.image.url} name={element.name} />
+                            )
+                        })
+                    }
+                </article>
             </article>
 
-            <article className='homeMeditation'>
+            <article className='homeRecomended'>
                 <p>Recomended Meditation for you</p>
-                {
-                    data?.filter(element => element.type === 'meditation').map((element, index) => {
-                        return (
-                            <SmallCard key={index} image={element.image.url} name={element.name} />
-                        )
-                    })
-                }
+                <article>
+                    {isLoading && <Loading center={true} />}
+                    {
+                        data?.filter(element => element.type === 'meditation').map((element, index) => {
+                            return (
+                                <SmallCard key={index} image={element.image.url} name={element.name} />
+                            )
+                        })
+                    }
+                </article>
             </article>
 
-            <Navbar />
+            <Navbar page="home" />
         </section>
     )
 }

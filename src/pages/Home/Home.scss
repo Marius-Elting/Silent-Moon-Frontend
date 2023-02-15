@@ -3,62 +3,70 @@
 .homeSection {
     margin-bottom: 100px;
 
-    .homeFirstDiv {
+    .homeHeaderWrapper {
         margin: 15% 0 0 5%;
 
-        .homeHeading {
+        h2 {
             @include headlineMedium;
             margin-bottom: 3%
         }
 
-        .homeParagraph {
+        p {
             @include subtitle;
         }
     }
 
-    .homeArticle {
+    .homeTopTilesWrapper {
         width: 90%;
         height: 20rem;
         margin: 10% auto 5% auto;
         display: flex;
         justify-content: space-between;
 
-        .homeSecondDiv {
+        .homeSingleTileWrapper {
             width: 48%;
             background-image: url('../../assets/img/healthyBack.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
-            padding-bottom: 5rem;
+            padding-bottom: 1.3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
+            &:nth-of-type(2) {
+                background-image: url('../../assets/img/meditateImg.jpeg');
+            }
 
-            .homeSecondDivName {
+            .homeSingleTileHeadline {
                 font-family: $SSP900;
                 color: $beigeColor;
                 font-size: 1.8rem;
-                padding: 18% 0 0 0;
+                padding: 35px 0 0 0;
                 margin: 15% 0 3% 7%;
                 width: 15%;
                 line-height: 20px;
             }
 
-            .homeSecondDivLevel {
+            .homeSingleTileLevel {
                 color: $beigeColor;
                 font-family: $SSP600;
                 margin-left: 7%;
                 font-size: 1.4rem;
             }
 
-            .homeSecondDivTimeButton {
+            div {
                 display: flex;
                 align-items: center;
                 margin: 15% 0 0 7%;
+                font-family: $SSP400;
 
-                .homeSecondDivTime {
+
+                p {
                     color: $beigeColor;
                     margin: 0 20% 0 4%;
                 }
 
-                Button {
+                button {
                     border: transparent;
                     border-radius: 20px;
                     font-size: 1.1rem;
@@ -68,81 +76,21 @@
                 }
             }
         }
-
-        .homeThirdDiv {
-            width: 48%;
-            background-image: url('../../assets/img/meditateImg.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding-bottom: 5rem;
-
-
-            .homeThirdDivName {
-                font-family: $SSP900;
-                color: $darkGreenColor;
-                font-size: 1.8rem;
-                padding: 18% 0 0 0;
-                margin: 30% 0 3% 7%;
-                width: 15%;
-                line-height: 15px;
-            }
-
-            .homeSecondDivLevel {
-                color: $darkGreenColor;
-                font-family: $SSP600;
-                margin-left: 7%;
-                font-size: 1.4rem;
-            }
-
-            .homeThirdDivTimeButton {
-                display: flex;
-                align-items: center;
-                margin: 15% 0 0 7%;
-
-                .homeThirdDivTime {
-                    color: $beigeColor;
-                    margin: 0 20% 0 4%;
-                }
-
-                Button {
-                    border: transparent;
-                    border-radius: 20px;
-                    font-size: 1.1rem;
-                    background-color: $darkGreenColor;
-                    color: $beigeColor;
-                    padding: 12px 15px;
-                }
-            }
-        }
-
     }
 
 
-    .homeYoga {
-        display: grid;
-        column-gap: 10px;
-        grid-template-columns: 4;
-        grid-template-rows: 2;
-        overflow-x: scroll;
-
+    .homeRecomended {
         p {
-            grid-column: 1/5;
             @include headlineMedium;
             margin: 7% 0 4% 3%;
         }
-    }
 
-    .homeMeditation {
-        display: grid;
-        column-gap: 10px;
-        grid-template-columns: 4;
-        grid-template-rows: 2;
-        overflow-x: scroll;
-
-        p {
-            grid-column: 1/5;
-            @include headlineMedium;
-            margin: 7% 0 4% 3%;
+        article {
+            display: flex;
+            column-gap: 10px;
+            flex-direction: row;
+            overflow-x: scroll;
+            padding-right: 10px;
         }
     }
 }

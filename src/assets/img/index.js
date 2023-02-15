@@ -4,7 +4,7 @@ import BackArrow from '../img/backArrow.png';
 import StartImg from '../img/startImg.png';
 import NavHome from '../img/nav-home.svg';
 import NavMeditate from '../img/nav-meditate.svg';
-import NavMoon from '../img/nav-moon.svg';
+import NavYoga from '../img/nav-yoga.svg';
 import NavMusic from '../img/nav-music.svg';
 import NavProfile from '../img/nav-profile.svg';
 import HealthyBack from '../img/healthyBack.jpeg';
@@ -28,7 +28,7 @@ export {
     StartImg,
     NavHome,
     NavMeditate,
-    NavMoon,
+    NavYoga,
     NavMusic,
     NavProfile,
     HealthyBack,
@@ -43,4 +43,11 @@ export {
     Playlist,
     DetailYogaImg,
     YogaPlayButton
+    PlayBtn,
+    DailyBackground,
+    NavYogaActive,
+    NavMeditateActive,
+    NavMusicActive,
+    NavProfileActive,
+    NavHomeActive
 }

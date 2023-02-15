@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     alertIsVisible: false,
-    alertMessage: "",
-    alertColor: "",
-    alertType: ""
+    alertMessage: "A",
+    alertColor: "red",
+    alertType: "error",
+    isLoading: false
 }
 
 
@@ -21,6 +22,12 @@ const uiSlice = createSlice({
         },
         unshowAlert(state, action) {
             state.alertIsVisible = false
+        },
+        showLoading(state, action) {
+            state.isLoading = true
+        },
+        unShowLoading(state, action) {
+            state.isLoading = false
         }
     }
 })

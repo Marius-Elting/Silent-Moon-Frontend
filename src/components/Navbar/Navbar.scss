@@ -1,6 +1,13 @@
 @import '../../App';
 
-.navBarArticle {
+
+
+
+.navBarWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-align: center;
     width: 100%;
     position: fixed;
     bottom: 0px;
@@ -8,28 +15,29 @@
     box-shadow: -0px -0px 15px rgb(165, 165, 165);
     background-color: white;
 
-    .navBarNav {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        text-align: center;
+    a {
+        text-decoration: none;
+        @include subtitle;
 
-        .navBarLink {
-            text-decoration: none;
-            @include subtitle;
-        }
-
-        .navBarDiv {
+        div {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
 
-            .navBarImg {
+            img {
                 width: 22px;
                 height: 22px;
+                margin: 7px 7px;
             }
 
-            .navBarParagraph {
+            .active {
+                width: 36px;
+                height: 36px;
+                margin: 0px 0px;
+            }
+
+            p {
                 margin-top: 10px;
             }
         }

@@ -1,12 +1,13 @@
 import React from 'react';
 import './ReturnBtn.scss';
 import { BackArrow } from '../../assets/img';
+import { Link } from 'react-router-dom';
 
-const ReturnBtn = () => {
+const ReturnBtn = ({ link }) => {
     return (
-        <div className='returnBtnBox'>
+        <Link to={link} className='returnBtnBox'>
             <img src={BackArrow} alt='Back Arrow'></img>
-        </div>
+        </Link>
     )
 }
 

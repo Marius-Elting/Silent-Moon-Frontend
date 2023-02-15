@@ -28,7 +28,7 @@ $beigeColor: #FAF2DA;
 $SSP900: SourceSansPro900;
 $SSP700: SourceSansPro700;
 $SSP600: SourceSansPro600;
-$SSP500: SourceSansPro400;
+$SSP400: SourceSansPro400;
 
 * {
     font-size: 10px;
@@ -67,6 +67,7 @@ button {
     cursor: pointer;
 }
 
+
 :disabled {
     cursor: not-allowed;
     filter: grayscale(50%);
@@ -75,4 +76,10 @@ button {
 a {
     text-decoration: initial;
     color: initial;
-}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(50%);
+  opacity: 0;
+
+]

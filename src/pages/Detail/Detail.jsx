@@ -4,9 +4,7 @@ import { useParams } from 'react-router-dom';
 import TopNav from '../../components/TopNav/TopNav';
 import Stats from '../../components/Stats/Stats';
 import SongItem from '../../components/SongItem/SongItem';
-import { DetailYogaImg, YogaPlayButton } from '../../assets/img';
 import Navbar from '../../components/Navbar/Navbar';
-import MusicPopUp from '../../components/MusicPopUp/MusicPopUp';
 
 const Detail = () => {
     let { id } = useParams();

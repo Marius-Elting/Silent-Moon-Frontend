@@ -34,7 +34,7 @@ const Overview = () => {
                 </article>
             </section>
 
-            <Navbar />
+            <Navbar page={params} />
         </div>
     )
 }

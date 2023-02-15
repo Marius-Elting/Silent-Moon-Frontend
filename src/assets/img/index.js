@@ -19,7 +19,13 @@ import CloseTopNav from '../img/closeTopNav.svg';
 import Playlist from '../img/playlist.svg';
 import DetailYogaImg from '../img/detailYogaImg.jpeg';
 import YogaPlayButton from '../img/yogaPlayButton.svg';
-
+import PlayBtn from '../img/playBtnGreen.png';
+import DailyBackground from '../img/backgroundDailyCalm.png'
+import NavYogaActive from "./nav-yoga-active.svg"
+import NavMeditateActive from "./nav-meditate-active.svg"
+import NavMusicActive from "./nav-music-active.svg"
+import NavProfileActive from "./nav-profile-active.svg"
+import NavHomeActive from "./nav-home-active.svg"
 
 export {
     landingImg,
@@ -42,7 +48,7 @@ export {
     CloseTopNav,
     Playlist,
     DetailYogaImg,
-    YogaPlayButton
+    YogaPlayButton,
     PlayBtn,
     DailyBackground,
     NavYogaActive,

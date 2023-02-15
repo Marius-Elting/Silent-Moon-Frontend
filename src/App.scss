@@ -76,10 +76,10 @@ button {
 a {
     text-decoration: initial;
     color: initial;
+}
 
 button:disabled {
-  cursor: not-allowed;
-  filter: grayscale(50%);
-  opacity: 0;
-
-]
+    cursor: not-allowed;
+    filter: grayscale(50%);
+    opacity: 0;
+}

@@ -86,4 +86,7 @@ export {
     DetailMeditationImg,
     MeditationPlayerBackground,
     PauseButton,
+
+
+
 }

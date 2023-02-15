@@ -1,8 +1,140 @@
 @import "../../App";
 
-// #navYogaIcon {
-//     fill: black;
-//     // background-color: $orangeColor;
-//     // padding: 1.5rem;
-//     // border-radius: 10px;
-// }
+.overviewPage {
+    h2 {
+        @include headlineBig;
+        text-transform: capitalize;
+        text-align: center;
+        margin: 5rem auto 2rem auto;
+        letter-spacing: 2px;
+    }
+
+    h3 {
+        @include subtitle;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto 4rem auto;
+    }
+
+    .overviewDaily {
+        width: 90%;
+        margin: 3rem auto;
+        padding: 2.5rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-image: url("../../assets/img/backgroundDailyCalm.png");
+        background-repeat: no-repeat;
+        object-fit: cover;
+
+        article {
+
+
+            &:nth-of-type(1) {
+                width: 58%;
+
+                h4 {
+                    font-size: 1.6rem;
+                    font-family: $SSP600;
+                    color: $darkGreenColor;
+                    margin-bottom: 0.5rem;
+                    letter-spacing: 1.5px;
+                }
+
+                div {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        font-size: 1.1rem;
+                        font-family: $SSP600;
+                        color: $grayColor;
+                        letter-spacing: 1.5px;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                width: 30%;
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 1.5rem;
+            }
+        }
+    }
+
+    .overviewThumbnails {
+        width: 90%;
+        margin: 3rem auto 10rem auto;
+        // position: absolute;
+        // left: 50%;
+        // transform: translateX(-50%);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 45%);
+        grid-auto-rows: 10px;
+        gap: 5px;
+        justify-content: space-evenly;
+
+        // div {
+        //     background-color: teal;
+        //     width: 100%;
+        //     border-radius: 10px;
+        // }
+
+        .overviewSmallThumbnail {
+            grid-row: span 8;
+            background-color: teal;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+            }
+        }
+
+        .overviewMediumThumbnail {
+            grid-row: span 13;
+            background-color: purple;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+            }
+        }
+
+        .overviewLargeThumbnail {
+            grid-row: span 16;
+            background-color: dimgrey;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+            }
+        }
+
+    }
+}

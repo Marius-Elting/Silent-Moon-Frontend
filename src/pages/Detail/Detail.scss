@@ -3,29 +3,84 @@
 
 .detailSection {
 
+    // YOGA SECTION ---------------------------
     .detailYoga {
-
         .detailYogaBackground {
             width: 100%;
-            height: 60rem;
-            background-image: url('../../assets/img/detailYogaImg.jpeg');
-            background-repeat: no-repeat;
-            background-size: contain;
+            height: 55rem;
             display: flex;
             justify-content: center;
 
             img {
-                width: 50px;
+                object-fit: cover;
+                width: 100%;
             }
 
         }
 
-        div:nth-of-type(2) {
+        .detailDescription {
+            width: 80%;
+            height: 13rem;
+            margin: 1rem 0 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             h2 {
                 @include headlineBig;
                 font-family: $SSP900;
             }
+
+            p {
+                @include subtitle;
+                font-size: 1.4rem;
+                line-height: 20px;
+            }
+        }
+    }
+
+
+    // MEDITATION SECTION --------------------
+    .detailMeditation {
+        .detailMeditationBackground {
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .detailMeditationDescription {
+            width: 80%;
+            height: 13rem;
+            margin: 1rem 0 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h2 {
+                @include headlineBig;
+                font-family: $SSP900;
+            }
+
+            p {
+                @include subtitle;
+                font-size: 1.4rem;
+                line-height: 20px;
+            }
+
+            .detailUppercase {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .detailPlaylist {
+        margin: 5rem 0 3rem 2rem;
+
+        h3 {
+            font-family: $SSP900;
+            @include headlineMedium;
         }
     }
 }

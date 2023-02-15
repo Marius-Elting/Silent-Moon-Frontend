@@ -26,6 +26,7 @@ import NavMeditateActive from "./nav-meditate-active.svg"
 import NavMusicActive from "./nav-music-active.svg"
 import NavProfileActive from "./nav-profile-active.svg"
 import NavHomeActive from "./nav-home-active.svg"
+import DetailMeditationImg from './detailYogaImg.jpeg';
 
 export {
     landingImg,
@@ -55,5 +56,6 @@ export {
     NavMeditateActive,
     NavMusicActive,
     NavProfileActive,
-    NavHomeActive
+    NavHomeActive,
+    DetailMeditationImg
 }

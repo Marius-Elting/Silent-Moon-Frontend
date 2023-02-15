@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar';
 import "./Overview.scss"
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
@@ -17,12 +17,14 @@ const Overview = () => {
     const month = monthsArray[today.getMonth()];
     const day = today.getDate();
 
+    const [activeCat, setActiveCat] = useState("all")
+
     return (
         <div>
             <AppHeadline />
             <h2>{params}</h2>
             <h3>{params === "yoga" ? "Find your inner zen from anywhere." : "Audio-only meditation techniques to help you minimize your screen time and practice on the go."}</h3>
-            <CategoryFilter />
+            <CategoryFilter activeCat={activeCat} setActiveCat={setActiveCat} />
             <Searchbar />
             <section>
                 <article>

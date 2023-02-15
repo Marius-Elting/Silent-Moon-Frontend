@@ -12,32 +12,33 @@ import {
     CatFilterSleep,
     CatFilterSleepActive
 } from "../../assets/img/";
+import "./CategoryFilter.scss"
 
-const CategoryFilter = () => {
+const CategoryFilter = ({ activeCat, setActiveCat }) => {
 
-    const [activeCat, setActiveCat] = useState("all")
+
 
     return (
-        <section>
-            <article>
+        <section className='catFilter'>
+            <article onClick={() => setActiveCat("all")}>
                 <img src={activeCat === "all" ? CatFilterAllActive : CatFilterAll} alt="abstract cross" />
-                <p>All</p>
+                <p className={activeCat === "all" ? "pActive" : "pNotActive"}>All</p>
             </article>
-            <article>
+            <article onClick={() => setActiveCat("fav")}>
                 <img src={activeCat === "fav" ? CatFilterFavActive : CatFilterFav} alt="heart" />
-                <p>Favorites</p>
+                <p className={activeCat === "fav" ? "pActive" : "pNotActive"}>Favorites</p>
             </article>
-            <article>
+            <article onClick={() => setActiveCat("anx")}>
                 <img src={activeCat === "anx" ? CatFilterAnxietyActive : CatFilterAnxiety} alt="anxious smiley" />
-                <p>Anxiety</p>
+                <p className={activeCat === "anx" ? "pActive" : "pNotActive"}>Anxiety</p>
             </article>
-            <article>
+            <article onClick={() => setActiveCat("sleep")}>
                 <img src={activeCat === "sleep" ? CatFilterSleepActive : CatFilterSleep} alt="moon" />
-                <p>Sleep</p>
+                <p className={activeCat === "sleep" ? "pActive" : "pNotActive"}>Sleep</p>
             </article>
-            <article>
+            <article onClick={() => setActiveCat("kids")}>
                 <img src={activeCat === "kids" ? CatFilterKidsActive : CatFilterKids} alt="child smiley" />
-                <p>Kids</p>
+                <p className={activeCat === "kids" ? "pActive" : "pNotActive"}>Kids</p>
             </article>
         </section>
     )

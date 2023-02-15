@@ -9,7 +9,7 @@ import Navbar from '../../components/Navbar/Navbar';
 
 const Detail = () => {
     let { id } = useParams();
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
     console.log(data);
     console.log(id);
 
@@ -28,34 +28,37 @@ const Detail = () => {
             <TopNav symbol='arrow' />
 
             {
-                true ? (
-                    <article className='detailYoga'>
-                        <div className='detailYogaBackground'>
-                            <img src={YogaPlayButton}></img>
-                        </div>
-                        <div>
-                            <h2>Healthy Back</h2>
-                            <p>Beginner</p>
-                            <p>Ease the mind into a restful night’s sleep  with these deep, amblent tones.</p>
+                false ? (
+                    <section className='detailYoga'>
+                        <article className='detailYogaBackground'>
+                            <img src={data[0]?.image.url}></img>
+                        </article>
+                        <div className='detailDescription'>
+                            <h2>{data[0]?.name}</h2>
+                            <p className='detailUppercase'>{data[0]?.level}</p>
+                            <p>{data[0]?.description}</p>
                         </div>
                         <Stats />
                         <Navbar />
+                    </section>
+                ) : <section className='detailMeditation'>
+                    <article className='detailMeditationBackground'>
+                        <img src={data[0]?.image.url}></img>
                     </article>
-                ) : <article className='meditation'>
-                    {/* <div>
-                        <img></img>
-                        <h2>{data[0].name}</h2>
-                        <p>{data[0].level}</p>
-                        <p>{data[0].description}</p>
-                    </div> */}
-                    <Stats />
-                    <div>
-                        <h3>Playlist</h3>
-                        <SongItem />
-                        <SongItem />
-                        <SongItem />
+                    <div className='detailMeditationDescription'>
+                        <h2>{data[0]?.name}</h2>
+                        <p className='detailUppercase'>{data[0]?.level}</p>
+                        <p>{data[0]?.description}</p>
                     </div>
-                </article>
+                    <Stats />
+                    <div className='detailPlaylist'>
+                        <h3>Playlist</h3>
+                    </div>
+                    <SongItem />
+                    <SongItem />
+                    <SongItem />
+                    <Navbar />
+                </section>
             }
 
 

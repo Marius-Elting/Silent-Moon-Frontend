@@ -1,14 +1,13 @@
 import React from 'react';
 import './Stats.scss';
-import { Heart } from '../../assets/img';
-import { Headphones } from '../../assets/img';
+import { Heart, Headphones } from '../../assets/img';
 
 const Stats = () => {
     return (
         <article className='stats'>
             <div>
                 <img src={Heart}></img>
-                <p>24.234 Favorites</p>
+                <p className='stats'>24.234 Favorites</p>
             </div>
             <div>
                 <img src={Headphones}></img>

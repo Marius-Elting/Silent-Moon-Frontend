@@ -29,16 +29,15 @@ const Detail = () => {
 
             {
                 true ? (
-                    <article className='yoga'>
-                        <div>
+                    <article className='detailYoga'>
+                        <div className='detailYogaBackground'>
                             <img src={YogaPlayButton}></img>
                         </div>
-                        {/* <div>
-                            <img src={data[0]?.image.url}></img>
-                            <h2>{data[0]?.name}</h2>
-                            <p>{data[0]?.level}</p>
-                            <p>{data[0]?.description}</p>
-                        </div> */}
+                        <div>
+                            <h2>Healthy Back</h2>
+                            <p>Beginner</p>
+                            <p>Ease the mind into a restful night’s sleep  with these deep, amblent tones.</p>
+                        </div>
                         <Stats />
                         <Navbar />
                     </article>

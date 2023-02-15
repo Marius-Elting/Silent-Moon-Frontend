@@ -1,0 +1,61 @@
+@import '../../App';
+
+.musicPopUpSection {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80rem;
+    background-image: url('../../assets/img/meditationPlayerBackground.jpeg');
+    background-size: cover;
+
+
+    .audioPlayer {
+        margin: 30rem auto 0 auto;
+        width: 60vw;
+
+        .rhap_progress-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .rhap_controls-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rhap_main-controls {
+            width: 9rem;
+        }
+
+        .rhap_additional-controls {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .rhap_main-controls button svg {
+            width: 25px;
+            height: 25px;
+        }
+
+        .rhap_volume-controls button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .rhap_time.rhap_current-time {
+            font-size: 2rem;
+        }
+
+        .rhap_time.rhap_total-time {
+            font-size: 2rem;
+        }
+
+        .rhap_button-clear.rhap_repeat-button svg {
+            font-size: 20px;
+        }
+    }
+}

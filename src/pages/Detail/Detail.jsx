@@ -6,20 +6,33 @@ import Stats from '../../components/Stats/Stats';
 import SongItem from '../../components/SongItem/SongItem';
 import { DetailYogaImg, YogaPlayButton } from '../../assets/img';
 import Navbar from '../../components/Navbar/Navbar';
+import MusicPopUp from '../../components/MusicPopUp/MusicPopUp';
 
 const Detail = () => {
     let { id } = useParams();
     const [data, setData] = useState([]);
-    console.log(data);
-    console.log(id);
+    const [playlist, setPlaylist] = useState([]);
+    // console.log(data);
+    // console.log(id);
+    console.log(playlist);
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch(`https://abschlussprojekt-server.up.railway.app/api/getsingleexercise/${id}`);
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleexercise/${id}`);
             const data = await response.json();
             setData(data);
         }
         getData();
+    }, []);
+
+
+    useEffect(() => {
+        async function getPlaylist() {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getallplaylists/`);
+            const playlist = await response.json();
+            setPlaylist(playlist);
+        }
+        getPlaylist();
     }, []);
 
 
@@ -55,14 +68,9 @@ const Detail = () => {
                         <h3>Playlist</h3>
                     </div>
                     <SongItem />
-                    <SongItem />
-                    <SongItem />
                     <Navbar />
                 </section>
             }
-
-
-
         </section >
     )
 }

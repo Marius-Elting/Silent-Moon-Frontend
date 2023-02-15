@@ -37,6 +37,8 @@ import CatFilterKidsActive from "./catFilter_Kids_active.svg";
 import CatFilterSleep from "./catFilter_Sleep.svg";
 import CatFilterSleepActive from "./catFilter_Sleep_active.svg";
 import DetailMeditationImg from './detailYogaImg.jpeg';
+import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
+import PauseButton from './pauseButton.svg';
 
 
 
@@ -81,5 +83,10 @@ export {
     CatFilterKidsActive,
     CatFilterSleep,
     CatFilterSleepActive,
-    DetailMeditationImg
+    DetailMeditationImg,
+    MeditationPlayerBackground,
+    PauseButton,
+
+
+
 }

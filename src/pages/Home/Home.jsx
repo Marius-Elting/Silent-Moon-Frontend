@@ -43,7 +43,7 @@ const Home = () => {
             <AppHeadline />
 
             <div className='homeHeaderWrapper'>
-                <h2 >Good morning {user}</h2>
+                <h2 >Namasté {user}</h2>
                 <p>
                     We hope you have a good day
                 </p>

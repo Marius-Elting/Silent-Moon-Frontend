@@ -16,6 +16,8 @@ import BackArrowTopNav from '../img/backArrowTopNav.jpeg';
 import DownloadTopNav from '../img/downloadTopNav.jpeg';
 import HeartTopNav from '../img/heartTopNav.jpeg';
 import CloseTopNav from '../img/closeTopNav.jpeg';
+import PlayBtn from '../img/playBtnGreen.png';
+import DailyBackground from '../img/backgroundDailyCalm.png'
 
 
 export {
@@ -36,5 +38,7 @@ export {
     BackArrowTopNav,
     DownloadTopNav,
     HeartTopNav,
-    CloseTopNav
+    CloseTopNav,
+    PlayBtn,
+    DailyBackground
 }

@@ -13,8 +13,8 @@ const Navbar = () => {
             <nav className='navBarNav'>
                 <Link to='/overview/yoga' className='navBarLink'>
                     <div className='navBarDiv'>
-                        <img className='navBarImg' src={NavMoon} alt='Moon Icon'></img>
-                        <p className='navBarParagraph'>Yoga</p>
+                        <img className='navBarImg' src={NavMoon} alt='Moon Icon' id='navYogaIcon'></img>
+                        <p className='navBarParagraph' id='navYogaText'>Yoga</p>
                     </div>
                 </Link>
 

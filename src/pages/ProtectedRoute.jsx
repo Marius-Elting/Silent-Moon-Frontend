@@ -5,7 +5,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 const ProtectedRoute = () => {
     const token = useSelector(state => state.user.token)
     const user = true
-    if (!token) {
+    if (!user) {
         return <Navigate to="/landing" />
     }
 

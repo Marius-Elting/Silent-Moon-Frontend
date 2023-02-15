@@ -11,7 +11,7 @@ export const loginUser = ({ user, navToHome }) => {
             type: "loading"
         }))
         const fetchLogin = async () => {
-            const response = await fetch('http://localhost:9898/api/login', {
+            const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

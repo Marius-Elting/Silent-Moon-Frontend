@@ -64,7 +64,9 @@ const Home = () => {
                 {
                     data?.filter(element => element.type === 'yoga').map((element, index) => {
                         return (
-                            <SmallCard key={index} image={element.image.url} name={element.name} />
+                            <Link to={`/detail/yoga/${element._id}`}>
+                                <SmallCard key={index} image={element.image.url} name={element.name} />
+                            </Link>
                         )
                     })
                 }
@@ -75,7 +77,9 @@ const Home = () => {
                 {
                     data?.filter(element => element.type === 'meditation').map((element, index) => {
                         return (
-                            <SmallCard key={index} image={element.image.url} name={element.name} />
+                            <Link to={`/detail/yoga/${element._id}`}>
+                                <SmallCard key={index} image={element.image.url} name={element.name} />
+                            </Link>
                         )
                     })
                 }

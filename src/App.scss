@@ -1,21 +1,21 @@
 @font-face {
-  font-family: SourceSansPro400;
-  src: url("./assets/font/SourceSansPro-Regular.ttf");
+    font-family: SourceSansPro400;
+    src: url("./assets/font/SourceSansPro-Regular.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro600;
-  src: url("./assets/font/SourceSansPro-SemiBold.ttf");
+    font-family: SourceSansPro600;
+    src: url("./assets/font/SourceSansPro-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro700;
-  src: url("./assets/font/SourceSansPro-Bold.ttf");
+    font-family: SourceSansPro700;
+    src: url("./assets/font/SourceSansPro-Bold.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro900;
-  src: url("./assets/font/SourceSansPro-Black.ttf");
+    font-family: SourceSansPro900;
+    src: url("./assets/font/SourceSansPro-Black.ttf");
 }
 
 $grayColor: #A1A4B2;
@@ -31,43 +31,48 @@ $SSP600: SourceSansPro600;
 $SSP500: SourceSansPro400;
 
 * {
-  font-size: 10px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 // ------------MIXINS-------------
 @mixin headlineSmall {
-  font-family: $SSP700;
-  font-size: 3rem;
-  color: $darkGreenColor;
+    font-family: $SSP700;
+    font-size: 3rem;
+    color: $darkGreenColor;
 }
 
 @mixin headlineMedium {
-  font-family: $SSP900;
-  font-size: 2.4rem;
-  color: $darkGreenColor;
+    font-family: $SSP900;
+    font-size: 2.4rem;
+    color: $darkGreenColor;
 }
 
 @mixin headlineBig {
-  font-family: $SSP900;
-  font-size: 3.6rem;
-  color: $darkGreenColor;
+    font-family: $SSP900;
+    font-size: 3.6rem;
+    color: $darkGreenColor;
 }
 
 
 @mixin subtitle {
-  font-family: $SSP600;
-  color: $grayColor;
-  font-size: 1.6rem;
+    font-family: $SSP600;
+    color: $grayColor;
+    font-size: 1.6rem;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 :disabled {
-  cursor: not-allowed;
-  filter: grayscale(50%);
+    cursor: not-allowed;
+    filter: grayscale(50%);
+}
+
+a {
+    text-decoration: initial;
+    color: initial;
 }

@@ -17,6 +17,8 @@ import DownloadTopNav from '../img/downloadTopNav.svg';
 import HeartTopNav from '../img/heartTopNav.svg';
 import CloseTopNav from '../img/closeTopNav.svg';
 import Playlist from '../img/playlist.svg';
+import DetailYogaImg from '../img/detailYogaImg.jpeg';
+import YogaPlayButton from '../img/yogaPlayButton.svg';
 
 
 export {
@@ -38,5 +40,7 @@ export {
     DownloadTopNav,
     HeartTopNav,
     CloseTopNav,
-    Playlist
+    Playlist,
+    DetailYogaImg,
+    YogaPlayButton
 }

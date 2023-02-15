@@ -8,7 +8,6 @@ const Navbar = ({ page }) => {
     const user = useSelector(state => state.user?.userData?.firstname)
 
     return (
-
         <nav className='navBarWrapper'>
             <Link to='/overview/yoga'>
                 <div>

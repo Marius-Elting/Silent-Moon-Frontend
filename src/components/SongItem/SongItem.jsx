@@ -8,7 +8,11 @@ const SongItem = () => {
     const [showPopup, setShowPopup] = useState(false);
 
     const handleButtonClick = () => {
-        setShowPopup(true);
+        setShowPopup(prev => !prev);
+    };
+
+    const handleClosePopup = () => {
+        setShowPopup(false);
     };
 
 
@@ -17,7 +21,7 @@ const SongItem = () => {
             <button onClick={handleButtonClick}>
                 <img src={Playlist} alt='PlayButton'></img>
             </button>
-            {showPopup && <MusicPopUp />}
+            {showPopup && <MusicPopUp showPopup={showPopup} handleClosePopup={handleClosePopup} />}
             <article>
                 <h3>Focus Attention</h3>
                 <p>10 MIN</p>

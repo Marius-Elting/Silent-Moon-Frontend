@@ -18,7 +18,9 @@ const Detail = () => {
     const isLoading = useSelector(state => state.ui.isLoading);
     const handleBackButton = () => {
         navigate(-1);
+
     };
+
 
     useEffect(() => {
         dispatch(uiActions.showLoading());
@@ -46,12 +48,12 @@ const Detail = () => {
 
             });
             const dataPlaylist = await response.json();
-            setSinglePlaylist(dataPlaylist);
-            dispatch(uiActions.unShowLoading());
+            setSinglePlaylist(dataPlaylist[0]);
+            console.log("singleplaylist", dataPlaylist[0]);
+
         }
         getSinglePlaylist();
     }, []);
-
 
 
     return (
@@ -92,10 +94,12 @@ const Detail = () => {
                             <h3>Playlist</h3>
                         </div>
                         {
-                            singleplaylist.slice(0, 10).map((element, key) => {
+                            singleplaylist.trackList?.slice(0, 10).map((element, key) => {
                                 return (
-                                    <SongItem />
-                                );
+
+                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} />
+                                )
+
                             })
                         }
                         <Navbar />

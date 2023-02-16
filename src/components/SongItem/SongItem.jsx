@@ -20,6 +20,7 @@ const SongItem = (props) => {
             {showPopup && <MusicPopUp showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} />}
             <article>
                 <h3>{props.playlistName}</h3>
+                <p>{props.artist}</p>
             </article>
         </div>
     )

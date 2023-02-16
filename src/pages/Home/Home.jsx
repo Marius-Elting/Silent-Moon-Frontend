@@ -64,7 +64,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link>
+                        <Link to={`/detail/yoga`}>
                             <button>START</button>
                         </Link>
                     </div>
@@ -75,7 +75,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link >
+                        <Link to={`/detail/meditation`}>
                             <button>START</button>
                         </Link>
                     </div>

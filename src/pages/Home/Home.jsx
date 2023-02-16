@@ -16,6 +16,8 @@ const Home = () => {
     const user = useSelector(state => state.user?.userData?.firstname)
     const isLoading = useSelector(state => state.ui.isLoading)
 
+    const [visibility, setVisibility] = useState("Hidden");
+
     useEffect(() => {
         dispatch(uiActions.showLoading());
         async function getData() {
@@ -71,7 +73,7 @@ const Home = () => {
                     </div>
                 </div>
             </article>
-            <Searchbar />
+            <Searchbar visibility={visibility} setVisibility={setVisibility} />
             <article className='homeRecomended'>
                 <p>Recomended Yoga for you</p>
                 <article>

@@ -33,6 +33,8 @@ const Overview = () => {
     const user = useSelector(state => state.user?.userData?.firstname);
     const isLoading = useSelector(state => state.ui.isLoading);
 
+    const [visibility, setVisibility] = useState("Hidden");
+
     useEffect(() => {
         dispatch(uiActions.showLoading())
         console.log("useEffect start");
@@ -81,10 +83,13 @@ const Overview = () => {
     return (
         <div className='overviewPage'>
             <AppHeadline />
-            <h2>{params}</h2>
-            <h3>{params === "yoga" ? "Find your inner zen from anywhere." : "Audio-only meditation techniques to help you minimize your screen time and practice on the go."}</h3>
+            <div>
+                <h2>{params}</h2>
+                <h3>{params === "yoga" ? "Find your inner zen from anywhere." : "Audio-only meditation techniques to help you minimize your screen time and practice on the go."}</h3>
+            </div>
             <CategoryFilter activeCat={activeCat} setActiveCat={setActiveCat} setFilterCriteria={setFilterCriteria} />
-            <Searchbar />
+
+            <Searchbar visibility={visibility} setVisibility={setVisibility} />
             <section className='overviewDaily'>
                 <article>
                     <h4>Daily Calm</h4>

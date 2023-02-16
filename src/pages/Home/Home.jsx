@@ -13,21 +13,29 @@ import Loading from '../../components/Loading/Loading';
 const Home = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState();
+
     const user = useSelector(state => state.user?.userData?.firstname)
     const isLoading = useSelector(state => state.ui.isLoading)
 
     const [visibility, setVisibility] = useState("Hidden");
 
+
     useEffect(() => {
         dispatch(uiActions.showLoading());
         async function getData() {
             try {
-                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise');
+
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise', {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`
+                    },
+                    credentials: "include",
+                });
                 const data = await response.json();
                 setData(data);
                 dispatch(uiActions.unShowLoading());
             } catch (err) {
-                dispatch(uiActions.unShowLoadDFing());
+                dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.showAlert({
                     type: "error",
                     message: "Database Error",
@@ -45,7 +53,7 @@ const Home = () => {
             <AppHeadline />
 
             <div className='homeHeaderWrapper'>
-                <h2 >Namasté {user}</h2>
+                <h2 >Namasté {user.userData?.firstname}</h2>
                 <p>
                     We hope you have a good day
                 </p>
@@ -86,7 +94,7 @@ const Home = () => {
                                 <Link key={index} to={`/detail/yoga/${element._id}`}>
                                     <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
-                            )
+                            );
                         })
                     }
                 </article>
@@ -104,7 +112,7 @@ const Home = () => {
                                 <Link key={index} to={`/detail/meditation/${element._id}`}>
                                     <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
-                            )
+                            );
                         })
                     }
                 </article>

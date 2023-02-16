@@ -12,25 +12,25 @@ import Loading from '../../components/Loading/Loading';
 
 
 const Home = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [data, setData] = useState();
-    const user = useSelector(state => state.user?.userData?.firstname)
-    const isLoading = useSelector(state => state.ui.isLoading)
+    const user = useSelector(state => state.user?.userData?.firstname);
+    const isLoading = useSelector(state => state.ui.isLoading);
     useEffect(() => {
-        dispatch(uiActions.showLoading())
+        dispatch(uiActions.showLoading());
         async function getData() {
             try {
-                const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getexercise');
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise');
                 const data = await response.json();
                 setData(data);
-                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.unShowLoading());
             } catch (err) {
-                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.unShowLoadDFing());
                 dispatch(uiActions.showAlert({
                     type: "error",
                     message: "Database Error",
                     color: "red"
-                }))
+                }));
             }
         }
         getData();
@@ -81,7 +81,7 @@ const Home = () => {
                         data?.filter(element => element.type === 'yoga').map((element, index) => {
                             return (
                                 <SmallCard key={index} image={element.image.url} name={element.name} />
-                            )
+                            );
                         })
                     }
                 </article>
@@ -96,7 +96,7 @@ const Home = () => {
                         data?.filter(element => element.type === 'meditation').map((element, index) => {
                             return (
                                 <SmallCard key={index} image={element.image.url} name={element.name} />
-                            )
+                            );
                         })
                     }
                 </article>
@@ -105,7 +105,7 @@ const Home = () => {
 
             <Navbar page="home" />
         </section>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

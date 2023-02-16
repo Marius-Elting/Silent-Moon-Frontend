@@ -15,7 +15,7 @@ const Detail = () => {
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch(`https://abschlussprojekt-server.up.railway.app/api/getsingleexercise/${id}`);
+            const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/getsingleexercise/${id}`);
             const data = await response.json();
             setData(data);
         }
@@ -61,7 +61,7 @@ const Detail = () => {
 
 
         </section >
-    )
-}
+    );
+};
 
-export default Detail
+export default Detail;

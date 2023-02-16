@@ -4,9 +4,11 @@
     width: 100%;
     padding-left: 5%;
 
-    .img {
+    img {
         height: 100px;
+        width: 145px;
         border-radius: 10px;
+        object-fit: cover;
     }
 
     h3 {
@@ -27,6 +29,10 @@
             font-size: 1rem;
             margin-right: 2%;
             margin-bottom: 10%;
+
+            &:nth-of-type(1) {
+                text-transform: uppercase;
+            }
         }
     }
 }

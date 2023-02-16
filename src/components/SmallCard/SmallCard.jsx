@@ -7,8 +7,8 @@ const SmallCard = (props) => {
             <img alt='Bild' src={props.image}></img>
             <h3>{props.name}</h3>
             <div className="smallCardBottom">
-                <p>BEGINNER</p>
-                <p>3-10 MIN</p>
+                <p>{props.level}</p>
+                <p>{props.duration}</p>
             </div>
         </div>
     )

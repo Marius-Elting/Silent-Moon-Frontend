@@ -8,12 +8,19 @@
 
     div {
         display: flex;
+        align-items: center;
         width: 50%;
+
+        img {
+            width: 20px
+        }
+
+        p {
+            @include subtitle;
+            font-size: 1.3rem;
+            margin-left: 2%;
+            margin-bottom: 0rem;
+        }
     }
 
-    p {
-        @include subtitle;
-        font-size: 1.3rem;
-        margin-left: 2%;
-    }
 }

@@ -87,6 +87,7 @@
 
         article {
             display: flex;
+            align-items: flex-start;
             column-gap: 10px;
             flex-direction: row;
             overflow-x: scroll;

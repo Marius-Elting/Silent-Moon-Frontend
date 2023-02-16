@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
-import TopNav from '../../components/TopNav/TopNav';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
 
@@ -14,8 +13,9 @@ import Loading from '../../components/Loading/Loading';
 const Home = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState();
-    const user = useSelector(state => state.user?.userData?.firstname);
-    const isLoading = useSelector(state => state.ui.isLoading);
+    const user = useSelector(state => state.user?.userData?.firstname)
+    const isLoading = useSelector(state => state.ui.isLoading)
+
     useEffect(() => {
         dispatch(uiActions.showLoading());
         async function getData() {
@@ -43,7 +43,7 @@ const Home = () => {
             <AppHeadline />
 
             <div className='homeHeaderWrapper'>
-                <h2 >Good morning {user}</h2>
+                <h2 >Namasté {user}</h2>
                 <p>
                     We hope you have a good day
                 </p>
@@ -80,8 +80,11 @@ const Home = () => {
                     {
                         data?.filter(element => element.type === 'yoga').map((element, index) => {
                             return (
-                                <SmallCard key={index} image={element.image.url} name={element.name} />
-                            );
+
+                                <Link key={index} to={`/detail/yoga/${element._id}`}>
+                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                                </Link>
+                            )
                         })
                     }
                 </article>
@@ -95,8 +98,11 @@ const Home = () => {
                     {
                         data?.filter(element => element.type === 'meditation').map((element, index) => {
                             return (
-                                <SmallCard key={index} image={element.image.url} name={element.name} />
-                            );
+
+                                <Link key={index} to={`/detail/meditation/${element._id}`}>
+                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                                </Link>
+                            )
                         })
                     }
                 </article>
@@ -107,5 +113,6 @@ const Home = () => {
         </section>
     );
 };
+
 
 export default Home;

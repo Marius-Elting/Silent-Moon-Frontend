@@ -20,12 +20,29 @@ import Playlist from '../img/playlist.svg';
 import DetailYogaImg from '../img/detailYogaImg.jpeg';
 import YogaPlayButton from '../img/yogaPlayButton.svg';
 import PlayBtn from '../img/playBtnGreen.png';
-import DailyBackground from '../img/backgroundDailyCalm.png'
-import NavYogaActive from "./nav-yoga-active.svg"
-import NavMeditateActive from "./nav-meditate-active.svg"
-import NavMusicActive from "./nav-music-active.svg"
-import NavProfileActive from "./nav-profile-active.svg"
-import NavHomeActive from "./nav-home-active.svg"
+import DailyBackground from '../img/backgroundDailyCalm.png';
+import NavYogaActive from "./nav-yoga-active.svg";
+import NavMeditateActive from "./nav-meditate-active.svg";
+import NavMusicActive from "./nav-music-active.svg";
+import NavProfileActive from "./nav-profile-active.svg";
+import NavHomeActive from "./nav-home-active.svg";
+import CatFilterAll from "./catFilter_All.svg";
+import CatFilterAllActive from "./catFilter_All_active.svg";
+import CatFilterFav from "./catFilter_Fav.svg";
+import CatFilterFavActive from "./catFilter_Fav_active.svg";
+import CatFilterAnxiety from "./catFilter_Anxiety.svg";
+import CatFilterAnxietyActive from "./catFilter_Anxiety_active.svg";
+import CatFilterKids from "./catFilter_Kids.svg";
+import CatFilterKidsActive from "./catFilter_Kids_active.svg";
+import CatFilterSleep from "./catFilter_Sleep.svg";
+import CatFilterSleepActive from "./catFilter_Sleep_active.svg";
+import DetailMeditationImg from './detailYogaImg.jpeg';
+import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
+import PauseButton from './pauseButton.svg';
+
+
+
+
 
 export {
     landingImg,
@@ -55,5 +72,21 @@ export {
     NavMeditateActive,
     NavMusicActive,
     NavProfileActive,
-    NavHomeActive
+    NavHomeActive,
+    CatFilterAll,
+    CatFilterAllActive,
+    CatFilterAnxiety,
+    CatFilterAnxietyActive,
+    CatFilterFav,
+    CatFilterFavActive,
+    CatFilterKids,
+    CatFilterKidsActive,
+    CatFilterSleep,
+    CatFilterSleepActive,
+    DetailMeditationImg,
+    MeditationPlayerBackground,
+    PauseButton,
+
+
+
 }

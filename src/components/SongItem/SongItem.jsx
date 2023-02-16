@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SongItem.scss';
 import { Playlist } from '../../assets/img';
+import MusicPopUp from '../MusicPopUp/MusicPopUp';
 
-const SongItem = () => {
+
+const SongItem = (props) => {
+    const [showPopup, setShowPopup] = useState(false);
+
+    const toggleButtonHandler = () => {
+        setShowPopup(prev => !prev);
+    };
+
+
     return (
         <div className='songItem'>
-            <img src={Playlist} alt='PlayButton'></img>
-            <div>
-                <h3>Focus Attention</h3>
-                <p>10 MIN</p>
-            </div>
+            <button onClick={toggleButtonHandler}>
+                <img src={Playlist} alt='PlayButton'></img>
+            </button>
+            {showPopup && <MusicPopUp showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} />}
+            <article>
+                <h3>{props.playlistName}</h3>
+            </article>
         </div>
     )
 }

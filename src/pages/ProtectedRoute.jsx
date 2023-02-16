@@ -7,6 +7,7 @@ const ProtectedRoute = () => {
     const user = true;
     if (!token) {
         return <Navigate to="/landing" />;
+
     }
 
     return (

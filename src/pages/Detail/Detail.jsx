@@ -1,65 +1,86 @@
 import React, { useEffect, useState } from 'react';
 import './Detail.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import TopNav from '../../components/TopNav/TopNav';
 import Stats from '../../components/Stats/Stats';
 import SongItem from '../../components/SongItem/SongItem';
-import { DetailYogaImg, YogaPlayButton } from '../../assets/img';
 import Navbar from '../../components/Navbar/Navbar';
 
 const Detail = () => {
-    let { id } = useParams();
-    const [data, setData] = useState();
-    console.log(data);
-    console.log(id);
+    let { id, playlist } = useParams();
+    const [singleplaylist, setSinglePlaylist] = useState([]);
+    const [data, setData] = useState([]);
+    const navigate = useNavigate();
+
+    const handleBackButton = () => {
+        navigate(-1);
+    }
+
+    console.log("playlist", singleplaylist);
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch(`${process.env.REACT_APP_BACKEND}/api/getsingleexercise/${id}`);
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleexercise/${id}`);
             const data = await response.json();
-            setData(data);
+            setData(data[0]);
         }
         getData();
     }, []);
 
+    useEffect(() => {
+        async function getSinglePlaylist() {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleplaylist/${8963496122}`);
+            const dataPlaylist = await response.json();
+            setSinglePlaylist(dataPlaylist);
+            console.log("singleplaylist", dataPlaylist);
+        }
+        getSinglePlaylist();
+    }, []);
 
+
+    console.log("test", data);
     return (
         <section className='detailSection'>
-            <TopNav symbol='arrow' />
+            <TopNav symbol='arrow' handleClickFunction={handleBackButton} />
 
             {
-                true ? (
-                    <article className='detailYoga'>
-                        <div className='detailYogaBackground'>
-                            <img src={YogaPlayButton}></img>
-                        </div>
-                        <div>
-                            <h2>Healthy Back</h2>
-                            <p>Beginner</p>
-                            <p>Ease the mind into a restful night’s sleep  with these deep, amblent tones.</p>
+                // data?.filter(element => element.type === 'meditation')
+                data.type === "yoga" ?
+                    <section className='detailYoga'>
+                        <article className='detailYogaBackground'>
+                            <img src={data?.image?.url}></img>
+                        </article>
+                        <div className='detailDescription'>
+                            <h2>{data?.name}</h2>
+                            <p className='detailUppercase'>{data?.level}</p>
+                            <p>{data?.description}</p>
                         </div>
                         <Stats />
                         <Navbar />
-                    </article>
-                ) : <article className='meditation'>
-                    {/* <div>
-                        <img></img>
-                        <h2>{data[0].name}</h2>
-                        <p>{data[0].level}</p>
-                        <p>{data[0].description}</p>
-                    </div> */}
-                    <Stats />
-                    <div>
-                        <h3>Playlist</h3>
-                        <SongItem />
-                        <SongItem />
-                        <SongItem />
-                    </div>
-                </article>
+                    </section>
+                    : <section className='detailMeditation'>
+                        <article className='detailMeditationBackground'>
+                            <img src={data?.image?.url}></img>
+                        </article>
+                        <div className='detailMeditationDescription'>
+                            <h2>{data?.name}</h2>
+                            <p className='detailUppercase'>{data?.level}</p>
+                            <p>{data?.description}</p>
+                        </div>
+                        <Stats />
+                        <div className='detailPlaylist'>
+                            <h3>Playlist</h3>
+                        </div>
+                        {
+                            singleplaylist.slice(0, 10).map((element, key) => {
+                                return (
+                                    <SongItem />
+                                )
+                            })
+                        }
+                        <Navbar />
+                    </section>
             }
-
-
-
         </section >
     );
 };

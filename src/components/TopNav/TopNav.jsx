@@ -5,11 +5,12 @@ import { HeartTopNav } from '../../assets/img';
 import { DownloadTopNav } from '../../assets/img';
 import { CloseTopNav } from '../../assets/img';
 
-const TopNav = (props) => {
+const TopNav = ({ handleClickFunction, symbol }) => {
+
     return (
         <article className='topNavArticle'>
             <div>
-                <img src={props.symbol === 'arrow' ? BackArrowTopNav : CloseTopNav} alt='Arrow Back'></img>
+                <img src={symbol === 'arrow' ? BackArrowTopNav : CloseTopNav} alt='Arrow Back' onClick={handleClickFunction}></img>
             </div>
             <div>
                 <img src={HeartTopNav} alt='Heart'></img>

@@ -1,0 +1,29 @@
+@import "../../App.scss";
+
+.catFilter {
+    width: 95%;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    article {
+        width: 18%;
+        height: 100%;
+
+        img {
+            width: 100%;
+        }
+
+        .pNotActive {
+            text-align: center;
+            @include subtitle;
+        }
+
+        .pActive {
+            text-align: center;
+            @include subtitle;
+            color: $darkGreenColor;
+        }
+    }
+}

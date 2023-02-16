@@ -5,15 +5,11 @@ import AudioPlayer from 'react-h5-audio-player';
 
 
 
-const MusicPopUp = ({ showPopup, setShowPopup, handleClosePopup }) => {
-
-    const toggleButton = () => {
-        setShowPopup(prev => !prev);
-    }
+const MusicPopUp = ({ toggleButtonHandler }) => {
 
     return (
         <section className='musicPopUpSection'>
-            <TopNav symbol='arrow' handleClosePopup={handleClosePopup} />
+            <TopNav symbol='arrow' handleClickFunction={toggleButtonHandler} />
             <AudioPlayer className='audioPlayer'></AudioPlayer>
         </section>
     )

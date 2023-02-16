@@ -4,6 +4,21 @@
 .detailSection {
     padding-bottom: 10vh;
 
+    .detailUppercase {
+        text-transform: uppercase;
+    }
+
+    h2 {
+        @include headlineBig;
+        font-family: $SSP900;
+    }
+
+    p {
+        @include subtitle;
+        font-size: 1.4rem;
+        line-height: 20px;
+    }
+
     // YOGA SECTION ---------------------------
     .detailYoga {
         .detailYogaBackground {
@@ -26,17 +41,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            h2 {
-                @include headlineBig;
-                font-family: $SSP900;
-            }
-
-            p {
-                @include subtitle;
-                font-size: 1.4rem;
-                line-height: 20px;
-            }
         }
     }
 
@@ -58,21 +62,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            h2 {
-                @include headlineBig;
-                font-family: $SSP900;
-            }
-
-            p {
-                @include subtitle;
-                font-size: 1.4rem;
-                line-height: 20px;
-            }
-
-            .detailUppercase {
-                text-transform: uppercase;
-            }
         }
     }
 

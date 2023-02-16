@@ -29,13 +29,14 @@ const Detail = () => {
         async function getSinglePlaylist() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleplaylist/${8963496122}`);
             const dataPlaylist = await response.json();
-            setSinglePlaylist(dataPlaylist);
+            setSinglePlaylist(dataPlaylist[0]);
             console.log("singleplaylist", dataPlaylist[0]);
         }
         getSinglePlaylist();
     }, []);
 
 
+    console.log(singleplaylist.trackList);
     return (
         <section className='detailSection'>
             <TopNav symbol='arrow' handleClickFunction={handleBackButton} />
@@ -69,10 +70,11 @@ const Detail = () => {
                             <h3>Playlist</h3>
                         </div>
                         {
-                            singleplaylist.slice(0, 10).map((element, key) => {
+                            singleplaylist.trackList?.slice(0, 10).map((element, key) => {
                                 return (
-                                    <SongItem key={key} playlistName={element.trackList[0].title} artist={element.trackList[0].artist.slice(0, 25) + " ..."} />
+                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} />
                                 )
+
                             })
                         }
                         <Navbar />

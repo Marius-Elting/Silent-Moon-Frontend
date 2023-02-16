@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
-import TopNav from '../../components/TopNav/TopNav';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
 
@@ -14,6 +13,7 @@ import Loading from '../../components/Loading/Loading';
 const Home = () => {
     const dispatch = useDispatch()
     const [data, setData] = useState();
+    console.log("data", data);
     const user = useSelector(state => state.user?.userData?.firstname)
     const isLoading = useSelector(state => state.ui.isLoading)
     useEffect(() => {
@@ -81,7 +81,7 @@ const Home = () => {
                         data?.filter(element => element.type === 'yoga').map((element, index) => {
                             return (
                                 <Link key={index} to={`/detail/yoga/${element._id}`}>
-                                    <SmallCard image={element.image.url} name={element.name} />
+                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
                             )
                         })
@@ -98,7 +98,7 @@ const Home = () => {
                         data?.filter(element => element.type === 'meditation').map((element, index) => {
                             return (
                                 <Link key={index} to={`/detail/meditation/${element._id}`}>
-                                    <SmallCard image={element.image.url} name={element.name} />
+                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
                             )
                         })

@@ -23,7 +23,6 @@ const Detail = () => {
         getData();
     }, []);
 
-
     useEffect(() => {
         async function getPlaylist() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getallplaylists/`);

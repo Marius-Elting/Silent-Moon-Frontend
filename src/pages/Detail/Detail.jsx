@@ -16,8 +16,6 @@ const Detail = () => {
         navigate(-1);
     }
 
-    console.log("playlist", singleplaylist);
-
     useEffect(() => {
         async function getData() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleexercise/${id}`);
@@ -32,13 +30,12 @@ const Detail = () => {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleplaylist/${8963496122}`);
             const dataPlaylist = await response.json();
             setSinglePlaylist(dataPlaylist);
-            console.log("singleplaylist", dataPlaylist);
+            console.log("singleplaylist", dataPlaylist[0]);
         }
         getSinglePlaylist();
     }, []);
 
 
-    console.log("test", data);
     return (
         <section className='detailSection'>
             <TopNav symbol='arrow' handleClickFunction={handleBackButton} />
@@ -74,7 +71,7 @@ const Detail = () => {
                         {
                             singleplaylist.slice(0, 10).map((element, key) => {
                                 return (
-                                    <SongItem />
+                                    <SongItem key={key} playlistName={element.trackList[0].title} artist={element.trackList[0].artist.slice(0, 25) + " ..."} />
                                 )
                             })
                         }

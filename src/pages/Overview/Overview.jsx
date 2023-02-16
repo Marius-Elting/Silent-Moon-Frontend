@@ -17,7 +17,7 @@ const Overview = () => {
     const monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     const params = useParams().type;
-    const paramsObj = params === "yoga" ? { type: params } : { type: "meditation" }
+    const paramsObj = params === "yoga" ? { type: params } : { type: "meditation" };
     const today = new Date();
     const month = monthsArray[today.getMonth()];
     const day = today.getDate();
@@ -28,55 +28,62 @@ const Overview = () => {
 
     const filterCategory = { category: filterCriteria };
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [dataCategories, setDataCategories] = useState([]);
-    const user = useSelector(state => state.user?.userData?.firstname);
+    const user = useSelector(state => state.user);
     const isLoading = useSelector(state => state.ui.isLoading);
 
     useEffect(() => {
-        dispatch(uiActions.showLoading())
-        console.log("useEffect start");
+        dispatch(uiActions.showLoading());
+
         async function getData() {
             setDataCategories([]);
-            console.log("start getData")
+
             try {
                 if (activeCat === "all") {
-                    const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getcategorybytype', {
+                    const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getcategorybytype', {
+                        headers: {
+                            Authorization: `Bearer ${user.token}`,
+                            'Content-Type': 'application/json'
+                        },
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        credentials: "include",
                         body: JSON.stringify(paramsObj)
                     });
                     const data = await response.json();
                     setDataCategories(data);
-                    console.log("all: ", data);
-                    dispatch(uiActions.unShowLoading())
-                    return
+
+                    dispatch(uiActions.unShowLoading());
+                    return;
                 } else {
-                    const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getsinglecategory', {
-                        method: 'Post',
-                        headers: { 'Content-Type': 'application/json' },
+                    const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getsinglecategory', {
+                        headers: {
+                            Authorization: `Bearer ${user.token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        method: 'POST',
+                        credentials: "include",
                         body: JSON.stringify(filterCategory)
                     });
                     const data = await response.json();
                     setDataCategories(data);
-                    console.log("not all: ", data);
-                    dispatch(uiActions.unShowLoading())
-                    return
+
+                    dispatch(uiActions.unShowLoading());
+                    return;
                 }
 
             } catch (err) {
-                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.showAlert({
                     type: "error",
                     message: "Database Error",
                     color: "red"
-                }))
+                }));
             };
         };
         getData();
     }, [activeCat, params]);
 
-    console.log("DataCategories: ", dataCategories);
 
     return (
         <div className='overviewPage'>
@@ -99,25 +106,25 @@ const Overview = () => {
                 </article>
             </section>
 
+            {isLoading && <Loading center={true} />}
             <section className='overviewThumbnails'>
-                {isLoading && <Loading center={true} />}
                 {activeCat === "all" ?
                     dataCategories.map((category, index) => {
                         return (
                             <OverviewThumnail key={index} name={category.name} img={category?.img?.url} />
-                        )
+                        );
                     }) :
                     dataCategories.map((category, index) => {
                         return (
                             <OverviewThumnail key={index} name={category.name} img={category?.image?.url} />
-                        )
+                        );
                     })
                 }
             </section>
 
             <Navbar page={params} />
         </div>
-    )
-}
+    );
+};
 // 
 export default Overview;

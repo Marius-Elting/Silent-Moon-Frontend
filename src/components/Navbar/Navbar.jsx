@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = ({ page }) => {
-    const user = useSelector(state => state.user?.userData?.firstname || "Profile")
+
+    const user = useSelector(state => state.user?.userData?.firstname) || "Profile"
+
 
     return (
         <nav className='navBarWrapper'>

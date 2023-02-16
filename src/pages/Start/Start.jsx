@@ -10,7 +10,7 @@ const Start = () => {
             <p className='startParagraph'>
                 Hi Leon, welcome to Silent Moon
             </p>
-            <SubmitBtn>GET STARTED</SubmitBtn>
+            <SubmitBtn type="link" link="/home">GET STARTED</SubmitBtn>
         </section>
     )
 }

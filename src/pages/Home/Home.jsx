@@ -11,26 +11,26 @@ import Loading from '../../components/Loading/Loading';
 
 
 const Home = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [data, setData] = useState();
-    console.log("data", data);
     const user = useSelector(state => state.user?.userData?.firstname)
     const isLoading = useSelector(state => state.ui.isLoading)
+
     useEffect(() => {
-        dispatch(uiActions.showLoading())
+        dispatch(uiActions.showLoading());
         async function getData() {
             try {
-                const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getexercise');
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise');
                 const data = await response.json();
                 setData(data);
-                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.unShowLoading());
             } catch (err) {
-                dispatch(uiActions.unShowLoading())
+                dispatch(uiActions.unShowLoadDFing());
                 dispatch(uiActions.showAlert({
                     type: "error",
                     message: "Database Error",
                     color: "red"
-                }))
+                }));
             }
         }
         getData();
@@ -80,6 +80,7 @@ const Home = () => {
                     {
                         data?.filter(element => element.type === 'yoga').map((element, index) => {
                             return (
+
                                 <Link key={index} to={`/detail/yoga/${element._id}`}>
                                     <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
@@ -97,6 +98,7 @@ const Home = () => {
                     {
                         data?.filter(element => element.type === 'meditation').map((element, index) => {
                             return (
+
                                 <Link key={index} to={`/detail/meditation/${element._id}`}>
                                     <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                                 </Link>
@@ -108,8 +110,9 @@ const Home = () => {
             </article>
 
             <Navbar page="home" />
-        </section >
-    )
-}
+        </section>
+    );
+};
 
-export default Home
+
+export default Home;

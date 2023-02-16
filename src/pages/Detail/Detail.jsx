@@ -82,7 +82,7 @@ const Detail = () => {
                     </section>
             }
         </section >
-    )
-}
+    );
+};
 
-export default Detail
+export default Detail;

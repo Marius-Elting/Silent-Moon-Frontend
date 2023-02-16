@@ -6,7 +6,6 @@ const OverviewThumnail = (props) => {
 
     useEffect(() => {
         let number = Math.floor(Math.random() * 3) + 1;
-        console.log(number);
 
         if (number === 1) {
             setSize("overviewSmallThumbnail");
@@ -20,11 +19,13 @@ const OverviewThumnail = (props) => {
         }
     }, [props])
 
+    const backgroundImage = { backgroundImage: `url(${props.img})` };
+
 
 
 
     return (
-        <div className={size}>
+        <div className={size} style={backgroundImage}>
             <p>{props.name}</p>
         </div>
     );

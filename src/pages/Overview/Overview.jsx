@@ -17,18 +17,16 @@ const Overview = () => {
     const monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     const params = useParams().type;
+    const paramsObj = params === "yoga" ? { type: params } : { type: "meditation" }
     const today = new Date();
     const month = monthsArray[today.getMonth()];
     const day = today.getDate();
 
     const [activeCat, setActiveCat] = useState("all");
-    console.log("Aktive Kategorie: ", activeCat);
 
     const [filterCriteria, setFilterCriteria] = useState("");
-    console.log("Aktiver Filter: ", filterCriteria);
 
     const filterCategory = { category: filterCriteria };
-    console.log("filterCategory: ", filterCategory);
 
     const dispatch = useDispatch()
     const [dataCategories, setDataCategories] = useState([]);
@@ -37,15 +35,21 @@ const Overview = () => {
 
     useEffect(() => {
         dispatch(uiActions.showLoading())
+        console.log("useEffect start");
         async function getData() {
+            setDataCategories([]);
+            console.log("start getData")
             try {
-                console.log("Try start");
                 if (activeCat === "all") {
-                    const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getcategories');
+                    const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getcategorybytype', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(paramsObj)
+                    });
                     const data = await response.json();
                     setDataCategories(data);
+                    console.log("all: ", data);
                     dispatch(uiActions.unShowLoading())
-                    console.log(data, " try if all");
                     return
                 } else {
                     const response = await fetch('https://abschlussprojekt-server.up.railway.app/api/getsinglecategory', {
@@ -55,8 +59,8 @@ const Overview = () => {
                     });
                     const data = await response.json();
                     setDataCategories(data);
+                    console.log("not all: ", data);
                     dispatch(uiActions.unShowLoading())
-                    console.log(data, " try if not all");
                     return
                 }
 
@@ -70,11 +74,9 @@ const Overview = () => {
             };
         };
         getData();
-    }, [activeCat]);
+    }, [activeCat, params]);
 
-
-
-
+    console.log("DataCategories: ", dataCategories);
 
     return (
         <div className='overviewPage'>
@@ -102,12 +104,12 @@ const Overview = () => {
                 {activeCat === "all" ?
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category} />
+                            <OverviewThumnail key={index} name={category.name} img={category?.img?.url} />
                         )
                     }) :
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category.name} />
+                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} />
                         )
                     })
                 }
@@ -117,5 +119,5 @@ const Overview = () => {
         </div>
     )
 }
-
+// 
 export default Overview;

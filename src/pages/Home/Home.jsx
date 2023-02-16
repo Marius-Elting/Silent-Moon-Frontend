@@ -14,7 +14,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState();
 
-    const user = useSelector(state => state.user?.userData?.firstname)
+    const user = useSelector(state => state.user)
     const isLoading = useSelector(state => state.ui.isLoading)
 
     const [visibility, setVisibility] = useState("Hidden");
@@ -116,7 +116,6 @@ const Home = () => {
                         })
                     }
                 </article>
-
             </article>
 
             <Navbar page="home" />

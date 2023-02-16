@@ -5,10 +5,10 @@ import AudioPlayer from 'react-h5-audio-player';
 
 
 
-const MusicPopUp = ({ toggleButtonHandler }) => {
+const MusicPopUp = ({ toggleButtonHandler, preview }) => {
 
     const playerSettings = {
-        src: "https://example.com/audio.mp3",
+        src: preview,
         autoPlay: false,
         loop: false,
         mute: false,

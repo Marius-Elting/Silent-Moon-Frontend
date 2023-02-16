@@ -20,6 +20,7 @@ const Detail = () => {
         navigate(-1);
 
     };
+    console.log(singleplaylist);
 
 
     useEffect(() => {
@@ -97,9 +98,9 @@ const Detail = () => {
                             singleplaylist.trackList?.slice(0, 10).map((element, key) => {
                                 return (
 
-                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} />
+                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
                                 )
-
+                                // als prop die preview übergeben
                             })
                         }
                         <Navbar />

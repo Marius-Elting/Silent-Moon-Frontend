@@ -30,9 +30,7 @@ const Searchbar = (props) => {
         async function getData() {
             try {
                 const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise', {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`
-                    }
+                    credentials: "include",
                 });
                 const data = await response.json();
                 setData(data);

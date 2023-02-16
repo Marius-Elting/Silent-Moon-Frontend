@@ -19,7 +19,12 @@ const OverviewThumnail = (props) => {
         }
     }, [props])
 
-    const backgroundImage = { backgroundImage: `url(${props.img})` };
+    const backgroundImage = {
+        backgroundImage: `linear-gradient(rgba(128, 128, 128, 0), rgba(60,60,60,0.9)), url(${props.img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        objectFit: "cover"
+    };
 
 
 

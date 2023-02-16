@@ -1,0 +1,28 @@
+@import '../../App';
+
+.profileSection {
+
+    h3 {
+        @include headlineMedium;
+    }
+
+    .profileUser {
+        display: flex;
+        align-items: center;
+        margin: 6rem 0 4rem 5rem;
+
+        img {
+            width: 80px;
+        }
+
+        p {
+            @include headlineBig;
+            margin-left: 2rem;
+        }
+    }
+
+    .profileYoga {
+        margin-top: 8rem;
+    }
+
+}

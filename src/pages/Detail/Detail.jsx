@@ -35,8 +35,6 @@ const Detail = () => {
         getSinglePlaylist();
     }, []);
 
-
-    console.log(singleplaylist.trackList);
     return (
         <section className='detailSection'>
             <TopNav symbol='arrow' handleClickFunction={handleBackButton} />
@@ -74,7 +72,6 @@ const Detail = () => {
                                 return (
                                     <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} />
                                 )
-
                             })
                         }
                         <Navbar />

@@ -1,10 +1,12 @@
-import "./Loading.scss"
+import "./Loading.scss";
 
-const Loading = ({ center }) => {
-    return <div className={`loading ${center ? "loading-center" : ""}`}>
+const Loading = ({ center, customStyle }) => {
 
-    </div>
-}
+    return <div style={customStyle}
+        className={`loading ${center ? "loading-center" : ""}`}>
+
+    </div>;
+};
 
 
-export default Loading
+export default Loading;

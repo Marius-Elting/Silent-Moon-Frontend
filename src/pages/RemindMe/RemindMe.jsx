@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import { Pagination } from "@mui/material";
 import EmblaTimePicker from "../../components/TimePicker/EmblaCarousel";
-import EmblaCarousel from 'embla-carousel'
+import EmblaCarousel from 'embla-carousel';
 import emblaCarouselReact from "embla-carousel-react";
 
 
@@ -36,32 +36,29 @@ const RemindMe = () => {
     // const [value, setValue] = React.useState(dayjs('2022-04-07'));
 
     function dayChoice(day, currState, setState) {
-        console.log("Day: ", day);
-        let index = chosenDate.findIndex((days) => days === day);
-        console.log(index);
 
-        console.log(setState);
-        console.log(currState);
+        let index = chosenDate.findIndex((days) => days === day);
+
 
         if (currState === "brightDay") {
-            setState("darkDay")
+            setState("darkDay");
         } else if (currState === "darkDay") {
-            setState("brightDay")
+            setState("brightDay");
         };
 
         if (index === -1) {
             setChosenDate(prev => [...prev, day]);
         } else {
             setChosenDate(prev => {
-                let array = [...prev]
-                array.splice(index, 1)
-                console.log(array)
-                return array
+                let array = [...prev];
+                array.splice(index, 1);
+
+                return array;
             });
         };
     };
 
-    console.log("Chosen Date: ", chosenDate);
+
 
     // const paramsSwiper = {
     //     spaceBetween: 10,
@@ -93,13 +90,12 @@ const RemindMe = () => {
 
     const onchangeHandlerA = (ac) => {
 
-    }
+    };
     const onchangeHandlerB = (ac) => {
-        const a = [...ac]
-        const filterd = a.filter((res) => res.opacity == "1")
-        console.log(filterd)
+        const a = [...ac];
+        const filterd = a.filter((res) => res.opacity == "1");
 
-    }
+    };
 
     return (
         <>
@@ -153,13 +149,13 @@ const RemindMe = () => {
                 <h2>On which days would you like to meditate?</h2>
                 <h3>Making the meditation a daily routine would be the best option, but we recommend to meditate at least five times a week.</h3>
                 <section className="RemindMeDaysWrapper">
-                    <button type="button" className={sunClass} onClick={() => { dayChoice("Sun", sunClass, setSunClass) }}>Sun</button>
-                    <button type="button" className={monClass} onClick={() => { dayChoice("Mon", monClass, setMonClass) }}>Mon</button>
-                    <button type="button" className={tueClass} onClick={() => { dayChoice("Tue", tueClass, setTueClass) }}>Tue</button>
-                    <button type="button" className={wedClass} onClick={() => { dayChoice("Wed", wedClass, setWedClass) }}>Wed</button>
-                    <button type="button" className={thuClass} onClick={() => { dayChoice("Thu", thuClass, setThuClass) }}>Thu</button>
-                    <button type="button" className={friClass} onClick={() => { dayChoice("Fri", friClass, setFriClass) }}>Fri</button>
-                    <button type="button" className={satClass} onClick={() => { dayChoice("Sat", satClass, setSatClass) }}>Sat</button>
+                    <button type="button" className={sunClass} onClick={() => { dayChoice("Sun", sunClass, setSunClass); }}>Sun</button>
+                    <button type="button" className={monClass} onClick={() => { dayChoice("Mon", monClass, setMonClass); }}>Mon</button>
+                    <button type="button" className={tueClass} onClick={() => { dayChoice("Tue", tueClass, setTueClass); }}>Tue</button>
+                    <button type="button" className={wedClass} onClick={() => { dayChoice("Wed", wedClass, setWedClass); }}>Wed</button>
+                    <button type="button" className={thuClass} onClick={() => { dayChoice("Thu", thuClass, setThuClass); }}>Thu</button>
+                    <button type="button" className={friClass} onClick={() => { dayChoice("Fri", friClass, setFriClass); }}>Fri</button>
+                    <button type="button" className={satClass} onClick={() => { dayChoice("Sat", satClass, setSatClass); }}>Sat</button>
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">

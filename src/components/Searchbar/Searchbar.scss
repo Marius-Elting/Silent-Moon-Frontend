@@ -7,7 +7,7 @@
     position: relative;
 
     .search {
-        padding: 10px 0;
+        padding: 10px;
         width: 100%;
         border: 1px solid black;
         background-color: #ecedf0;
@@ -31,6 +31,24 @@
         top: 50%;
         transform: translate(0, -50%);
         z-index: 2;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .searchResultsHidden {
+        display: none;
+    }
+
+    .searchResultsShown {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: absolute;
+        background-color: #ecedf0;
+        width: 100%;
+        margin-top: -1rem;
+        padding: 3rem 1rem;
     }
 
 }

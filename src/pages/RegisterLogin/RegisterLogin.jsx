@@ -14,16 +14,13 @@ const RegisterLogin = () => {
     const passwordRef = useRef();
     const firstNameRef = useRef();
     const surNameRef = useRef();
-    const navigate = useNavigate()
-    const { action } = useParams()
+    const navigate = useNavigate();
+    const { action } = useParams();
+    const dispatch = useDispatch();
+    const userData = useSelector(state => state.user);
+    const alert = useSelector(state => state.ui.alertIsVisible);
+    const alertType = useSelector(state => state.ui.alertType);
 
-    const dispatch = useDispatch()
-    const userData = useSelector(state => state.user)
-    const alert = useSelector(state => state.ui.alertIsVisible)
-    const alertType = useSelector(state => state.ui.alertType)
-
-    console.log(alert)
-    console.log(userData)
 
     const handleRegisterSubmit = async () => {
         const user = {
@@ -31,21 +28,21 @@ const RegisterLogin = () => {
             lastname: surNameRef.current.value,
             password: passwordRef.current.value,
             email: emailRef.current.value
-        }
-        dispatch(registerUser({ user, navToHome }))
-    }
+        };
+        dispatch(registerUser({ user, navToHome }));
+    };
 
     const navToHome = () => {
-        navigate("/start")
-    }
+        navigate("/start");
+    };
 
     const handleLoginSubmit = async () => {
         const user = {
             password: passwordRef.current.value,
             email: emailRef.current.value
-        }
-        dispatch(loginUser({ user, navToHome }))
-    }
+        };
+        dispatch(loginUser({ user, navToHome }));
+    };
 
     return (
         <section className='registerLoginSection'>
@@ -79,7 +76,7 @@ const RegisterLogin = () => {
                     </article>
             }
         </section>
-    )
-}
+    );
+};
 
-export default RegisterLogin
+export default RegisterLogin;

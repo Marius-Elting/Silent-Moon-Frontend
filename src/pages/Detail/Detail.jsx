@@ -8,6 +8,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../components/Loading/Loading';
 import { uiActions } from '../../store/ui-slice';
+
+
 const Detail = () => {
     const user = useSelector(state => state.user);
     let { id, playlist } = useParams();
@@ -67,7 +69,6 @@ const Detail = () => {
                 translate: "-50% -50%"
             }} />}
             {
-                // data?.filter(element => element.type === 'meditation')
                 data?.type === "yoga" ?
                     <section className='detailYoga'>
                         <article className='detailYogaBackground'>
@@ -100,7 +101,6 @@ const Detail = () => {
 
                                     <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
                                 )
-                                // als prop die preview übergeben
                             })
                         }
                         <Navbar />

@@ -12,50 +12,93 @@
 
 
     .audioPlayer {
-        margin: 30rem auto 0 auto;
-        width: 60vw;
+        margin: 25rem auto 0 auto;
+        width: 90vw;
+        background-color: transparent;
 
         .rhap_progress-section {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-family: $SSP400;
+
+            .rhap_time.rhap_current-time,
+            .rhap_time.rhap_current-left-time {
+                color: $darkGreenColor;
+            }
+
+            .rhap_progress-bar.rhap_progress-bar-show-download {
+
+                .rhap_progress-indicator {
+                    background-color: $darkGreenColor;
+                }
+            }
         }
 
         .rhap_controls-section {
+            width: 100%;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+            justify-content: center;
 
-        .rhap_main-controls {
-            width: 9rem;
-        }
+            .rhap_additional-controls {
+                display: none;
+            }
 
-        .rhap_additional-controls {
-            display: flex;
-            flex-direction: row;
-        }
+            .rhap_main-controls {
+                width: 50%;
 
-        .rhap_main-controls button svg {
-            width: 25px;
-            height: 25px;
-        }
+                .rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button {
+                    height: 50px;
+                    width: 100px;
+                    margin: 0;
 
-        .rhap_volume-controls button svg {
-            width: 20px;
-            height: 20px;
-        }
+                    svg {
+                        width: 50px;
+                        height: 50px;
+                        color: $darkGreenColor;
+                    }
+                }
 
-        .rhap_time.rhap_current-time {
-            font-size: 2rem;
-        }
+                .rhap_button-clear.rhap_main-controls-button.rhap_rewind-button {
+                    margin: 0;
 
-        .rhap_time.rhap_total-time {
-            font-size: 2rem;
-        }
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        color: $darkGreenColor;
+                        margin: 0;
+                    }
+                }
 
-        .rhap_button-clear.rhap_repeat-button svg {
-            font-size: 20px;
+
+                .rhap_button-clear.rhap_main-controls-button.rhap_forward-button {
+                    margin: 0;
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        color: $darkGreenColor;
+                        margin: 0;
+                    }
+                }
+
+            }
+
+            .rhap_volume-controls {
+                display: none;
+            }
         }
+    }
+}
+
+.headerAudioPlayer {
+    height: 8rem;
+    text-align: center;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+
+    h3 {
+        @include headlineMedium;
+        margin-bottom: 1rem;
     }
 }

@@ -3,7 +3,7 @@
 .profileSection {
     padding: 15px;
 
-    h3 {
+    h4 {
         @include headlineMedium;
     }
 
@@ -26,6 +26,7 @@
         margin-top: 8rem;
 
         article {
+            display: flex;
             overflow-x: scroll;
         }
     }

@@ -1,0 +1,46 @@
+@import "../../App";
+
+.catPopupHidden {
+    display: none;
+}
+
+.catPopupShown {
+    height: 400vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    z-index: 6;
+    display: auto;
+
+    h2 {
+        @include headlineBig;
+        text-align: center;
+    }
+
+    h3 {
+        @include subtitle;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    button {
+        font-size: 2rem;
+        margin-left: 3rem;
+        margin-top: 3rem;
+        margin-bottom: -3rem;
+        background-color: transparent;
+        border: none;
+    }
+
+    section {
+        margin-top: 10rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+
+        div {
+            width: 100%;
+        }
+    }
+}

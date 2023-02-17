@@ -16,7 +16,7 @@ const Profile = () => {
     const dispatch = useDispatch();
     const userData = useSelector(state => state.user.userData);
     const testUser = {
-        id: "63ebf27631ac83f83b95328f",
+        id: userData._id,
         type: "all"
     };
 
@@ -59,7 +59,7 @@ const Profile = () => {
                         userFavorites?.favorites?.filter(element => element.type === 'yoga').map((element, key) => {
                             return (
                                 <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
-                            )
+                            );
                         })
                     }
                 </article>
@@ -67,15 +67,15 @@ const Profile = () => {
 
             <article className='profileMeditation'>
                 <h4>Favourite Meditations</h4>
-                {/* <div>
+                <div>
                     {
                         userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
                             return (
                                 <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
-                            )
+                            );
                         })
                     }
-                </div> */}
+                </div>
             </article>
             <Navbar page="profile" />
         </section>

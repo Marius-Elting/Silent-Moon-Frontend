@@ -3,7 +3,7 @@ import './Profile.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import { Duck } from '../../assets/img';
+import { Duck, LogoutButton } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutuser } from '../../store/user-actions';
 import SmallCard from '../../components/SmallCard/SmallCard';
@@ -44,18 +44,19 @@ const Profile = () => {
         <section className='profileSection'>
             <AppHeadline />
 
+
             <article className='profileUser'>
                 <img src={Duck} alt='User'></img>
                 <p>{user}</p>
             </article>
 
             <Searchbar visibility={visibility} setVisibility={setVisibility} />
-            <button onClick={() => { dispatch(logoutuser()); }}>LOGOUT</button>
+            <img className='profileLogout' src={LogoutButton} onClick={() => { dispatch(logoutuser()); }} alt="Logout Button" />
             <article className='profileYoga'>
                 <h4>Favourite Yoga Sessions</h4>
                 <article>
                     {
-                        userFavorites.favorites.filter(element => element.type === 'yoga').map((element, key) => {
+                        userFavorites?.favorites?.filter(element => element.type === 'yoga').map((element, key) => {
                             return (
                                 <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
                             )
@@ -68,7 +69,7 @@ const Profile = () => {
                 <h4>Favourite Meditations</h4>
                 {/* <div>
                     {
-                        userFavorites.favorites.filter(element => element.type === 'meditation').map((element, key) => {
+                        userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
                             return (
                                 <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
                             )

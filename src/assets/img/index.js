@@ -41,12 +41,8 @@ import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
 import PauseButton from './pauseButton.svg';
 import Duck from './oldDuck.png';
 import NoResult from './noResult.jpg';
-
 import HeartActive from "./heartTopNav-active.svg";
-
 import LogoutButton from './logoutButton.svg';
-
-
 
 
 
@@ -94,13 +90,7 @@ export {
     MeditationPlayerBackground,
     PauseButton,
     Duck,
-
-    NoResult
-
-
-    HeartActive
-
-
-
-    LogoutButton
+    NoResult,
+    HeartActive,
+    LogoutButton,
 };

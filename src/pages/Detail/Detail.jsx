@@ -103,8 +103,6 @@ const Detail = () => {
                                     <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
 
                                 );
-                             
-
                             })
                         }
                         <Navbar />

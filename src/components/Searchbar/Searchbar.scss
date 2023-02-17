@@ -1,15 +1,14 @@
 @import '../../App';
 
 .searchBarDiv {
-
-
-    margin: 0 auto;
-
-
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    height: 4rem;
     position: relative;
 
     .search {
         position: absolute;
+        // margin-top: -1rem;
         padding: 10px;
         width: 100%;
         border: 1px solid black;

@@ -11,6 +11,7 @@ import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
 import OverviewThumbnail from '../../components/OverviewThumbnail/OverviewThumbnail';
 import CategoryPopUp from '../../components/CategoryPopUp/CategoryPopUp';
+import { NoResult } from '../../assets/img'
 
 
 const Overview = () => {
@@ -23,6 +24,14 @@ const Overview = () => {
     const today = new Date();
     const month = monthsArray[today.getMonth()];
     const day = today.getDate();
+
+    // User Data
+    const userData = useSelector(state => state.user.userData);
+    const testUser = {
+        // id: userData._id,
+        id: "63ebf27631ac83f83b95328f",
+        type: params
+    };
 
     // Trigger for fetches
     const [activeCat, setActiveCat] = useState("all");
@@ -74,6 +83,7 @@ const Overview = () => {
             setDataCategories([]);
 
             try {
+                // Fetch for all categories
                 if (activeCat === "all") {
                     const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getcategorybytype', {
                         headers: {
@@ -90,7 +100,29 @@ const Overview = () => {
 
 
                     return;
-                } else {
+                }
+                // Fetch for users favorites
+                else if (activeCat === "fav") {
+                    const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getfavorites', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        credentials: "include",
+                        body: JSON.stringify(testUser)
+                    });
+                    const getUserFavs = await response.json();
+                    console.log(getUserFavs.favorites);
+                    getUserFavs.favorites.length === 0 ? setDataCategories([{
+                        name: "Seems like you did not yet save your favorites.",
+                        image: { url: NoResult }
+                    }]) : setDataCategories(getUserFavs.favorites);
+
+                    dispatch(uiActions.unsetLoadingComponent("overview"));
+
+                }
+                // Fetch for all other categories by category name
+                else {
                     const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getsinglecategory', {
                         headers: {
                             Authorization: `Bearer ${user.token}`,
@@ -124,12 +156,12 @@ const Overview = () => {
     const clickHandlerCat = (name) => {
         setPopupVisibility("Shown");
         setPopupCat(name);
+        window.scrollTo({
+            top: 0,
+        });
         console.log("ClickHandlerCat triggered");
 
-        return
-        // (
-        //     <CategoryPopUp popupVisibility={popupVisibility} setPopupVisibility={setPopupVisibility} category={popupCat} type={params} />
-        // )
+        return;
     }
 
     console.log("popupCat: ", popupCat, " & popupVisibility: ", popupVisibility);
@@ -142,7 +174,7 @@ const Overview = () => {
         navigate(`/details/${params}/${id}`)
     }
 
-
+    console.log("DataCategories: ", dataCategories);
 
     return (
 
@@ -181,7 +213,7 @@ const Overview = () => {
                     dataCategories.map((category, index) => {
                         return (
 
-                            <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${params}/${category._id}`} />
+                            <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${category.type}/${category._id}`} />
                         );
                     })
                 }

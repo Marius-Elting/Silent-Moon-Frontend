@@ -57,11 +57,15 @@ const CategoryPopUp = (props) => {
         getData();
     }, []);
 
+    const closePopup = () => {
+
+    }
+
 
     return (
         <div className={`catPopup${props.popupVisibility}`}>
             <AppHeadline />
-            <button type="button" onClick={() => props.setPopupVisibilty("Hidden")}>X</button>
+            <button type="button" onClick={() => props.setPopupVisibility("Hidden")}>X</button>
             <h2>{props.type}</h2>
             <h3>{props.category}</h3>
             <section>

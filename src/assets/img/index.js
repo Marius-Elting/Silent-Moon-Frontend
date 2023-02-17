@@ -1,26 +1,26 @@
-import landingImg from '../img/landingImg.png';
-import LoginRegisterImg from '../img/loginRegisterImg.png';
-import BackArrow from '../img/backArrow.png';
-import StartImg from '../img/startImg.png';
-import NavHome from '../img/nav-home.svg';
-import NavMeditate from '../img/nav-meditate.svg';
-import NavYoga from '../img/nav-yoga.svg';
-import NavMusic from '../img/nav-music.svg';
-import NavProfile from '../img/nav-profile.svg';
-import HealthyBack from '../img/healthyBack.jpeg';
-import Meditate from '../img/meditateImg.jpeg';
-import Lupe from '../img/lupe.svg';
-import Heart from '../img/heart.svg';
-import Headphones from '../img/headphones.svg';
-import BackArrowTopNav from '../img/backArrowTopNav.svg';
-import DownloadTopNav from '../img/downloadTopNav.svg';
-import HeartTopNav from '../img/heartTopNav.svg';
-import CloseTopNav from '../img/closeTopNav.svg';
-import Playlist from '../img/playlist.svg';
-import DetailYogaImg from '../img/detailYogaImg.jpeg';
-import YogaPlayButton from '../img/yogaPlayButton.svg';
-import PlayBtn from '../img/playBtnGreen.png';
-import DailyBackground from '../img/backgroundDailyCalm.png';
+import landingImg from './landingImg.png';
+import LoginRegisterImg from './loginRegisterImg.png';
+import BackArrow from './backArrow.png';
+import StartImg from './startImg.png';
+import NavHome from './nav-home.svg';
+import NavMeditate from './nav-meditate.svg';
+import NavYoga from './nav-yoga.svg';
+import NavMusic from './nav-music.svg';
+import NavProfile from './nav-profile.svg';
+import HealthyBack from './healthyBack.jpeg';
+import Meditate from './meditateImg.jpeg';
+import Lupe from './lupe.svg';
+import Heart from './heart.svg';
+import Headphones from './headphones.svg';
+import BackArrowTopNav from './backArrowTopNav.svg';
+import DownloadTopNav from './downloadTopNav.svg';
+import HeartTopNav from './heartTopNav.svg';
+import CloseTopNav from './closeTopNav.svg';
+import Playlist from './playlist.svg';
+import DetailYogaImg from './detailYogaImg.jpeg';
+import YogaPlayButton from './yogaPlayButton.svg';
+import PlayBtn from './playBtnGreen.png';
+import DailyBackground from './backgroundDailyCalm.png';
 import NavYogaActive from "./nav-yoga-active.svg";
 import NavMeditateActive from "./nav-meditate-active.svg";
 import NavMusicActive from "./nav-music-active.svg";
@@ -40,7 +40,12 @@ import DetailMeditationImg from './detailYogaImg.jpeg';
 import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
 import PauseButton from './pauseButton.svg';
 import Duck from './oldDuck.png';
+import NoResult from './noResult.jpg';
+
+import HeartActive from "./heartTopNav-active.svg";
+
 import LogoutButton from './logoutButton.svg';
+
 
 
 
@@ -89,6 +94,13 @@ export {
     MeditationPlayerBackground,
     PauseButton,
     Duck,
-    LogoutButton
 
-}
+    NoResult
+
+
+    HeartActive
+
+
+
+    LogoutButton
+};

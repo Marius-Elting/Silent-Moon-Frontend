@@ -16,7 +16,7 @@ const Profile = () => {
     const dispatch = useDispatch();
     const userData = useSelector(state => state.user.userData);
     const testUser = {
-        id: "63ebf27631ac83f83b95328f",
+        id: "63ee060ea36aa018cdaf117a",
         type: "all"
     };
 
@@ -67,7 +67,7 @@ const Profile = () => {
 
             <article className='profileMeditation'>
                 <h4>Favourite Meditations</h4>
-                {/* <div>
+                <article>
                     {
                         userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
                             return (
@@ -75,7 +75,7 @@ const Profile = () => {
                             )
                         })
                     }
-                </div> */}
+                </article>
             </article>
             <Navbar page="profile" />
         </section>

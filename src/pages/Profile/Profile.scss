@@ -12,6 +12,7 @@
 
     h4 {
         @include headlineMedium;
+        margin-bottom: 2rem;
     }
 
     .profileUser {
@@ -30,10 +31,22 @@
     }
 
     .profileYoga {
-        margin-top: 8rem;
+        margin-top: 4rem;
 
         article {
             display: flex;
+            gap: 20px;
+            padding-bottom: 4rem;
+            overflow-x: scroll;
+        }
+    }
+
+    .profileMeditation {
+
+        article {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 4rem;
             overflow-x: scroll;
         }
     }

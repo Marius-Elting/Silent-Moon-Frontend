@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Profile.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
@@ -10,6 +10,33 @@ import SmallCard from '../../components/SmallCard/SmallCard';
 
 const Profile = () => {
     const user = useSelector(state => state.user?.userData?.firstname) || "Herbert";
+    const [visibility, setVisibility] = useState("Hidden");
+    const [userFavorites, setUserFavorites] = useState([]);
+    const testUser = {
+        id: "63ebf27631ac83f83b95328f",
+        type: "all"
+    };
+
+    console.log(userFavorites);
+
+    useEffect(() => {
+        async function getFavorites() {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getfavorites', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: "include",
+                body: JSON.stringify(testUser)
+            });
+            const getUser = await response.json();
+            console.log(getUser.favorites);
+            setUserFavorites(getUser);
+
+        }
+        getFavorites();
+    }, []);
+
     return (
         <section className='profileSection'>
             <AppHeadline />
@@ -19,16 +46,32 @@ const Profile = () => {
                 <p>{user}</p>
             </article>
 
-            <Searchbar />
+            <Searchbar visibility={visibility} setVisibility={setVisibility} />
 
             <article className='profileYoga'>
                 <h3>Favourite Yoga Sessions</h3>
-                <SmallCard />
+                <article>
+                    {
+                        userFavorites.favorites.filter(element => element.type === 'yoga').map((element, key) => {
+                            return (
+                                <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                            )
+                        })
+                    }
+                </article>
             </article>
 
             <article className='profileMeditation'>
                 <h3>Favourite Meditations</h3>
-                <SmallCard />
+                {/* <div>
+                    {
+                        userFavorites.favorites.filter(element => element.type === 'meditation').map((element, key) => {
+                            return (
+                                <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                            )
+                        })
+                    }
+                </div> */}
             </article>
 
 

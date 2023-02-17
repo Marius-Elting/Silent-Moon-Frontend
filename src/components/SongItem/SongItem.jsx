@@ -17,7 +17,7 @@ const SongItem = (props) => {
             <button onClick={toggleButtonHandler}>
                 <img src={Playlist} alt='PlayButton'></img>
             </button>
-            {showPopup && <MusicPopUp showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} />}
+            {showPopup && <MusicPopUp showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} preview={props.preview} />}
             <article>
                 <h3>{props.playlistName}</h3>
                 <p>{props.artist}</p>

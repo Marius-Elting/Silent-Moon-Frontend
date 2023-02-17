@@ -116,7 +116,6 @@ const Home = () => {
                         })
                     }
                 </article>
-
             </article>
 
             <Navbar page="home" />

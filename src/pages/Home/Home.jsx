@@ -16,12 +16,13 @@ const Home = () => {
 
     const user = useSelector(state => state.user);
     const isLoading = useSelector(state => state.ui.isLoading);
-
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const [visibility, setVisibility] = useState("Hidden");
 
 
     useEffect(() => {
-        dispatch(uiActions.showLoading());
+        dispatch(uiActions.setLoadingComponent("home"));
+        console.log("DISPATCH");
         async function getData() {
             try {
 
@@ -33,7 +34,8 @@ const Home = () => {
                 });
                 const data = await response.json();
                 setData(data);
-                dispatch(uiActions.unShowLoading());
+                dispatch(uiActions.unsetLoadingComponent("home"));
+
             } catch (err) {
                 dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.showAlert({
@@ -85,7 +87,7 @@ const Home = () => {
             <article className='homeRecomended'>
                 <p>Recomended Yoga for you</p>
                 <article>
-                    {isLoading && <Loading center={true} />}
+                    {loadingComponent.includes("home") && !data && <Loading center={true} />}
 
                     {
                         data?.filter(element => element.type === 'yoga').map((element, index) => {
@@ -104,7 +106,7 @@ const Home = () => {
             <article className='homeRecomended'>
                 <p>Recomended Meditation for you</p>
                 <article>
-                    {isLoading && <Loading center={true} />}
+                    {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
                         data?.filter(element => element.type === 'meditation').map((element, index) => {
                             return (

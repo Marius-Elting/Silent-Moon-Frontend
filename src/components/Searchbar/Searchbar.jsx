@@ -17,16 +17,17 @@ const Searchbar = (props) => {
     const [searchValue, setSearchValue] = useState("");
 
     const [searchResult, setSearchResult] = useState();
-
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
 
     // Function to filter data
     const filterData = (data, search) => {
-        return data.filter(element => element.name.toLowerCase().indexOf(search.toLowerCase()) !== -1)
-    }
+        return data.filter(element => element.name.toLowerCase().indexOf(search.toLowerCase()) !== -1);
+    };
 
     // Fetch for all excercises
     useEffect(() => {
-        dispatch(uiActions.showLoading());
+        dispatch(uiActions.setLoadingComponent("searchbar"));
+
         async function getData() {
             try {
                 const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise', {
@@ -34,9 +35,10 @@ const Searchbar = (props) => {
                 });
                 const data = await response.json();
                 setData(data);
-                dispatch(uiActions.unShowLoading());
+
+                dispatch(uiActions.unsetLoadingComponent("searchbar"));
             } catch (err) {
-                dispatch(uiActions.unShowLoading());
+                dispatch(uiActions.unsetLoadingComponent("searchbar"));
                 dispatch(uiActions.showAlert({
                     type: "error",
                     message: "Database Error",
@@ -45,11 +47,12 @@ const Searchbar = (props) => {
             }
         }
         getData();
-    }, [searchValue]);
+    }, []);
 
 
     // Filter Fetch outcome for search value
     useEffect(() => {
+
         if (searchValue === "" || !searchValue) {
             props.setVisibility("Hidden");
             setSearchResult();
@@ -64,17 +67,18 @@ const Searchbar = (props) => {
             setSearchResult(filterData(data, searchValue));
             props.setVisibility("Shown");
         }
+
     }, [searchValue]);
 
 
     return (
         <div className='searchBarDiv'>
             <input className='search' onChange={(e) => {
-                setSearchValue(e.target.value)
+                setSearchValue(e.target.value);
                 if (e.target.value !== "") {
-                    props.setVisibility("Shown")
+                    props.setVisibility("Shown");
                 } else if (e.target.value === "") {
-                    props.setVisibility("Hidden")
+                    props.setVisibility("Hidden");
                 }
             }}></input>
 
@@ -87,11 +91,11 @@ const Searchbar = (props) => {
                                 <SmallCard image={element.image?.url} name={element.name} level={element.level} duration={element.duration} />
                             </Link>
                         </div>
-                    )
+                    );
                 })}
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default Searchbar
+export default Searchbar;

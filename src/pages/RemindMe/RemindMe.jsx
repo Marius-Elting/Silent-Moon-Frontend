@@ -21,7 +21,7 @@ import emblaCarouselReact from "embla-carousel-react";
 
 
 const RemindMe = () => {
-    const [chosenDate, setChosenDate] = useState(["Sun", "Mon", "Tue"]);
+    const [chosenDate, setChosenDate] = useState([]);
 
     const [sunClass, setSunClass] = useState("brightDay");
     const [monClass, setMonClass] = useState("brightDay");

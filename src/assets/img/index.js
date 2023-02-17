@@ -40,6 +40,7 @@ import DetailMeditationImg from './detailYogaImg.jpeg';
 import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
 import PauseButton from './pauseButton.svg';
 import Duck from './oldDuck.png';
+import NoResult from './noResult.jpg';
 
 import HeartActive from "./heartTopNav-active.svg";
 
@@ -94,7 +95,11 @@ export {
     PauseButton,
     Duck,
 
+    NoResult
+
+
     HeartActive
+
 
 
     LogoutButton

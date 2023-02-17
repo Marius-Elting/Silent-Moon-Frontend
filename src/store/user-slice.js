@@ -1,3 +1,4 @@
+import { getCardActionsUtilityClass } from "@mui/material";
 import { create } from "@mui/material/styles/createTransitions";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -16,7 +17,12 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         login(state, action) {
-            state.userData = action.payload.user;
+            state.userData = {
+                _id: action.payload.user._id,
+                firstname: action.payload.user.firstname,
+                lastname: action.payload.user.lastname,
+                email: action.payload.user.email
+            };
             state.token = action.payload.token;
             state.favorites = action.payload.user.favorites;
         },
@@ -26,7 +32,7 @@ const userSlice = createSlice({
             state.favorites = [];
         },
         getFavorites(state, action) {
-            state.userData.favorites = action.payload.favorites;
+            state.favorites = action.payload.favorites;
         }
 
     }

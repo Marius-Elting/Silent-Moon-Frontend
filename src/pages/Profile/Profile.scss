@@ -3,6 +3,13 @@
 .profileSection {
     padding: 15px;
 
+    .profileLogout {
+        width: 40px;
+        position: fixed;
+        top: 23px;
+        left: 20px
+    }
+
     h4 {
         @include headlineMedium;
     }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const OverviewThumbnail = (props) => {
 
@@ -30,9 +31,9 @@ const OverviewThumbnail = (props) => {
 
 
     return (
-        <div className={size} style={backgroundImage} onClick={() => { props.clickHandler(props.type === "cat" ? props.name : props.id) }}>
+        <Link to={props.link} className={size} style={backgroundImage} onClick={() => { props.clickHandler(props.type === "cat" ? props.name : props.id) }}>
             <p>{props.name}</p>
-        </div>
+        </Link>
     );
 };
 

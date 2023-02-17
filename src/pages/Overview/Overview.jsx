@@ -9,7 +9,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
-import OverviewThumnail from '../../components/OverviewThumbnail/OverviewThumbnail';
+import OverviewThumbnail from '../../components/OverviewThumbnail/OverviewThumbnail';
+import CategoryPopUp from '../../components/CategoryPopUp/CategoryPopUp';
 
 
 const Overview = () => {
@@ -23,19 +24,25 @@ const Overview = () => {
     const month = monthsArray[today.getMonth()];
     const day = today.getDate();
 
+    // Trigger for fetches
     const [activeCat, setActiveCat] = useState("all");
-
     const [filterCriteria, setFilterCriteria] = useState("");
-
     const filterCategory = { category: filterCriteria };
 
+    // user & loading circle
     const dispatch = useDispatch();
     const [dataCategories, setDataCategories] = useState([]);
     const user = useSelector(state => state.user);
     const isLoading = useSelector(state => state.ui.isLoading);
 
+    // Trigger for searchbar
     const [visibility, setVisibility] = useState("Hidden");
+    // Trigger for popup
+    const [popupVisibility, setPopupVisibility] = useState("Hidden");
+    const [popupCat, setPopupCat] = useState();
 
+
+    // daily calm - random - trigger + fetch
     const [dataRandom, setDataRandom] = useState();
 
     useEffect(() => {
@@ -57,8 +64,8 @@ const Overview = () => {
         getData();
     }, [params]);
 
-    console.log("Data Random: ", dataRandom);
 
+    // Fetch for categories or exercises per category
     useEffect(() => {
         dispatch(uiActions.showLoading());
 
@@ -110,10 +117,35 @@ const Overview = () => {
         getData();
     }, [activeCat, params]);
 
+    // Function for popup
+    const clickHandlerCat = (name) => {
+        setPopupVisibility("Shown");
+        setPopupCat(name);
+        console.log("ClickHandlerCat triggered");
+
+        return
+        // (
+        //     <CategoryPopUp popupVisibility={popupVisibility} setPopupVisibility={setPopupVisibility} category={popupCat} type={params} />
+        // )
+    }
+
+    console.log("popupCat: ", popupCat, " & popupVisibility: ", popupVisibility);
+
+    //Function for rerouting to detail page for each exercise
+    const clickHandlerEx = (id) => {
+        console.log("ClickHandlerEx triggered");
+        console.log(`/details/${params}/${id}`);
+
+        navigate(`/details/${params}/${id}`)
+    }
+
+
 
     return (
+
         <div className='overviewPage'>
             <AppHeadline />
+
             <div>
                 <h2>{params}</h2>
                 <h3>{params === "yoga" ? "Find your inner zen from anywhere." : "Audio-only meditation techniques to help you minimize your screen time and practice on the go."}</h3>
@@ -140,20 +172,26 @@ const Overview = () => {
                 {activeCat === "all" ?
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category.name} img={category?.img?.url} />
+                            <OverviewThumbnail key={index} type="cat" name={category.name} img={category?.img?.url} clickHandler={clickHandlerCat} />
                         );
                     }) :
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} onClick={navigate(`/details/${params}/${category._id}`)} />
+                            <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${params}/${category._id}`} />
                         );
                     })
                 }
             </section>
 
+            {popupVisibility === "Shown" && <CategoryPopUp popupVisibility={popupVisibility} setPopupVisibility={setPopupVisibility} category={popupCat} type={params} />
+            }
+
+
+
+
             <Navbar page={params} />
         </div>
     );
 };
-// 
+
 export default Overview;

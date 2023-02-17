@@ -35,6 +35,29 @@ const Overview = () => {
 
     const [visibility, setVisibility] = useState("Hidden");
 
+    const [dataRandom, setDataRandom] = useState();
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise', {
+                    credentials: "include",
+                });
+                const data = await response.json();
+                setDataRandom(data[Math.floor(Math.random() * (data.length - 1))]);
+            } catch (err) {
+                dispatch(uiActions.showAlert({
+                    type: "error",
+                    message: "Database Error",
+                    color: "red"
+                }));
+            }
+        }
+        getData();
+    }, [params]);
+
+    console.log("Data Random: ", dataRandom);
+
     useEffect(() => {
         dispatch(uiActions.showLoading());
 
@@ -107,7 +130,7 @@ const Overview = () => {
                     </div>
                 </article>
                 <article>
-                    <Link><img src={PlayBtn} alt="Play Button" /></Link>
+                    <Link to={`/detail/${params}/${dataRandom?._id}`} ><img src={PlayBtn} alt="Play Button" /></Link>
                 </article>
             </section>
 

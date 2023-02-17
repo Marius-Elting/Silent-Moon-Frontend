@@ -40,6 +40,7 @@ import DetailMeditationImg from './detailYogaImg.jpeg';
 import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
 import PauseButton from './pauseButton.svg';
 import Duck from './oldDuck.png';
+import LogoutButton from './logoutButton.svg';
 
 
 
@@ -87,7 +88,7 @@ export {
     DetailMeditationImg,
     MeditationPlayerBackground,
     PauseButton,
-    Duck
-
+    Duck,
+    LogoutButton
 
 }

@@ -5,7 +5,7 @@ import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import CategoryFilter from '../../components/CategoryFilter/CategoryFilter.jsx';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import { PlayBtn } from '../../assets/img';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
@@ -16,6 +16,7 @@ const Overview = () => {
 
     const monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+    const navigate = useNavigate();
     const params = useParams().type;
     const paramsObj = params === "yoga" ? { type: params } : { type: "meditation" };
     const today = new Date();
@@ -144,7 +145,7 @@ const Overview = () => {
                     }) :
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} />
+                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} onClick={navigate(`/details/${params}/${category._id}`)} />
                         );
                     })
                 }

@@ -73,14 +73,9 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, 45%);
         grid-auto-rows: 10px;
-        gap: 5px;
+        gap: 15px;
         justify-content: space-evenly;
 
-        // div {
-        //     background-repeat: no-repeat;
-        //     object-fit: cover;
-        //     border-radius: 10px;
-        // }
 
         .overviewSmallThumbnail {
             grid-row: span 8;

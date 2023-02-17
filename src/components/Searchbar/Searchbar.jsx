@@ -5,7 +5,6 @@ import './Searchbar.scss';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
-import Loading from '../../components/Loading/Loading';
 
 
 

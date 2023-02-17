@@ -70,7 +70,6 @@ const Detail = () => {
                 translate: "-50% -50%"
             }} />}
             {
-                // data?.filter(element => element.type === 'meditation')
                 data?.type === "yoga" ?
                     <section className='detailYoga'>
                         <article className='detailYogaBackground'>
@@ -102,8 +101,10 @@ const Detail = () => {
                                 return (
 
                                     <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
+
                                 );
-                                // als prop die preview übergeben
+                             
+
                             })
                         }
                         <Navbar />

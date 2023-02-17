@@ -53,16 +53,16 @@ const Profile = () => {
             <button onClick={() => { dispatch(logoutuser()); }}>LOGOUT</button>
             <article className='profileYoga'>
                 <h3>Favourite Yoga Sessions</h3>
-                {/* {userFavorites !== [] && userData &&
-                    <article>
-                        {
-                            userFavorites.favorites.filter(element => element.type === 'yoga').map((element, key) => {
-                                return (
-                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
-                                );
-                            })
-                        }
-                    </article>} */}
+                <article>
+                    {
+                        userFavorites.favorites.filter(element => element.type === 'yoga').map((element, key) => {
+                            return (
+                                <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
+                            )
+                        })
+                    }
+                </article>
+
             </article>
 
             <article className='profileMeditation'>

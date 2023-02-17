@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const OverviewThumnail = (props) => {
+const OverviewThumbnail = (props) => {
 
     const [size, setSize] = useState("")
 
@@ -30,10 +30,10 @@ const OverviewThumnail = (props) => {
 
 
     return (
-        <div className={size} style={backgroundImage}>
+        <div className={size} style={backgroundImage} onClick={() => { props.clickHandler(props.type === "cat" ? props.name : props.id) }}>
             <p>{props.name}</p>
         </div>
     );
 };
 
-export default OverviewThumnail;
+export default OverviewThumbnail;

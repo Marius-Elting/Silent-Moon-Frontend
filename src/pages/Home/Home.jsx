@@ -89,12 +89,10 @@ const Home = () => {
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
 
                     {
-                        data?.filter(element => element.type === 'yoga').map((element, index) => {
+                        data?.filter(element => element.type === 'yoga').map((element) => {
                             return (
+                                <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
 
-                                <Link key={index} to={`/detail/yoga/${element._id}`}>
-                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
-                                </Link>
                             );
                         })
                     }
@@ -107,12 +105,9 @@ const Home = () => {
                 <article>
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
-                        data?.filter(element => element.type === 'meditation').map((element, index) => {
+                        data?.filter(element => element.type === 'meditation').map((element) => {
                             return (
-
-                                <Link key={index} to={`/detail/meditation/${element._id}`}>
-                                    <SmallCard image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
-                                </Link>
+                                <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                             );
                         })
                     }

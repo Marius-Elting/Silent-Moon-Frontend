@@ -15,7 +15,6 @@ const Home = () => {
     const [data, setData] = useState();
 
     const user = useSelector(state => state.user);
-    const isLoading = useSelector(state => state.ui.isLoading);
     const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const [visibility, setVisibility] = useState("Hidden");
 

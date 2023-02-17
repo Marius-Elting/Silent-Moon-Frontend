@@ -35,8 +35,6 @@ const uiSlice = createSlice({
         },
         unsetLoadingComponent(state, action) {
             const i = state.loadingComponent.indexOf(action.payload);
-            // console.log(i);
-            // state.loadingComponent = state.loadingComponent.splice(i, 1);
             let a = state.loadingComponent.slice(0, i);
             let b = state.loadingComponent.slice(i + 1);
             state.loadingComponent = a.concat(b);

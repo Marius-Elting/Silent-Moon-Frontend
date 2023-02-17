@@ -8,6 +8,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../components/Loading/Loading';
 import { uiActions } from '../../store/ui-slice';
+
+
 const Detail = () => {
     const user = useSelector(state => state.user);
     let { id, playlist } = useParams();
@@ -16,6 +18,7 @@ const Detail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.ui.isLoading);
+
     const handleBackButton = () => {
         navigate(-1);
 
@@ -59,7 +62,7 @@ const Detail = () => {
 
     return (
         <section className='detailSection'>
-            <TopNav symbol='arrow' handleClickFunction={handleBackButton} />
+            <TopNav data={{ user, item: { id: data?._id, type: data?.type } }} symbol='arrow' handleClickFunction={handleBackButton} />
             {isLoading && <Loading center={true} customStyle={{
                 position: "absolute",
                 top: "50%",
@@ -99,7 +102,7 @@ const Detail = () => {
                                 return (
 
                                     <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
-                                )
+                                );
                                 // als prop die preview übergeben
                             })
                         }

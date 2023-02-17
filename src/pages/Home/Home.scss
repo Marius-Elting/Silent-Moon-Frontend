@@ -85,12 +85,16 @@
             margin: 20px 0 20px 0;
         }
 
+
+
         article {
             display: flex;
             align-items: flex-start;
             column-gap: 10px;
             flex-direction: row;
             overflow-x: scroll;
+            overflow-y: hidden;
+
         }
     }
 }

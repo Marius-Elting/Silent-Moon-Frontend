@@ -5,8 +5,8 @@ import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import { Duck } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
-import SmallCard from '../../components/SmallCard/SmallCard';
 import { logoutuser } from '../../store/user-actions';
+import SmallCard from '../../components/SmallCard/SmallCard';
 
 
 const Profile = () => {
@@ -52,7 +52,7 @@ const Profile = () => {
             <Searchbar visibility={visibility} setVisibility={setVisibility} />
             <button onClick={() => { dispatch(logoutuser()); }}>LOGOUT</button>
             <article className='profileYoga'>
-                <h3>Favourite Yoga Sessions</h3>
+                <h4>Favourite Yoga Sessions</h4>
                 <article>
                     {
                         userFavorites.favorites.filter(element => element.type === 'yoga').map((element, key) => {
@@ -62,11 +62,10 @@ const Profile = () => {
                         })
                     }
                 </article>
-
             </article>
 
             <article className='profileMeditation'>
-                <h3>Favourite Meditations</h3>
+                <h4>Favourite Meditations</h4>
                 {/* <div>
                     {
                         userFavorites.favorites.filter(element => element.type === 'meditation').map((element, key) => {
@@ -77,9 +76,6 @@ const Profile = () => {
                     }
                 </div> */}
             </article>
-
-
-
             <Navbar page="profile" />
         </section>
     );

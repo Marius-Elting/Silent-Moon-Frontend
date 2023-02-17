@@ -1,6 +1,7 @@
 @import '../../App';
 
 .profileSection {
+    padding: 15px;
 
     h3 {
         @include headlineMedium;

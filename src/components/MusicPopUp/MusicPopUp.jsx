@@ -34,7 +34,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName }) => {
             <TopNav symbol='arrow' handleClickFunction={toggleButtonHandler} />
             <AudioPlayer className='audioPlayer' {...playerSettings}></AudioPlayer>
         </section>
-    )
-}
+    );
+};
 
-export default MusicPopUp
+export default MusicPopUp;

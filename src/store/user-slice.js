@@ -5,11 +5,11 @@ const initialState = {
     userData: null,
     token: null,
     favorites: null,
-}
+};
 
 export const fetchLogin = createAsyncThunk("/user/login", async () => {
 
-})
+});
 
 const userSlice = createSlice({
     name: "user",
@@ -18,13 +18,22 @@ const userSlice = createSlice({
         login(state, action) {
             state.userData = action.payload.user;
             state.token = action.payload.token;
-            state.favorites = action.payload.user.favorites
+            state.favorites = action.payload.user.favorites;
+        },
+        logout(state, action) {
+            state.userData = "";
+            state.token = "";
+            state.favorites = [];
+        },
+        getFavorites(state, action) {
+            state.userData.favorites = action.payload.favorites;
         }
+
     }
-})
+});
 
 
 
-export const userActions = userSlice.actions
+export const userActions = userSlice.actions;
 
-export default userSlice
+export default userSlice;

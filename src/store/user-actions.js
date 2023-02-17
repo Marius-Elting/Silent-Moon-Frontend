@@ -108,3 +108,31 @@ export const registerUser = ({ navToHome, user }) => {
         }
     };
 };
+
+export const logoutuser = () => {
+    return async (dispatch) => {
+        console.log("first");
+        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout");
+        const message = await res.json();
+        dispatch(userActions.logout());
+    };
+};
+
+
+export const toggleFavorite = (item, user) => {
+    return async (dispatch) => {
+        console.log(user);
+        console.log(item);
+        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/addfavorites", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({ item: item, user: user })
+        });
+        const a = await res.json();
+        console.log(a);
+        dispatch(userActions.getFavorites({ favorites: a.favorites }));
+    };
+};

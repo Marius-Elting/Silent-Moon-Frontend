@@ -14,14 +14,14 @@ const Home = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState();
 
-    const user = useSelector(state => state.user)
-    const isLoading = useSelector(state => state.ui.isLoading)
-
+    const user = useSelector(state => state.user);
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const [visibility, setVisibility] = useState("Hidden");
 
 
     useEffect(() => {
-        dispatch(uiActions.showLoading());
+        dispatch(uiActions.setLoadingComponent("home"));
+        console.log("DISPATCH");
         async function getData() {
             try {
 
@@ -33,7 +33,8 @@ const Home = () => {
                 });
                 const data = await response.json();
                 setData(data);
-                dispatch(uiActions.unShowLoading());
+                dispatch(uiActions.unsetLoadingComponent("home"));
+
             } catch (err) {
                 dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.showAlert({
@@ -64,7 +65,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/yoga`}>
+                        <Link to={`/detail/yoga/63ee8962cdddd46b7f88d18e`}>
                             <button>START</button>
                         </Link>
                     </div>
@@ -75,7 +76,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/meditation`}>
+                        <Link to={`/detail/meditation/63ee8a08cdddd46b7f88d18f`}>
                             <button>START</button>
                         </Link>
                     </div>
@@ -85,7 +86,7 @@ const Home = () => {
             <article className='homeRecomended'>
                 <p>Recomended Yoga for you</p>
                 <article>
-                    {isLoading && <Loading center={true} />}
+                    {loadingComponent.includes("home") && !data && <Loading center={true} />}
 
                     {
                         data?.filter(element => element.type === 'yoga').map((element) => {
@@ -102,7 +103,7 @@ const Home = () => {
             <article className='homeRecomended'>
                 <p>Recomended Meditation for you</p>
                 <article>
-                    {isLoading && <Loading center={true} />}
+                    {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
                         data?.filter(element => element.type === 'meditation').map((element) => {
                             return (

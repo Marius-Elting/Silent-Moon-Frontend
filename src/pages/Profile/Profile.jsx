@@ -4,14 +4,17 @@ import Navbar from '../../components/Navbar/Navbar';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import { Duck } from '../../assets/img';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SmallCard from '../../components/SmallCard/SmallCard';
+import { logoutuser } from '../../store/user-actions';
 
 
 const Profile = () => {
     const user = useSelector(state => state.user?.userData?.firstname) || "Herbert";
     const [visibility, setVisibility] = useState("Hidden");
     const [userFavorites, setUserFavorites] = useState([]);
+    const dispatch = useDispatch();
+    const userData = useSelector(state => state.user.userData);
     const testUser = {
         id: "63ebf27631ac83f83b95328f",
         type: "all"
@@ -47,7 +50,7 @@ const Profile = () => {
             </article>
 
             <Searchbar visibility={visibility} setVisibility={setVisibility} />
-
+            <button onClick={() => { dispatch(logoutuser()); }}>LOGOUT</button>
             <article className='profileYoga'>
                 <h3>Favourite Yoga Sessions</h3>
                 <article>
@@ -59,6 +62,7 @@ const Profile = () => {
                         })
                     }
                 </article>
+
             </article>
 
             <article className='profileMeditation'>
@@ -78,7 +82,7 @@ const Profile = () => {
 
             <Navbar page="profile" />
         </section>
-    )
-}
+    );
+};
 
-export default Profile
+export default Profile;

@@ -6,8 +6,9 @@ const initialState = {
     alertMessage: "A",
     alertColor: "red",
     alertType: "error",
+    loadingComponent: [],
     isLoading: false
-}
+};
 
 
 const uiSlice = createSlice({
@@ -16,24 +17,33 @@ const uiSlice = createSlice({
     reducers: {
         showAlert(state, action) {
             state.alertIsVisible = true;
-            state.alertType = action.payload.type
+            state.alertType = action.payload.type;
             state.alertMessage = action.payload.message;
-            state.alertColor = action.payload.color
+            state.alertColor = action.payload.color;
         },
         unshowAlert(state, action) {
-            state.alertIsVisible = false
+            state.alertIsVisible = false;
         },
         showLoading(state, action) {
-            state.isLoading = true
+            state.isLoading = true;
         },
         unShowLoading(state, action) {
-            state.isLoading = false
+            state.isLoading = false;
+        },
+        setLoadingComponent(state, action) {
+            state.loadingComponent.push(action.payload);
+        },
+        unsetLoadingComponent(state, action) {
+            const i = state.loadingComponent.indexOf(action.payload);
+            let a = state.loadingComponent.slice(0, i);
+            let b = state.loadingComponent.slice(i + 1);
+            state.loadingComponent = a.concat(b);
         }
     }
-})
+});
 
 
 
-export const uiActions = uiSlice.actions
+export const uiActions = uiSlice.actions;
 
-export default uiSlice
+export default uiSlice;

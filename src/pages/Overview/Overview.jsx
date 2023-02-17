@@ -33,7 +33,7 @@ const Overview = () => {
     const dispatch = useDispatch();
     const [dataCategories, setDataCategories] = useState([]);
     const user = useSelector(state => state.user);
-    const isLoading = useSelector(state => state.ui.isLoading);
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
 
     // Trigger for searchbar
     const [visibility, setVisibility] = useState("Hidden");
@@ -67,7 +67,8 @@ const Overview = () => {
 
     // Fetch for categories or exercises per category
     useEffect(() => {
-        dispatch(uiActions.showLoading());
+        dispatch(uiActions.setLoadingComponent("overview"));
+
 
         async function getData() {
             setDataCategories([]);
@@ -85,8 +86,9 @@ const Overview = () => {
                     });
                     const data = await response.json();
                     setDataCategories(data);
+                    dispatch(uiActions.unsetLoadingComponent("overview"));
 
-                    dispatch(uiActions.unShowLoading());
+
                     return;
                 } else {
                     const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getsinglecategory', {
@@ -101,7 +103,8 @@ const Overview = () => {
                     const data = await response.json();
                     setDataCategories(data);
 
-                    dispatch(uiActions.unShowLoading());
+                    dispatch(uiActions.unsetLoadingComponent("overview"));
+
                     return;
                 }
 
@@ -167,7 +170,7 @@ const Overview = () => {
                 </article>
             </section>
 
-            {isLoading && <Loading center={true} />}
+            {loadingComponent.includes("overview") && <Loading center={true} />}
             <section className='overviewThumbnails'>
                 {activeCat === "all" ?
                     dataCategories.map((category, index) => {
@@ -177,6 +180,7 @@ const Overview = () => {
                     }) :
                     dataCategories.map((category, index) => {
                         return (
+
                             <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${params}/${category._id}`} />
                         );
                     })

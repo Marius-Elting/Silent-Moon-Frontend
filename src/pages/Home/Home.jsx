@@ -14,8 +14,8 @@ const Home = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState();
 
-    const user = useSelector(state => state.user)
-    const isLoading = useSelector(state => state.ui.isLoading)
+    const user = useSelector(state => state.user);
+    const isLoading = useSelector(state => state.ui.isLoading);
 
     const [visibility, setVisibility] = useState("Hidden");
 
@@ -64,7 +64,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/yoga`}>
+                        <Link to={`/detail/yoga/63ee8962cdddd46b7f88d18e`}>
                             <button>START</button>
                         </Link>
                     </div>
@@ -75,7 +75,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/meditation`}>
+                        <Link to={`/detail/meditation/63ee8a08cdddd46b7f88d18f`}>
                             <button>START</button>
                         </Link>
                     </div>

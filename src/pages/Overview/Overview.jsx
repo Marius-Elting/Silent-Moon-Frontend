@@ -145,7 +145,7 @@ const Overview = () => {
                     }) :
                     dataCategories.map((category, index) => {
                         return (
-                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} onClick={navigate(`/details/${params}/${category._id}`)} />
+                            <OverviewThumnail key={index} name={category.name} img={category?.image?.url} onClick={() => navigate(`/details/${params}/${category._id}`)} />
                         );
                     })
                 }

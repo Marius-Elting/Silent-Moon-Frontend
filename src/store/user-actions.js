@@ -114,6 +114,7 @@ export const logoutuser = () => {
         console.log("first");
         const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout");
         const message = await res.json();
+        window.location = "/landing";
         dispatch(userActions.logout());
     };
 };

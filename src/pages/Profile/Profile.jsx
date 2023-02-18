@@ -41,6 +41,8 @@ const Profile = () => {
         getFavorites();
     }, []);
 
+
+
     return (
         <section className='profileSection'>
             <AppHeadline />

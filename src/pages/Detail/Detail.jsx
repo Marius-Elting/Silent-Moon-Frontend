@@ -106,7 +106,6 @@ const Detail = () => {
 
                                 );
 
-
                             })
                         }
                         <Navbar />

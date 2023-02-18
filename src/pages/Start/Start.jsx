@@ -1,6 +1,5 @@
 import React from 'react';
 import './Start.scss';
-import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import SubmitBtn from '../../components/SubmitBtn/SubmitBtn';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +10,7 @@ const Start = () => {
             <article>
                 <h1 className='startHeading'>SILENT MOON</h1>
                 <p className='startParagraph'>
-                    Hi {firstname}, welcome to Silent Moon
+                    Namasté {firstname}, welcome to Silent Moon
                 </p>
             </article>
             <SubmitBtn type="link" link="/home">GET STARTED</SubmitBtn>

@@ -12,7 +12,7 @@ import Loading from '../../components/Loading/Loading';
 import OverviewThumbnail from '../../components/OverviewThumbnail/OverviewThumbnail';
 import CategoryPopUp from '../../components/CategoryPopUp/CategoryPopUp';
 import { NoResult } from '../../assets/img';
-import { logoutuser } from '../../store/user-actions';
+import { logoutuser, setRemindTime } from '../../store/user-actions';
 import Alert from '../../components/Alert/Alert';
 
 

@@ -1,6 +1,4 @@
-import { getCardActionsUtilityClass } from "@mui/material";
-import { create } from "@mui/material/styles/createTransitions";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     userData: null,
@@ -8,9 +6,6 @@ const initialState = {
     favorites: null,
 };
 
-export const fetchLogin = createAsyncThunk("/user/login", async () => {
-
-});
 
 const userSlice = createSlice({
     name: "user",
@@ -21,7 +16,8 @@ const userSlice = createSlice({
                 _id: action.payload.user._id,
                 firstname: action.payload.user.firstname,
                 lastname: action.payload.user.lastname,
-                email: action.payload.user.email
+                email: action.payload.user.email,
+                remindTime: action.payload.user.remindtime,
             };
             state.token = action.payload.token;
             state.favorites = action.payload.user.favorites;
@@ -33,6 +29,9 @@ const userSlice = createSlice({
         },
         getFavorites(state, action) {
             state.favorites = action.payload.favorites;
+        },
+        setRemindTime(state, action) {
+            state.userData.remindtime = action.payload.remindTime;
         }
 
     }

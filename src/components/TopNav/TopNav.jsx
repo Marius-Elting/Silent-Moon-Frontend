@@ -13,7 +13,9 @@ const TopNav = ({ handleClickFunction, symbol, data }) => {
     console.log(favorites);
     console.log(data);
 
-
+    if (data === undefined) {
+        return;
+    }
 
     return (
         <article className='topNavArticle'>

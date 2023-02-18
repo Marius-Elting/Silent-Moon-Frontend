@@ -1,6 +1,6 @@
 import AppHeadline from '../AppHeadline/AppHeadline';
 import React, { useEffect, useState } from 'react';
-import "./CategoryPopUp.scss"
+import "./CategoryPopUp.scss";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
@@ -28,22 +28,22 @@ const CategoryPopUp = (props) => {
             setDataCategory([]);
 
             try {
-                {
-                    const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getsinglecategory', {
-                        headers: {
-                            Authorization: `Bearer ${user.token}`,
-                            'Content-Type': 'application/json'
-                        },
-                        method: 'POST',
-                        credentials: "include",
-                        body: JSON.stringify(filterCategory)
-                    });
-                    const data = await response.json();
-                    setDataCategory(data);
 
-                    dispatch(uiActions.unShowLoading());
-                    return;
-                }
+                const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getsinglecategory', {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST',
+                    credentials: "include",
+                    body: JSON.stringify(filterCategory)
+                });
+                const data = await response.json();
+                setDataCategory(data);
+
+                dispatch(uiActions.unShowLoading());
+                return;
+
 
             } catch (err) {
                 dispatch(uiActions.unShowLoading());
@@ -59,7 +59,7 @@ const CategoryPopUp = (props) => {
 
     const closePopup = () => {
 
-    }
+    };
 
 
     return (
@@ -79,7 +79,7 @@ const CategoryPopUp = (props) => {
                 })}
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default CategoryPopUp
+export default CategoryPopUp;

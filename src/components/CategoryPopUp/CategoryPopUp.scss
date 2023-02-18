@@ -6,10 +6,13 @@
 
 .catPopupShown {
     margin-left: -15px;
-    height: 400vh;
+    // min-height: 100vh;
+    // max-height: 400vh;
     width: 100%;
-    position: absolute;
+    position: fixed;
+    overflow-y: scroll;
     top: 0;
+    bottom: 0;
     background-color: white;
     z-index: 6;
     display: auto;

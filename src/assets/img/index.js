@@ -94,13 +94,7 @@ export {
     MeditationPlayerBackground,
     PauseButton,
     Duck,
-
-    NoResult
-
-
-    HeartActive
-
-
-
-    LogoutButton
+    NoResult,
+    HeartActive,
+    LogoutButton,
 };

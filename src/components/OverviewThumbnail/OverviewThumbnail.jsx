@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const OverviewThumbnail = (props) => {
 
-    const [size, setSize] = useState("")
+    const [size, setSize] = useState("");
 
     useEffect(() => {
         let number = Math.floor(Math.random() * 3) + 1;
@@ -18,7 +18,7 @@ const OverviewThumbnail = (props) => {
             setSize("overviewLargeThumbnail");
             return;
         }
-    }, [props])
+    }, [props]);
 
     const backgroundImage = {
         backgroundImage: `linear-gradient(rgba(128, 128, 128, 0), rgba(60,60,60,0.9)), url(${props.img})`,
@@ -28,12 +28,20 @@ const OverviewThumbnail = (props) => {
     };
 
 
-
+    console.log(props.link);
+    // detail/meditation/63ea4955634915f11aeab3b5
 
     return (
-        <Link to={props.link} className={size} style={backgroundImage} onClick={() => { props.clickHandler(props.type === "cat" ? props.name : props.id) }}>
-            <p>{props.name}</p>
-        </Link>
+        <>
+            {props.type === "cat" ?
+                <Link to={props.link} className={size} style={backgroundImage} onClick={() => { props.clickHandler(props.type === "cat" ? props.name : props.id); }} >
+                    <p >{props.name}</p>
+                </Link> :
+                <Link to={props.link} className={size} style={backgroundImage} >
+                    <p>{props.name}</p>
+                </Link>
+            }
+        </>
     );
 };
 

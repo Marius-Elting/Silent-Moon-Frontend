@@ -141,3 +141,27 @@ export const toggleFavorite = (item, user) => {
         dispatch(userActions.getFavorites({ favorites: a.favorites }));
     };
 };
+
+
+export const setRemindTime = (days, time, id) => {
+    return async (dispatch) => {
+        console.log(time);
+        console.log(days);
+        const remindTime = {
+            days,
+            time
+        };
+        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/setremindme", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ remindTime, id })
+        });
+        const data = await res.json();
+
+        dispatch(userActions.setRemindTime(data));
+    };
+};
+

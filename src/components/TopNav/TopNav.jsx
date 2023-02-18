@@ -13,7 +13,7 @@ const TopNav = ({ handleClickFunction, symbol, data }) => {
     console.log(favorites);
     console.log(data);
 
-    if (data === undefined) {
+    if (data === undefined || favorites === null) {
         return;
     }
 

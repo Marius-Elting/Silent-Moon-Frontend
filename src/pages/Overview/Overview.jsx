@@ -11,13 +11,15 @@ import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
 import OverviewThumbnail from '../../components/OverviewThumbnail/OverviewThumbnail';
 import CategoryPopUp from '../../components/CategoryPopUp/CategoryPopUp';
-import { NoResult } from '../../assets/img'
+import { NoResult } from '../../assets/img';
+import { logoutuser } from '../../store/user-actions';
+import Alert from '../../components/Alert/Alert';
 
 
 const Overview = () => {
 
     const monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
+    const alertIsVisible = useSelector(state => state.ui.alertIsVisible);
     const navigate = useNavigate();
     const params = useParams().type;
     const paramsObj = params === "yoga" ? { type: params } : { type: "meditation" };
@@ -61,7 +63,18 @@ const Overview = () => {
                     credentials: "include",
                 });
                 const data = await response.json();
-                setDataRandom(data[Math.floor(Math.random() * (data.length - 1))]);
+                if (data.type === "Error") {
+                    dispatch(uiActions.showAlert({
+                        type: "error",
+                        message: data.message,
+                        color: "red"
+                    }));
+                    setTimeout(() => {
+                        dispatch(logoutuser());
+                    }, 1000);
+                } else {
+                    setDataRandom(data[Math.floor(Math.random() * (data.length - 1))]);
+                }
             } catch (err) {
                 dispatch(uiActions.showAlert({
                     type: "error",
@@ -69,6 +82,7 @@ const Overview = () => {
                     color: "red"
                 }));
             }
+            dispatch(uiActions.unsetLoadingComponent("overview"));
         }
         getData();
     }, [params]);
@@ -95,7 +109,18 @@ const Overview = () => {
                         body: JSON.stringify(paramsObj)
                     });
                     const data = await response.json();
-                    setDataCategories(data);
+                    if (data.type === "Error") {
+                        dispatch(uiActions.showAlert({
+                            type: "error",
+                            message: data.message,
+                            color: "red"
+                        }));
+                        setTimeout(() => {
+                            dispatch(logoutuser());
+                        }, 1000);
+                    } else {
+                        setDataCategories(data);
+                    }
                     dispatch(uiActions.unsetLoadingComponent("overview"));
 
 
@@ -112,11 +137,23 @@ const Overview = () => {
                         body: JSON.stringify(testUser)
                     });
                     const getUserFavs = await response.json();
+                    if (getUserFavs.type === "Error") {
+                        dispatch(uiActions.showAlert({
+                            type: "error",
+                            message: getUserFavs.message,
+                            color: "red"
+                        }));
+                        setTimeout(() => {
+                            dispatch(logoutuser());
+                        }, 1000);
+                    } else {
+                        getUserFavs.favorites.length === 0 ? setDataCategories([{
+                            name: "Seems like you did not yet save your favorites.",
+                            image: { url: NoResult }
+                        }]) : setDataCategories(getUserFavs.favorites);
+                    }
                     console.log(getUserFavs.favorites);
-                    getUserFavs.favorites.length === 0 ? setDataCategories([{
-                        name: "Seems like you did not yet save your favorites.",
-                        image: { url: NoResult }
-                    }]) : setDataCategories(getUserFavs.favorites);
+
 
                     dispatch(uiActions.unsetLoadingComponent("overview"));
 
@@ -133,8 +170,18 @@ const Overview = () => {
                         body: JSON.stringify(filterCategory)
                     });
                     const data = await response.json();
-                    setDataCategories(data);
-
+                    if (data.type === "Error") {
+                        dispatch(uiActions.showAlert({
+                            type: "error",
+                            message: data.message,
+                            color: "red"
+                        }));
+                        setTimeout(() => {
+                            dispatch(logoutuser());
+                        }, 1000);
+                    } else {
+                        setDataCategories(data);
+                    }
                     dispatch(uiActions.unsetLoadingComponent("overview"));
 
                     return;
@@ -162,7 +209,7 @@ const Overview = () => {
         console.log("ClickHandlerCat triggered");
 
         return;
-    }
+    };
 
     console.log("popupCat: ", popupCat, " & popupVisibility: ", popupVisibility);
 
@@ -171,8 +218,8 @@ const Overview = () => {
         console.log("ClickHandlerEx triggered");
         console.log(`/details/${params}/${id}`);
 
-        navigate(`/details/${params}/${id}`)
-    }
+        navigate(`/details/${params}/${id}`);
+    };
 
     console.log("DataCategories: ", dataCategories);
 
@@ -180,7 +227,7 @@ const Overview = () => {
 
         <div className='overviewPage'>
             <AppHeadline />
-
+            {alertIsVisible && <Alert />}
             <div>
                 <h2>{params}</h2>
                 <h3>{params === "yoga" ? "Find your inner zen from anywhere." : "Audio-only meditation techniques to help you minimize your screen time and practice on the go."}</h3>

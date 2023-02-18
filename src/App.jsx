@@ -1,11 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Detail, Home, LandingPage, Music, Overview, Profile, RegisterLogin, Start, RemindMe } from "./pages";
 import './App.scss';
 import ProtectedRoute from "./pages/ProtectedRoute";
 
 
 
+
 function App() {
+
   return (
     <Router>
       <Routes>

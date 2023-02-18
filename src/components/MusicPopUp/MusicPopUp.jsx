@@ -7,7 +7,7 @@ import { RHAP_UI } from 'react-h5-audio-player';
 
 
 
-const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName }) => {
+const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playlist }) => {
 
 
     const playerSettings = {
@@ -31,7 +31,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName }) => {
 
     return (
         <section className='musicPopUpSection'>
-            <TopNav symbol='arrow' handleClickFunction={toggleButtonHandler} />
+            <TopNav data="" symbol='arrow' handleClickFunction={toggleButtonHandler} />
             <AudioPlayer className='audioPlayer' {...playerSettings}></AudioPlayer>
         </section>
     );

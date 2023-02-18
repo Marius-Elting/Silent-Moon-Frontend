@@ -27,7 +27,7 @@ const Profile = () => {
     };
 
 
-    console.log(userFavorites);
+    (userFavorites);
 
     useEffect(() => {
         dispatch(uiActions.setLoadingComponent("profile"));
@@ -44,7 +44,7 @@ const Profile = () => {
                 body: JSON.stringify(testUser)
             });
             const getUser = await response.json();
-            console.log(getUser.favorites);
+            (getUser.favorites);
             setUserFavorites(getUser);
 
             dispatch(uiActions.unsetLoadingComponent("profile"));

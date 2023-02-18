@@ -24,7 +24,7 @@ const Detail = () => {
         navigate(-1);
 
     };
-    console.log(singleplaylist);
+
 
 
     useEffect(() => {
@@ -43,6 +43,7 @@ const Detail = () => {
         getData();
     }, []);
 
+
     useEffect(() => {
         async function getSinglePlaylist() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleplaylist/${8963496122}`, {
@@ -54,7 +55,6 @@ const Detail = () => {
             });
             const dataPlaylist = await response.json();
             setSinglePlaylist(dataPlaylist[0]);
-            console.log("singleplaylist", dataPlaylist[0]);
 
         }
         getSinglePlaylist();
@@ -99,11 +99,10 @@ const Detail = () => {
                             <h3>Playlist</h3>
                         </div>
                         {
-                            singleplaylist.trackList?.slice(0, 10).map((element, key) => {
+                            singleplaylist.trackList?.slice(0, 10).map((element, index) => {
+                                const artist = element.artist.slice(0, 25) + (element.artist.length >= 25 ? " ..." : "");
                                 return (
-
-                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
-
+                                    <SongItem playlist={singleplaylist} key={index} playlistName={element.title} artist={artist} preview={element.preview} />
                                 );
 
                             })

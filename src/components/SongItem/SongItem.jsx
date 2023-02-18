@@ -17,13 +17,13 @@ const SongItem = (props) => {
             <button onClick={toggleButtonHandler}>
                 <img src={Playlist} alt='PlayButton'></img>
             </button>
-            {showPopup && <MusicPopUp showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} preview={props.preview} artist={props.artist} playlistName={props.playlistName} />}
+            {showPopup && <MusicPopUp playlist={props.playlist} showPopup={showPopup} toggleButtonHandler={toggleButtonHandler} preview={props.preview} artist={props.artist} playlistName={props.playlistName} />}
             <article>
                 <h3>{props.playlistName}</h3>
                 <p>{props.artist}</p>
             </article>
         </div>
-    )
-}
+    );
+};
 
 export default SongItem;

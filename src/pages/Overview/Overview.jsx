@@ -12,7 +12,7 @@ import Loading from '../../components/Loading/Loading';
 import OverviewThumbnail from '../../components/OverviewThumbnail/OverviewThumbnail';
 import CategoryPopUp from '../../components/CategoryPopUp/CategoryPopUp';
 import { NoResult } from '../../assets/img';
-import { logoutuser, setRemindTime } from '../../store/user-actions';
+import { logoutuser } from '../../store/user-actions';
 import Alert from '../../components/Alert/Alert';
 
 
@@ -31,8 +31,8 @@ const Overview = () => {
     const userData = useSelector(state => state.user.userData);
     const testUser = {
         // id: userData._id,
-        id: "63ebf27631ac83f83b95328f",
-        type: params
+        id: userData._id,
+        type: paramsObj.type
     };
 
     // Trigger for fetches
@@ -152,7 +152,7 @@ const Overview = () => {
                             image: { url: NoResult }
                         }]) : setDataCategories(getUserFavs.favorites);
                     }
-                    console.log(getUserFavs.favorites);
+
 
 
                     dispatch(uiActions.unsetLoadingComponent("overview"));
@@ -206,12 +206,12 @@ const Overview = () => {
         window.scrollTo({
             top: 0,
         });
-        console.log("ClickHandlerCat triggered");
+
 
         return;
     };
 
-    console.log("popupCat: ", popupCat, " & popupVisibility: ", popupVisibility);
+
 
     //Function for rerouting to detail page for each exercise
     const clickHandlerEx = (id) => {
@@ -221,7 +221,7 @@ const Overview = () => {
         navigate(`/details/${params}/${id}`);
     };
 
-    console.log("DataCategories: ", dataCategories);
+
 
     return (
 
@@ -266,7 +266,7 @@ const Overview = () => {
                 }
             </section>
 
-            {popupVisibility === "Shown" && <CategoryPopUp popupVisibility={popupVisibility} setPopupVisibility={setPopupVisibility} category={popupCat} type={params} />
+            {popupVisibility === "Shown" && <CategoryPopUp type={paramsObj.type} popupVisibility={popupVisibility} setPopupVisibility={setPopupVisibility} category={popupCat} />
             }
 
 

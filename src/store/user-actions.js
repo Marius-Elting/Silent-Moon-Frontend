@@ -80,7 +80,6 @@ export const registerUser = ({ navToHome, user }) => {
         let fetchData;
         try {
             fetchData = await fetchLogin();
-            console.log(fetchData);
             dispatch(userActions.login({
                 user: fetchData.user,
                 token: fetchData.token
@@ -97,8 +96,7 @@ export const registerUser = ({ navToHome, user }) => {
             }, 2000);
 
         } catch (err) {
-            console.log(fetchData);
-            console.log("HALLORTET");
+
             dispatch(uiActions.showAlert({
                 message: fetchData.message.join("\n"),
                 color: "red",
@@ -115,7 +113,7 @@ export const registerUser = ({ navToHome, user }) => {
 
 export const logoutuser = () => {
     return async (dispatch) => {
-        console.log("first");
+        ("first");
         const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout");
         const message = await res.json();
         window.location = "/landing";
@@ -126,8 +124,6 @@ export const logoutuser = () => {
 
 export const toggleFavorite = (item, user) => {
     return async (dispatch) => {
-        console.log(user);
-        console.log(item);
         const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/addfavorites", {
             method: "POST",
             headers: {
@@ -137,7 +133,7 @@ export const toggleFavorite = (item, user) => {
             body: JSON.stringify({ item: item, user: user })
         });
         const a = await res.json();
-        console.log(a);
+
         dispatch(userActions.getFavorites({ favorites: a.favorites }));
     };
 };
@@ -145,8 +141,7 @@ export const toggleFavorite = (item, user) => {
 
 export const setRemindTime = (days, time, id) => {
     return async (dispatch) => {
-        console.log(time);
-        console.log(days);
+
         const remindTime = {
             days,
             time

@@ -44,6 +44,12 @@ const RegisterLogin = () => {
         dispatch(loginUser({ user, navToHome }));
     };
 
+    const checkEnterKey = (e) => {
+        if (e.key === "Enter") {
+            handleLoginSubmit();
+        }
+    };
+
     return (
         <section className='registerLoginSection'>
             {
@@ -55,7 +61,7 @@ const RegisterLogin = () => {
                         {alert && <Alert />}
 
                         <input disabled={alert ? true : false} className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>
-                        <input disabled={alert ? true : false} className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
+                        <input onKeyDown={checkEnterKey} disabled={alert ? true : false} className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
                         <SubmitBtn disabled={alert ? true : false} handleSubmit={handleLoginSubmit}>LOGIN</SubmitBtn>
                         <h3 className='registerLoginText'>
                             DON’T HAVE AN ACCOUNT YET?
@@ -71,7 +77,7 @@ const RegisterLogin = () => {
                         <input disabled={alert ? true : false} className='registerLoginInput' type='text' placeholder='FIRSTNAME' ref={firstNameRef}></input>
                         <input disabled={alert ? true : false} className='registerLoginInput' type='text' placeholder='SURNAME' ref={surNameRef}></input>
                         <input disabled={alert ? true : false} className='registerLoginInput' type='email' placeholder='EMAIL' ref={emailRef}></input>
-                        <input disabled={alert ? true : false} className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
+                        <input onKeyDown={checkEnterKey} disabled={alert ? true : false} className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
                         <SubmitBtn disabled={alert ? true : false} handleSubmit={handleRegisterSubmit}> REGISTER</SubmitBtn>
                     </article>
             }

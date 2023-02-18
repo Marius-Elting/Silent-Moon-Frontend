@@ -77,8 +77,10 @@ export const registerUser = ({ navToHome, user }) => {
 
             return data;
         };
+        let fetchData;
         try {
-            const fetchData = await fetchLogin();
+            fetchData = await fetchLogin();
+            console.log(fetchData);
             dispatch(userActions.login({
                 user: fetchData.user,
                 token: fetchData.token
@@ -95,8 +97,10 @@ export const registerUser = ({ navToHome, user }) => {
             }, 2000);
 
         } catch (err) {
+            console.log(fetchData);
+            console.log("HALLORTET");
             dispatch(uiActions.showAlert({
-                message: "RegisterError",
+                message: fetchData.message.join("\n"),
                 color: "red",
                 type: "error"
             }));
@@ -104,7 +108,7 @@ export const registerUser = ({ navToHome, user }) => {
             setTimeout(() => {
                 dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.unshowAlert());
-            }, 1000);
+            }, 2000);
         }
     };
 };

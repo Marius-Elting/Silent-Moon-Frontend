@@ -98,7 +98,7 @@ const RemindMe = () => {
     };
 
     return (
-        <>
+        <main className={"RemindMeWrapper"}>
             <AppHeadline />
             <section className="RemindMeTimeChoiceWrapper">
                 <h2>When would you like to meditate?</h2>
@@ -162,7 +162,7 @@ const RemindMe = () => {
                 <Link to="/home"><SubmitBtn>SAVE</SubmitBtn></Link>
                 <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
-        </>
+        </main>
     );
 };
 

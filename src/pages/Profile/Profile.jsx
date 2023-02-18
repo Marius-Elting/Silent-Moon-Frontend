@@ -7,6 +7,9 @@ import { Duck, LogoutButton } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutuser } from '../../store/user-actions';
 import SmallCard from '../../components/SmallCard/SmallCard';
+import { uiActions } from '../../store/ui-slice';
+import Alert from '../../components/Alert/Alert';
+import Loading from '../../components/Loading/Loading';
 
 
 const Profile = () => {
@@ -14,16 +17,23 @@ const Profile = () => {
     const [visibility, setVisibility] = useState("Hidden");
     const [userFavorites, setUserFavorites] = useState([]);
     const dispatch = useDispatch();
+    const alertIsVisible = useSelector(state => state.ui.alertIsVisible);
     const userData = useSelector(state => state.user.userData);
-    const testUser = {
-        id: userData._id,
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
 
+    const testUser = {
+        id: userData?._id,
         type: "all"
     };
+
 
     console.log(userFavorites);
 
     useEffect(() => {
+        dispatch(uiActions.setLoadingComponent("profile"));
+        if (userData === null) {
+            return;
+        }
         async function getFavorites() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getfavorites', {
                 method: 'POST',
@@ -37,7 +47,9 @@ const Profile = () => {
             console.log(getUser.favorites);
             setUserFavorites(getUser);
 
+            dispatch(uiActions.unsetLoadingComponent("profile"));
         }
+
         getFavorites();
     }, []);
 
@@ -46,7 +58,7 @@ const Profile = () => {
     return (
         <section className='profileSection'>
             <AppHeadline />
-
+            {alertIsVisible && <Alert />}
 
             <article className='profileUser'>
                 <img src={Duck} alt='User'></img>
@@ -57,30 +69,40 @@ const Profile = () => {
             <img className='profileLogout' src={LogoutButton} onClick={() => { dispatch(logoutuser()); }} alt="Logout Button" />
             <article className='profileYoga'>
                 <h4>Favourite Yoga Sessions</h4>
-                <article>
-                    {
-                        userFavorites?.favorites?.filter(element => element.type === 'yoga').map((element, key) => {
-                            return (
-                                <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
-                            );
-                        })
-                    }
-                </article>
+                {loadingComponent.includes("profile") && userFavorites.length === 0 && <Loading center={true} />}
+                {userData !== null ?
+
+                    <article>
+                        {
+                            userFavorites?.favorites?.filter(element => element.type === 'yoga').map((element, key) => {
+                                return (
+                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
+                                );
+                            })
+                        }
+                    </article> :
+                    <article><p>user not logged in </p></article>
+                }
             </article>
 
             <article className='profileMeditation'>
                 <h4>Favourite Meditations</h4>
-                <article>
+                {loadingComponent.includes("profile") && userFavorites.length === 0 && <Loading center={true} />}
 
-                    {
-                        userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
-                            return (
-                                <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
-                            );
-                        })
-                    }
-                </article>
+                {userData !== null ?
 
+                    <article>
+
+                        {
+                            userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
+                                return (
+                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                                );
+                            })
+                        }
+                    </article> :
+                    <article><p>user not logged in </p></article>
+                }
             </article>
             <Navbar page="profile" />
         </section>

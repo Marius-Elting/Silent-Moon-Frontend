@@ -28,7 +28,6 @@ const OverviewThumbnail = (props) => {
     };
 
 
-    console.log(props.link);
     // detail/meditation/63ea4955634915f11aeab3b5
 
     return (

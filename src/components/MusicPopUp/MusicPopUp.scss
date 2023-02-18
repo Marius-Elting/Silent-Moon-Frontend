@@ -10,6 +10,13 @@
     background-image: url('../../assets/img/meditationPlayerBackground.jpeg');
     background-size: cover;
 
+    .AudioWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
 
     .audioPlayer {
         margin: 25rem auto 0 auto;

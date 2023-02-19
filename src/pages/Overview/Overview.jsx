@@ -211,6 +211,7 @@ const Overview = () => {
                         );
                     }) :
                     dataCategories.map((category, index) => {
+                        console.log(`/detail/${category.type}/${category._id}`);
                         return (
 
                             <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${category.type}/${category._id}`} />

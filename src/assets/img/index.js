@@ -46,6 +46,8 @@ import HeartActive from "./heartTopNav-active.svg";
 
 import LogoutButton from './logoutButton.svg';
 
+import MusicThumbnail from './musicThumbnail.jpg';
+import Upwards from './upwards.png';
 
 
 
@@ -94,13 +96,9 @@ export {
     MeditationPlayerBackground,
     PauseButton,
     Duck,
-
-    NoResult
-
-
-    HeartActive
-
-
-
-    LogoutButton
+    NoResult,
+    HeartActive,
+    LogoutButton,
+    MusicThumbnail,
+    Upwards
 };

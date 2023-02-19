@@ -70,18 +70,8 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
         const duration = audioElem.current.duration;
         const ct = audioElem.current.currentTime;
         setCurrentSong({ ...currentSong, "progress": ct / duration * 100, "length": duration });
-        let isTruelyPLaying = audioElem.current.currentTime > 0 && !audioElem.current.paused && !audioElem.current.ended
-            && audioElem.current.readyState > audioElem.current.HAVE_CURRENT_DATA;
         if (ct >= duration) {
-            // setisplaying(prev => !prev);
-            // const index = songs.findIndex(x => x.title == currentSong.title);
-            // audioElem.current.currentTime = 0;
-            // if (index == songs.length - 1) {
-            //     setCurrentSong(songs[0]);
-            // }
-            // else {
-            //     setCurrentSong(songs[index + 1]);
-            // }
+
             const a = async () => {
                 try {
                     await skiptoNext();
@@ -89,12 +79,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
                     await skiptoNext();
                 }
             };
-
             a();
-
-            // await audioElem.current.play();
-
-
         }
     };
 

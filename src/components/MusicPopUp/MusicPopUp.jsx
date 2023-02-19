@@ -32,24 +32,70 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
 
     const [songs, setSongs] = useState(playlist);
     const [isplaying, setisplaying] = useState(true);
-    const songIndex = playlist.findIndex(x => x.title == preview.title);
-    const [currentSong, setCurrentSong] = useState(playlist[1]);
+    const songIndex = playlist.findIndex(x => x.title == playlistName);
+    const [currentSong, setCurrentSong] = useState(playlist[songIndex]);
 
     const audioElem = useRef();
 
     useEffect(() => {
+
+
         if (isplaying) {
             audioElem.current.play();
         }
         else {
             audioElem.current.pause();
         }
+
+
     }, [isplaying]);
+
+    const skiptoNext = async () => {
+        const index = songs.findIndex(x => x.title == currentSong.title);
+
+        if (index == songs.length - 1) {
+            setCurrentSong(songs[0]);
+        }
+        else {
+            setCurrentSong(songs[index + 1]);
+        }
+
+        audioElem.current.currentTime = 0;
+        await currentSong.url;
+        await audioElem.current.play();
+
+    };
 
     const onPlaying = () => {
         const duration = audioElem.current.duration;
         const ct = audioElem.current.currentTime;
         setCurrentSong({ ...currentSong, "progress": ct / duration * 100, "length": duration });
+        let isTruelyPLaying = audioElem.current.currentTime > 0 && !audioElem.current.paused && !audioElem.current.ended
+            && audioElem.current.readyState > audioElem.current.HAVE_CURRENT_DATA;
+        if (ct >= duration) {
+            // setisplaying(prev => !prev);
+            // const index = songs.findIndex(x => x.title == currentSong.title);
+            // audioElem.current.currentTime = 0;
+            // if (index == songs.length - 1) {
+            //     setCurrentSong(songs[0]);
+            // }
+            // else {
+            //     setCurrentSong(songs[index + 1]);
+            // }
+            const a = async () => {
+                try {
+                    await skiptoNext();
+                } catch (err) {
+                    await skiptoNext();
+                }
+            };
+
+            a();
+
+            // await audioElem.current.play();
+
+
+        }
     };
 
     return (
@@ -59,7 +105,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
             <div className="AudioWrapper">
 
                 <audio src={currentSong.preview} ref={audioElem} onTimeUpdate={onPlaying} />
-                <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setisplaying={setisplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong} />
+                <Player skiptoNext={skiptoNext} songs={songs} setSongs={setSongs} isplaying={isplaying} setisplaying={setisplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong} />
             </div>
 
         </section>

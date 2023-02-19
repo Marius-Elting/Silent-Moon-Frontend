@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import './player.scss';
 import { BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsSkipEndCircleFill, BsFillSkipEndCircleFill } from 'react-icons/bs';
 
-const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSong, songs }) => {
-
+const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSong, skiptoNext, songs }) => {
+    const rangeRef = useRef();
     const clickRef = useRef();
 
     const PlayPause = () => {
@@ -18,7 +18,6 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
 
         const divprogress = offset / width * 100;
         audioElem.current.currentTime = divprogress / 100 * currentSong.length;
-
     };
 
     const skipBack = async () => {
@@ -37,22 +36,10 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
     };
 
 
-    const skiptoNext = async () => {
-        const index = songs.findIndex(x => x.title == currentSong.title);
 
-        if (index == songs.length - 1) {
-            setCurrentSong(songs[0]);
-        }
-        else {
-            setCurrentSong(songs[index + 1]);
-        }
 
-        audioElem.current.currentTime = 0;
-        await isplaying.url;
-        await audioElem.current.play();
-
-        // await a();
-
+    const changeVol = (e) => {
+        audioElem.current.volume = e.target.value / 10;
     };
 
     return (
@@ -70,6 +57,7 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
                 {isplaying ? <BsFillPauseCircleFill className='btn_action pp' onClick={PlayPause} /> : <BsFillPlayCircleFill className='btn_action pp' onClick={PlayPause} />}
                 <BsFillSkipEndCircleFill className='btn_action' onClick={skiptoNext} />
             </div>
+            <input onChange={changeVol} type={"range"} max="10" min="0" ref={rangeRef}></input>
         </div>
 
     );

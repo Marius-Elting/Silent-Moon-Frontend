@@ -12,12 +12,14 @@ import { Link } from 'react-router-dom';
 
 
 const Music = () => {
+    const dispatch = useDispatch();
 
-
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const user = useSelector(state => state.user);
     const [allPlaylists, setAllPlaylists] = useState([]);
 
     useEffect(() => {
+        dispatch(uiActions.setLoadingComponent("music"));
         async function getSinglePlaylist() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getallplaylists/`, {
                 headers: {
@@ -30,6 +32,7 @@ const Music = () => {
             setAllPlaylists(dataPlaylist);
             console.log("singleplaylist", dataPlaylist);
 
+            dispatch(uiActions.unsetLoadingComponent("music"));
         }
         getSinglePlaylist();
     }, []);
@@ -42,6 +45,7 @@ const Music = () => {
             <h4>Playlists</h4>
             <h4>to help you find inner peace and relax</h4>
 
+            {loadingComponent.includes("music") && allPlaylists.length === 0 && <Loading center={true} />}
             <section>
                 {allPlaylists.map((playlist, index) => {
                     return (
@@ -53,14 +57,14 @@ const Music = () => {
                                 <h5>{playlist.playlistName}</h5>
                             </article>
                         </Link>
-                    )
+                    );
                 })}
             </section>
 
             <Navbar page="music" />
 
         </div>
-    )
-}
+    );
+};
 
-export default Music
+export default Music;

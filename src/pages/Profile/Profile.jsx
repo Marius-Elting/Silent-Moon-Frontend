@@ -64,7 +64,7 @@ const Profile = () => {
                 <p>{user}</p>
             </article>
 
-            <Searchbar visibility={visibility} setVisibility={setVisibility} />
+            <Searchbar visibility={visibility} setVisibility={setVisibility} page="profile" />
             <img className='profileLogout' src={LogoutButton} onClick={() => { dispatch(logoutuser()); }} alt="Logout Button" />
             <article className='profileYoga'>
                 <h4>Favourite Yoga Sessions</h4>

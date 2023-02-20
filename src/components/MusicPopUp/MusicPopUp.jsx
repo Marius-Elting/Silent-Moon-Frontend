@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TopNav from '../TopNav/TopNav';
 import './MusicPopUp.scss';
-import 'react-h5-audio-player/lib/styles.css';
 import Player from '../MusicPlayer/PlayerComp';
 
 

@@ -1,8 +1,20 @@
 import React from 'react'
-import { IosPickerItem } from './EmblaCarouselIosPickerItem'
+import { IosPickerItem } from './EmblaCarouselIosPickerItem';
+
 
 const EmblaTimePicker = (props) => {
+
+    // const embla = EmblaCarousel(document.querySelector('.embla__ios-picker__container'));
+    // const timePickers = document.querySelectorAll('.embla__ios-picker__slide');
+
+    // embla.on('select', () => {
+    //     const selectedPicker = embla.selectedScrollSnap();
+    //     const selectedTime = selectedPicker.querySelector('.picker-value').value;
+    //     console.log(selectedTime);
+    // });
+
     const { loop } = props
+
 
     return (
         <div className="embla">

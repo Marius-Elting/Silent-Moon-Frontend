@@ -151,6 +151,23 @@ export const IosPickerItem = (props) => {
         rotateWheel();
     }, [emblaApi, inactivateEmblaTransform, readRootNodeSize, rotateWheel]);
 
+
+
+
+    // className="embla__ios-picker__container"
+
+    // className="embla__ios-picker__slide"
+
+    // const embla = EmblaCarousel(document.querySelector('.embla__ios-picker__container'));
+    // const timePickers = document.querySelectorAll('.embla__ios-picker__slide');
+
+    // embla.on('select', () => {
+    //     const selectedPicker = embla.selectedScrollSnap();
+    //     const selectedTime = selectedPicker.querySelector('.picker-value').value;
+    //     console.log(selectedTime);
+    //   });
+
+
     return (
         <div className="embla__ios-picker">
             <div className="embla__ios-picker__scene" ref={rootNodeRef}>

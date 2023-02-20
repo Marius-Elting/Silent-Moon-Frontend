@@ -4,13 +4,10 @@ import './App.scss';
 import ProtectedRoute from "./pages/ProtectedRoute";
 import MusicDetail from "./pages/Music/MusicDetail";
 import { useDispatch } from "react-redux";
-import { setRemindTime } from "./store/user-actions";
-import { useEffect } from "react";
-
 
 
 function App() {
-  const dispatch = useDispatch();
+
 
 
   return (

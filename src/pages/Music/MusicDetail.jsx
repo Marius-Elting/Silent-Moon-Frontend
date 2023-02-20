@@ -49,7 +49,7 @@ const MusicDetail = () => {
         getSinglePlaylist();
     }, []);
 
-    console.log(showNumber)
+    console.log(showNumber);
 
 
     return (
@@ -68,7 +68,6 @@ const MusicDetail = () => {
                         return (
 
                             <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
-
                         );
 
 
@@ -84,7 +83,7 @@ const MusicDetail = () => {
             <Navbar page="musicdetail" />
 
         </div>
-    )
-}
+    );
+};
 
-export default MusicDetail
+export default MusicDetail;

@@ -37,6 +37,10 @@ $SSP400: SourceSansPro400, sans-serif;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 // ------------MIXINS-------------
 @mixin headlineSmall {
     font-family: $SSP700;

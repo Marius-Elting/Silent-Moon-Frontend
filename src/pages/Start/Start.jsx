@@ -13,7 +13,7 @@ const Start = () => {
                     Namasté {firstname}, welcome to Silent Moon
                 </p>
             </article>
-            <SubmitBtn type="link" link="/home">GET STARTED</SubmitBtn>
+            <SubmitBtn type="link" link="/remindme">GET STARTED</SubmitBtn>
         </section>
     );
 };

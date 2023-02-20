@@ -15,7 +15,6 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
     const checkWidth = (e) => {
         let width = clickRef.current.clientWidth;
         const offset = e.nativeEvent.offsetX;
-
         const divprogress = offset / width * 100;
         audioElem.current.currentTime = divprogress / 100 * currentSong.length;
     };
@@ -34,9 +33,6 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
 
 
     };
-
-
-
 
     const changeVol = (e) => {
         audioElem.current.volume = e.target.value / 10;

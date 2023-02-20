@@ -65,9 +65,12 @@ const MusicDetail = () => {
 
                 {
                     tracks?.slice(0, showNumber).map((element, index) => {
+                        const artist = element.artist.slice(0, 25) + (element.artist.length >= 25 ? " ..." : "");
+
                         return (
 
-                            <SongItem key={index} playlist={singlePlaylist.trackList} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
+                            <SongItem key={index} playlist={singlePlaylist.trackList} playlistName={element.title} artist={artist} preview={element.preview} />
+
                         );
 
 

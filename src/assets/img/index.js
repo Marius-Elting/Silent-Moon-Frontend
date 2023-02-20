@@ -7,7 +7,6 @@ import NavMeditate from './nav-meditate.svg';
 import NavYoga from './nav-yoga.svg';
 import NavMusic from './nav-music.svg';
 import NavProfile from './nav-profile.svg';
-
 import Lupe from './lupe.svg';
 import Heart from './heart.svg';
 import Headphones from './headphones.svg';
@@ -36,11 +35,10 @@ import CatFilterSleep from "./catFilter_Sleep.svg";
 import CatFilterSleepActive from "./catFilter_Sleep_active.svg";
 import MeditationPlayerBackground from './meditationPlayerBackground.jpg';
 import PauseButton from './pauseButton.svg';
-import Duck from './oldDuck.png';
+import ProfileUser from './profileUser.png';
 import NoResult from './noResult.jpg';
 import HeartActive from "./heartTopNav-active.svg";
 import LogoutButton from './logoutButton.svg';
-
 import MusicThumbnail from './musicThumbnail.jpg';
 import Upwards from './upwards.png';
 
@@ -84,12 +82,11 @@ export {
     CatFilterSleepActive,
     MeditationPlayerBackground,
     PauseButton,
-    Duck,
+    ProfileUser,
     NoResult,
     HeartActive,
     LogoutButton,
     MusicThumbnail,
     Upwards
-
 };
 

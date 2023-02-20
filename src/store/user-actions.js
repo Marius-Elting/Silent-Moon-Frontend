@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+
 import { uiActions } from "./ui-slice";
 import { userActions } from "./user-slice";
 
@@ -20,7 +20,7 @@ export const loginUser = ({ user, navToHome }) => {
                 }, body: JSON.stringify(user)
             });
             const data = await response.json();
-
+            console.log(data);
             return data;
         };
         try {

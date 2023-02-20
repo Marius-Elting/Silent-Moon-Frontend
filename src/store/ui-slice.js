@@ -1,11 +1,10 @@
-import { create } from "@mui/material/styles/createTransitions";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     alertIsVisible: false,
-    alertMessage: "A",
-    alertColor: "red",
-    alertType: "error",
+    alertMessage: "",
+    alertColor: "",
+    alertType: "",
     loadingComponent: [],
     isLoading: false
 };
@@ -21,13 +20,13 @@ const uiSlice = createSlice({
             state.alertMessage = action.payload.message;
             state.alertColor = action.payload.color;
         },
-        unshowAlert(state, action) {
+        unshowAlert(state, _) {
             state.alertIsVisible = false;
         },
-        showLoading(state, action) {
+        showLoading(state, _) {
             state.isLoading = true;
         },
-        unShowLoading(state, action) {
+        unShowLoading(state, _) {
             state.isLoading = false;
         },
         setLoadingComponent(state, action) {

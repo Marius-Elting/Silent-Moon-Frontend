@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const Navbar = ({ page }) => {
 
-    const user = useSelector(state => state.user?.userData?.firstname) || "Profile"
+    const user = useSelector(state => state.user?.userData?.firstname) || "Profile";
 
 
     return (
@@ -31,7 +31,7 @@ const Navbar = ({ page }) => {
             </Link>
             <Link to='/music'>
                 <div>
-                    <img src={page === "music" || page === "musicdetail" ? NavMusicActive : NavMusic} className={page === "music" ? "active" : ""} alt='Music Icon'></img>
+                    <img src={page === "music" || page === "musicdetail" ? NavMusicActive : NavMusic} className={page === "music" || page === "musicdetail" ? "active" : ""} alt='Music Icon'></img>
                     <p>Music</p>
                 </div>
             </Link>
@@ -43,7 +43,7 @@ const Navbar = ({ page }) => {
             </Link>
         </nav>
 
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

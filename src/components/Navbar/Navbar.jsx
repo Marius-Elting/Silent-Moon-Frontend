@@ -31,7 +31,7 @@ const Navbar = ({ page }) => {
             </Link>
             <Link to='/music'>
                 <div>
-                    <img src={page === "music" ? NavMusicActive : NavMusic} className={page === "music" ? "active" : ""} alt='Music Icon'></img>
+                    <img src={page === "music" || page === "musicdetail" ? NavMusicActive : NavMusic} className={page === "music" ? "active" : ""} alt='Music Icon'></img>
                     <p>Music</p>
                 </div>
             </Link>

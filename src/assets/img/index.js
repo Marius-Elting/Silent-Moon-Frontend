@@ -44,6 +44,8 @@ import NoResult from './noResult.jpg';
 import HeartActive from "./heartTopNav-active.svg";
 import LogoutButton from './logoutButton.svg';
 
+import MusicThumbnail from './musicThumbnail.jpg';
+import Upwards from './upwards.png';
 
 
 
@@ -93,5 +95,8 @@ export {
     NoResult,
     HeartActive,
     LogoutButton,
+    MusicThumbnail,
+    Upwards
+
 };
 

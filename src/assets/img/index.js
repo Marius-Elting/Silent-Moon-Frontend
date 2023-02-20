@@ -7,8 +7,7 @@ import NavMeditate from './nav-meditate.svg';
 import NavYoga from './nav-yoga.svg';
 import NavMusic from './nav-music.svg';
 import NavProfile from './nav-profile.svg';
-import HealthyBack from './healthyBack.jpeg';
-import Meditate from './meditateImg.jpeg';
+
 import Lupe from './lupe.svg';
 import Heart from './heart.svg';
 import Headphones from './headphones.svg';
@@ -17,7 +16,6 @@ import DownloadTopNav from './downloadTopNav.svg';
 import HeartTopNav from './heartTopNav.svg';
 import CloseTopNav from './closeTopNav.svg';
 import Playlist from './playlist.svg';
-import DetailYogaImg from './detailYogaImg.jpeg';
 import YogaPlayButton from './yogaPlayButton.svg';
 import PlayBtn from './playBtnGreen.png';
 import DailyBackground from './backgroundDailyCalm.png';
@@ -36,8 +34,7 @@ import CatFilterKids from "./catFilter_Kids.svg";
 import CatFilterKidsActive from "./catFilter_Kids_active.svg";
 import CatFilterSleep from "./catFilter_Sleep.svg";
 import CatFilterSleepActive from "./catFilter_Sleep_active.svg";
-import DetailMeditationImg from './detailYogaImg.jpeg';
-import MeditationPlayerBackground from './meditationPlayerBackground.jpeg';
+import MeditationPlayerBackground from './meditationPlayerBackground.jpg';
 import PauseButton from './pauseButton.svg';
 import Duck from './oldDuck.png';
 import NoResult from './noResult.jpg';
@@ -59,8 +56,6 @@ export {
     NavYoga,
     NavMusic,
     NavProfile,
-    HealthyBack,
-    Meditate,
     Lupe,
     Heart,
     Headphones,
@@ -69,7 +64,6 @@ export {
     HeartTopNav,
     CloseTopNav,
     Playlist,
-    DetailYogaImg,
     YogaPlayButton,
     PlayBtn,
     DailyBackground,
@@ -88,7 +82,6 @@ export {
     CatFilterKidsActive,
     CatFilterSleep,
     CatFilterSleepActive,
-    DetailMeditationImg,
     MeditationPlayerBackground,
     PauseButton,
     Duck,

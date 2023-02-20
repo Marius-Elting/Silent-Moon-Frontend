@@ -17,7 +17,7 @@ const userSlice = createSlice({
                 firstname: action.payload.user.firstname,
                 lastname: action.payload.user.lastname,
                 email: action.payload.user.email,
-                remindTime: action.payload.user.remindtime,
+                remindTime: action.payload.user.remindTime,
             };
             state.token = action.payload.token;
             state.favorites = action.payload.user.favorites;

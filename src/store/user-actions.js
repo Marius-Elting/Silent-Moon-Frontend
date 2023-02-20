@@ -77,8 +77,9 @@ export const registerUser = ({ navToHome, user }) => {
 
             return data;
         };
+        let fetchData;
         try {
-            const fetchData = await fetchLogin();
+            fetchData = await fetchLogin();
             dispatch(userActions.login({
                 user: fetchData.user,
                 token: fetchData.token
@@ -95,8 +96,9 @@ export const registerUser = ({ navToHome, user }) => {
             }, 2000);
 
         } catch (err) {
+
             dispatch(uiActions.showAlert({
-                message: "RegisterError",
+                message: fetchData.message.join("\n"),
                 color: "red",
                 type: "error"
             }));
@@ -104,16 +106,17 @@ export const registerUser = ({ navToHome, user }) => {
             setTimeout(() => {
                 dispatch(uiActions.unShowLoading());
                 dispatch(uiActions.unshowAlert());
-            }, 1000);
+            }, 2000);
         }
     };
 };
 
 export const logoutuser = () => {
     return async (dispatch) => {
-        console.log("first");
+        ("first");
         const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout");
         const message = await res.json();
+        window.location = "/landing";
         dispatch(userActions.logout());
     };
 };
@@ -121,8 +124,6 @@ export const logoutuser = () => {
 
 export const toggleFavorite = (item, user) => {
     return async (dispatch) => {
-        console.log(user);
-        console.log(item);
         const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/addfavorites", {
             method: "POST",
             headers: {
@@ -132,7 +133,30 @@ export const toggleFavorite = (item, user) => {
             body: JSON.stringify({ item: item, user: user })
         });
         const a = await res.json();
-        console.log(a);
+
         dispatch(userActions.getFavorites({ favorites: a.favorites }));
     };
 };
+
+
+export const setRemindTime = (days, time, id) => {
+    return async (dispatch) => {
+
+        const remindTime = {
+            days,
+            time
+        };
+        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/setremindme", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ remindTime, id })
+        });
+        const data = await res.json();
+
+        dispatch(userActions.setRemindTime(data));
+    };
+};
+

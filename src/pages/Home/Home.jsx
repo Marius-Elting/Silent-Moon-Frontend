@@ -8,6 +8,10 @@ import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
+import { userActions } from '../../store/user-slice';
+import { logoutuser } from '../../store/user-actions';
+import Alert from '../../components/Alert/Alert';
+
 
 
 const Home = () => {
@@ -16,15 +20,15 @@ const Home = () => {
 
     const user = useSelector(state => state.user);
     const loadingComponent = useSelector(state => state.ui.loadingComponent);
+    const alertShown = useSelector(state => state.ui.alertIsVisible);
     const [visibility, setVisibility] = useState("Hidden");
 
 
     useEffect(() => {
         dispatch(uiActions.setLoadingComponent("home"));
-        console.log("DISPATCH");
+        ("DISPATCH");
         async function getData() {
             try {
-
                 const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/api/getexercise', {
                     headers: {
                         Authorization: `Bearer ${user.token}`
@@ -32,16 +36,22 @@ const Home = () => {
                     credentials: "include",
                 });
                 const data = await response.json();
-                setData(data);
+                if (data.type === "Error") {
+                    dispatch(uiActions.showAlert({
+                        type: "error",
+                        message: data.message,
+                        color: "red"
+                    }));
+                    setTimeout(() => {
+                        dispatch(logoutuser());
+                    }, 1000);
+                } else {
+                    setData(data);
+                }
                 dispatch(uiActions.unsetLoadingComponent("home"));
 
             } catch (err) {
                 dispatch(uiActions.unShowLoading());
-                dispatch(uiActions.showAlert({
-                    type: "error",
-                    message: "Database Error",
-                    color: "red"
-                }));
             }
         }
         getData();
@@ -51,6 +61,7 @@ const Home = () => {
 
     return (
         <section className='homeSection'>
+            {alertShown && <Alert />}
             <AppHeadline />
 
             <div className='homeHeaderWrapper'>

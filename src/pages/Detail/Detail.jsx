@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import Loading from '../../components/Loading/Loading';
 import { uiActions } from '../../store/ui-slice';
+import Alert from '../../components/Alert/Alert';
 
 
 const Detail = () => {
@@ -18,12 +19,12 @@ const Detail = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const isLoading = useSelector(state => state.ui.isLoading);
-
+    const alertIsVisible = useSelector(state => state.ui.alertIsVisible);
     const handleBackButton = () => {
         navigate(-1);
 
     };
-    console.log(singleplaylist);
+
 
 
     useEffect(() => {
@@ -42,6 +43,7 @@ const Detail = () => {
         getData();
     }, []);
 
+
     useEffect(() => {
         async function getSinglePlaylist() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleplaylist/${8963496122}`, {
@@ -53,7 +55,6 @@ const Detail = () => {
             });
             const dataPlaylist = await response.json();
             setSinglePlaylist(dataPlaylist[0]);
-            console.log("singleplaylist", dataPlaylist[0]);
 
         }
         getSinglePlaylist();
@@ -62,6 +63,7 @@ const Detail = () => {
 
     return (
         <section className='detailSection'>
+            {alertIsVisible && <Alert />}
             <TopNav data={{ user, item: { id: data?._id, type: data?.type } }} symbol='arrow' handleClickFunction={handleBackButton} />
             {isLoading && <Loading center={true} customStyle={{
                 position: "absolute",
@@ -97,13 +99,11 @@ const Detail = () => {
                             <h3>Playlist</h3>
                         </div>
                         {
-                            singleplaylist.trackList?.slice(0, 10).map((element, key) => {
+                            singleplaylist.trackList?.slice(0, 10).map((element, index) => {
+                                const artist = element.artist.slice(0, 25) + (element.artist.length >= 25 ? " ..." : "");
                                 return (
-
-                                    <SongItem key={key} playlistName={element.title} artist={element.artist.slice(0, 25) + " ..."} preview={element.preview} />
-
+                                    <SongItem playlist={singleplaylist} key={index} playlistName={element.title} artist={artist} preview={element.preview} />
                                 );
-                             
 
                             })
                         }

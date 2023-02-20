@@ -10,9 +10,6 @@ import { toggleFavorite } from '../../store/user-actions';
 const TopNav = ({ handleClickFunction, symbol, data }) => {
     const favorites = useSelector(state => state.user.favorites);
     const dispatch = useDispatch();
-    console.log(favorites);
-    console.log(data);
-
 
 
     return (

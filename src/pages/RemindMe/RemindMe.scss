@@ -1,70 +1,67 @@
 @import "../../App";
 
-.RemindMeTimeChoiceWrapper,
-.RemindMeDayChoiceWrapper {
-    width: 90%;
-    margin: 0 auto;
 
-    h2 {
-        @include headlineMedium;
-        margin-top: 1.5rem
+.RemindMeWrapper {
+    padding: 15px;
+
+    .RemindMeTimeChoiceWrapper,
+    .RemindMeDayChoiceWrapper {
+        margin: 0 auto;
+        margin-top: 2.5rem;
+
+        h2 {
+            @include headlineMedium;
+            margin-top: 1.5rem
+        }
+
+        h3 {
+            @include subtitle;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+
+        }
     }
 
-    h3 {
-        @include subtitle;
-        margin-top: 1.5rem;
+
+    .RemindMeDaysWrapper {
+        margin: 2rem auto;
+        display: flex;
+        justify-content: space-evenly;
+
+        button {
+            width: 4rem;
+            border-radius: 50%;
+            height: 4rem;
+        }
+
+        .brightDay {
+            border: 2px solid $beigeColor;
+            background-color: transparent;
+            color: $darkGreenColor;
+        }
+
+        .darkDay {
+            border: 2px solid $lightGreenColor;
+            background-color: $lightGreenColor;
+            color: $beigeColor;
+        }
     }
 
-}
 
-.RemindMeTimeChoiceWrapper {
-    h3 {
-        margin-bottom: 2rem;
+    .RemindMeBtnWrapper {
+        margin: 3rem auto;
+
+        .noThxBtn {
+            display: block;
+            color: $orangeColor;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.6rem;
+            padding: 5% 0;
+            text-decoration: none;
+            text-align: center;
+            font-family: $SSP600;
+        }
+
     }
-}
-
-
-.RemindMeDaysWrapper {
-    width: 90%;
-    margin: 2rem auto;
-    display: flex;
-    justify-content: space-evenly;
-
-    button {
-
-        width: 3rem;
-        border-radius: 50%;
-        height: 3rem;
-    }
-
-    .brightDay {
-        border: 2px solid $beigeColor;
-        background-color: transparent;
-        color: $darkGreenColor;
-    }
-
-    .darkDay {
-        border: 2px solid $lightGreenColor;
-        background-color: $lightGreenColor;
-        color: $beigeColor;
-    }
-}
-
-
-.RemindMeBtnWrapper {
-    width: 90vw;
-    margin: 3rem auto;
-
-    .noThxBtn {
-        display: inline-block;
-        width: 100%;
-        color: $orangeColor;
-        border: none;
-        border-radius: 30px;
-        font-size: 1.6rem;
-        padding: 5% 0;
-        text-decoration: none;
-        text-align: center;
-    }
-
 }

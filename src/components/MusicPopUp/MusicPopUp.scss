@@ -10,6 +10,38 @@
     background-image: url('../../assets/img/meditationPlayerBackground.jpeg');
     background-size: cover;
 
+    .AudioWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    input[type='range'] {
+        overflow: hidden;
+        width: 300px;
+        accent-color: $darkGreenColor;
+        height: 50px;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        color: #13bba4;
+        margin-top: -1px;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        width: 20px;
+        -webkit-appearance: none;
+        height: 20px;
+        cursor: ew-resize;
+        background: $darkGreenColor;
+        box-shadow: 0px 0 0 5px $darkGreenColor;
+        border-radius: 100px;
+        margin-top: 4px;
+    }
+
+
 
     .audioPlayer {
         margin: 25rem auto 0 auto;

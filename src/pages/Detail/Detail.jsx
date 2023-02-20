@@ -55,7 +55,7 @@ const Detail = () => {
             });
             const dataPlaylist = await response.json();
             setSinglePlaylist(dataPlaylist[0]);
-
+            console.log(dataPlaylist);
         }
         getSinglePlaylist();
     }, []);
@@ -102,7 +102,7 @@ const Detail = () => {
                             singleplaylist.trackList?.slice(0, 10).map((element, index) => {
                                 const artist = element.artist.slice(0, 25) + (element.artist.length >= 25 ? " ..." : "");
                                 return (
-                                    <SongItem playlist={singleplaylist} key={index} playlistName={element.title} artist={artist} preview={element.preview} />
+                                    <SongItem playlist={singleplaylist.trackList} key={index} playlistName={element.title} artist={artist} preview={element.preview} />
                                 );
 
                             })

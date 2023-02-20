@@ -4,7 +4,7 @@
 .landingPageWrapper {
     .landingPageImg {
         background-image: url('../../assets/img/landingImg.png');
-        padding-bottom: 55vh;
+        height: 65vh;
         background-repeat: no-repeat;
     }
 
@@ -24,7 +24,7 @@
 
         // ab hier zweiter article
         .landingPageText:nth-of-type(1) {
-            padding-bottom: 10vh;
+            padding-bottom: 5vh;
         }
 
         .landingPageLink {

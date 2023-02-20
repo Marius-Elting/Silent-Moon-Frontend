@@ -9,6 +9,8 @@
     height: 80rem;
     background-image: url('../../assets/img/meditationPlayerBackground.jpg');
     background-size: cover;
+    z-index: 3;
+    font-family: $SSP600;
 
     .AudioWrapper {
         display: flex;

@@ -10,6 +10,7 @@ import SmallCard from '../../components/SmallCard/SmallCard';
 import { uiActions } from '../../store/ui-slice';
 import Alert from '../../components/Alert/Alert';
 import Loading from '../../components/Loading/Loading';
+import { Link } from 'react-router-dom';
 
 
 const Profile = () => {
@@ -64,7 +65,7 @@ const Profile = () => {
                 <p>{user}</p>
             </article>
 
-            <Searchbar visibility={visibility} setVisibility={setVisibility} />
+            <Searchbar visibility={visibility} setVisibility={setVisibility} page="profile" />
             <img className='profileLogout' src={LogoutButton} onClick={() => { dispatch(logoutuser()); }} alt="Logout Button" />
             <article className='profileYoga'>
                 <h4>Favourite Yoga Sessions</h4>
@@ -103,6 +104,7 @@ const Profile = () => {
                     <article><p>user not logged in </p></article>
                 }
             </article>
+            <Link className='profileRemindmeChanger' to="/remindme" >Change your reminder settings</Link>
             <Navbar page="profile" />
         </section>
     );

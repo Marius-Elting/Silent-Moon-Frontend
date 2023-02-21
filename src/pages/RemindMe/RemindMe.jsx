@@ -4,23 +4,28 @@ import AppHeadline from "../../components/AppHeadline/AppHeadline.jsx";
 import SubmitBtn from "../../components/SubmitBtn/SubmitBtn.jsx";
 import { Link } from "react-router-dom";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/scss';
-import { Pagination } from "@mui/material";
-import EmblaTimePicker from "../../components/TimePicker/EmblaCarousel";
-import EmblaCarousel from 'embla-carousel';
-import emblaCarouselReact from "embla-carousel-react";
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/scss';
+// import { Pagination } from "@mui/material";
+// import EmblaTimePicker from "../../components/TimePicker/EmblaCarousel";
+// import EmblaCarousel from 'embla-carousel';
+// import emblaCarouselReact from "embla-carousel-react";
 
 
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-// import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
-// import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-// import dayjs from 'dayjs';
-// import TextField from '@mui/material/TextField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs from 'dayjs';
+import TextField from '@mui/material/TextField';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
 const RemindMe = () => {
+
+    const userData = useSelector(state => state.user.userData);
+
     const [chosenDate, setChosenDate] = useState([]);
 
     const [sunClass, setSunClass] = useState("brightDay");
@@ -33,7 +38,8 @@ const RemindMe = () => {
 
     const [chosenTime, setChosenTime] = useState();
 
-    // const [value, setValue] = React.useState(dayjs('2022-04-07'));
+    const [value, setValue] = React.useState(dayjs());
+    console.log("Value: ", value)
 
     function dayChoice(day, currState, setState) {
 
@@ -60,22 +66,7 @@ const RemindMe = () => {
 
 
 
-    // const paramsSwiper = {
-    //     spaceBetween: 10,
-    //     slidesPerView: "auto",
-    //     allowSlideNext: true,
-    //     allowSlidePrev: true,
-    //     allowTouchMove: true,
-    //     centeredSlides: true,
-    //     centeredSlidesBounds: true,
-    //     direction: "vertical",
-    //     effect: "slide",
-    //     scrollbar: true,
-    //     freeMode: true,
-    //     height: 5,
-    //     loop: true,
 
-    // }
     function elementsOverlap(el1, el2) {
         const domRect1 = el1.getBoundingClientRect();
         const domRect2 = el2.getBoundingClientRect();
@@ -97,6 +88,15 @@ const RemindMe = () => {
 
     };
 
+    // dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
+    // const dispatch = useDispatch()
+
+    const submitHandler = () => {
+        setChosenTime(value.$d);
+        // chosenTime && dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
+        chosenTime && console.log("submitHandler", chosenDate, chosenTime, userData._id);
+    }
+
     return (
         <main className={"RemindMeWrapper"}>
             <AppHeadline />
@@ -104,7 +104,7 @@ const RemindMe = () => {
                 <h2>When would you like to meditate?</h2>
                 <h3>Feel free to choose the time that suits you best, but we recommend meditating first thing in the morning.</h3>
 
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs} className="timePicker">
+                <LocalizationProvider dateAdapter={AdapterDayjs} className="timePicker">
                     <StaticTimePicker
                         ampm
                         displayStaticWrapperAs="mobile"
@@ -112,11 +112,12 @@ const RemindMe = () => {
                         openTo="hours"
                         value={value}
                         onChange={(newValue) => {
-                            setValue(newValue);
+                            setValue(newValue.$d);
                         }}
+                        showButtonLabels={false}
                         renderInput={(params) => <TextField {...params} />}
                     />
-                </LocalizationProvider> */}
+                </LocalizationProvider>
                 {/* <div className="swiperContainer">
                     <Swiper
                         className="swiper"
@@ -142,7 +143,7 @@ const RemindMe = () => {
                     </Swiper>
                 </div> */}
 
-                <EmblaTimePicker handleFunctionA={onchangeHandlerA} handleFunctionB={onchangeHandlerB} />
+                {/* <EmblaTimePicker handleFunctionA={onchangeHandlerA} handleFunctionB={onchangeHandlerB} /> */}
 
             </section>
             <section className="RemindMeDayChoiceWrapper">
@@ -159,7 +160,7 @@ const RemindMe = () => {
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">
-                <Link to="/home"><SubmitBtn>SAVE</SubmitBtn></Link>
+                <Link to="/home" onClick={() => submitHandler}><SubmitBtn >SAVE</SubmitBtn></Link>
                 <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
         </main>

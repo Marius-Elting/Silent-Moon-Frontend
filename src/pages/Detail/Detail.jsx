@@ -75,7 +75,10 @@ const Detail = () => {
                 data?.type === "yoga" ?
                     <section className='detailYoga'>
                         <article className='detailYogaBackground'>
-                            <img src={data?.image?.url} alt={data?.name}></img>
+                            <video poster={data.image.imagePath.url} controls={true}>
+                                <button>HAHAH</button>
+                                <source src={data.image.videoPath.url}></source>
+                            </video>
                         </article>
                         <div className='detailDescription'>
                             <h2>{data?.name}</h2>

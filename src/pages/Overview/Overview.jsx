@@ -72,9 +72,12 @@ const Overview = () => {
                         color: "red"
                     }));
                     setTimeout(() => {
+                        dispatch(uiActions.unshowAlert());
+                        dispatch(uiActions.unsetLoadingComponent("home"));
                         dispatch(logoutuser());
                     }, 1000);
                 } else {
+                    dispatch(uiActions.unshowAlert());
                     setDataRandom(data[Math.floor(Math.random() * (data.length - 1))]);
                 }
             } catch (err) {

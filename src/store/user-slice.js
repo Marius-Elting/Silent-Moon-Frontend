@@ -31,7 +31,7 @@ const userSlice = createSlice({
             state.favorites = action.payload.favorites;
         },
         setRemindTime(state, action) {
-            state.userData.remindtime = action.payload.remindTime;
+            state.userData.remindTime = action.payload.remindTime;
         }
 
     }

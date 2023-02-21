@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 
 const Profile = () => {
-    const user = useSelector(state => state.user?.userData?.firstname) || "Herbert";
+    const user = useSelector(state => state.user?.userData?.firstname) || "Logging Out...";
     const [visibility, setVisibility] = useState("Hidden");
     const [userFavorites, setUserFavorites] = useState([]);
     const dispatch = useDispatch();

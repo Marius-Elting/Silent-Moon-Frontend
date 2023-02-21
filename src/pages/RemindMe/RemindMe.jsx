@@ -27,7 +27,7 @@ const RemindMe = () => {
         try {
             if (userData.remindTime.days.length > 0) {
                 setChosenDate(userData.remindTime.days);
-
+                console.log("AKSJD");
                 setValue(userData.remindTime.time);
             };
         } catch (err) {

@@ -96,7 +96,7 @@ const Profile = () => {
                         {
                             userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
                                 return (
-                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                                 );
                             })
                         }

@@ -139,7 +139,7 @@ export const toggleFavorite = (item, user) => {
 };
 
 
-export const setRemindTime = (days, time, id) => {
+export const setRemindTime = (days, time, id, navToHome) => {
     return async (dispatch) => {
 
         const remindTime = {
@@ -157,6 +157,7 @@ export const setRemindTime = (days, time, id) => {
         const data = await res.json();
 
         dispatch(userActions.setRemindTime(data));
+        navToHome();
     };
 };
 

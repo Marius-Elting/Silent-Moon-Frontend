@@ -29,8 +29,8 @@ import CatFilterFav from "./catFilter_Fav.svg";
 import CatFilterFavActive from "./catFilter_Fav_active.svg";
 import CatFilterAnxiety from "./catFilter_Anxiety.svg";
 import CatFilterAnxietyActive from "./catFilter_Anxiety_active.svg";
-import CatFilterKids from "./catFilter_Kids.svg";
-import CatFilterKidsActive from "./catFilter_Kids_active.svg";
+import CatFilterRecovery from "./catFilter_recovery.png";
+import CatFilterRecoveryActive from "./catFilter_recovery_active.png";
 import CatFilterSleep from "./catFilter_Sleep.svg";
 import CatFilterSleepActive from "./catFilter_Sleep_active.svg";
 import MeditationPlayerBackground from './meditationPlayerBackground.jpg';
@@ -41,6 +41,7 @@ import HeartActive from "./heartTopNav-active.svg";
 import LogoutButton from './logoutButton.svg';
 import MusicThumbnail from './musicThumbnail.jpg';
 import Upwards from './upwards.png';
+import ProfileIcon from './profileIcon.png';
 
 
 
@@ -76,8 +77,8 @@ export {
     CatFilterAnxietyActive,
     CatFilterFav,
     CatFilterFavActive,
-    CatFilterKids,
-    CatFilterKidsActive,
+    CatFilterRecovery,
+    CatFilterRecoveryActive,
     CatFilterSleep,
     CatFilterSleepActive,
     MeditationPlayerBackground,
@@ -87,6 +88,7 @@ export {
     HeartActive,
     LogoutButton,
     MusicThumbnail,
-    Upwards
+    Upwards,
+    ProfileIcon
 };
 

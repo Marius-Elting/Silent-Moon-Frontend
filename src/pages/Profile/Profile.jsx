@@ -3,7 +3,7 @@ import './Profile.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import { ProfileUser, LogoutButton } from '../../assets/img';
+import { ProfileUser, ProfileIcon, LogoutButton } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutuser } from '../../store/user-actions';
 import SmallCard from '../../components/SmallCard/SmallCard';
@@ -61,7 +61,7 @@ const Profile = () => {
             {alertIsVisible && <Alert />}
 
             <article className='profileUser'>
-                <img src={ProfileUser} alt='User'></img>
+                <img src={ProfileIcon} alt='User'></img>
                 <p>{user}</p>
             </article>
 
@@ -96,7 +96,7 @@ const Profile = () => {
                         {
                             userFavorites?.favorites?.filter(element => element.type === 'meditation').map((element, key) => {
                                 return (
-                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} />
+                                    <SmallCard key={key} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                                 );
                             })
                         }

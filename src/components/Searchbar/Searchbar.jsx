@@ -11,7 +11,7 @@ import { uiActions } from '../../store/ui-slice';
 const Searchbar = (props) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
-    console.log(user);
+    // console.log(user);
     const params = useParams().type;
     const [data, setData] = useState([]);
     const [dataFav, setDataFav] = useState([]);
@@ -38,7 +38,7 @@ const Searchbar = (props) => {
                     });
                     const data = await response.json();
                     setData(data);
-                    console.log(data);
+
 
                     dispatch(uiActions.unsetLoadingComponent("searchbar"));
                 } catch (err) {

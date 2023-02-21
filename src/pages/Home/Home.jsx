@@ -42,11 +42,15 @@ const Home = () => {
                         color: "red"
                     }));
                     setTimeout(() => {
+                        dispatch(uiActions.unshowAlert());
+                        dispatch(uiActions.unsetLoadingComponent("home"));
                         dispatch(logoutuser());
                     }, 1000);
                 } else {
+                    console.log(data);
                     setData(data);
                 }
+                dispatch(uiActions.unshowAlert());
                 dispatch(uiActions.unsetLoadingComponent("home"));
 
             } catch (err) {
@@ -75,7 +79,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/yoga/63ee8962cdddd46b7f88d18e`}>
+                        <Link to={`/detail/yoga/63f493622764ab9ff78b70ba`}>
                             <button>START</button>
                         </Link>
                     </div>
@@ -101,7 +105,7 @@ const Home = () => {
                     {
                         data?.filter(element => element.type === 'yoga').map((element) => {
                             return (
-                                <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
+                                <SmallCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
 
                             );
                         })

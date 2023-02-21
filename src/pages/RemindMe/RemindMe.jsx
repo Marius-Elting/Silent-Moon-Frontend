@@ -19,7 +19,7 @@ import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setRemindTime } from "../../store/user-actions"
+import { setRemindTime } from "../../store/user-actions";
 
 
 
@@ -41,8 +41,8 @@ const RemindMe = () => {
 
     const [chosenTime, setChosenTime] = useState();
 
-    const [value, setValue] = React.useState(dayjs());
-    console.log("Value: ", value)
+    const [value, setValue] = useState(dayjs());
+    console.log("Value: ", value);
 
     function dayChoice(day, currState, setState) {
 
@@ -92,18 +92,19 @@ const RemindMe = () => {
     };
 
     // dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const submitHandler = () => {
         setChosenTime(value.$d);
+        let chosenTime = value.toLocaleTimeString();
         chosenTime && dispatch(setRemindTime(chosenDate, chosenTime, userData._id, navToHome));
         chosenTime && console.log("submitHandler", chosenDate, chosenTime, userData._id);
 
-    }
+    };
 
     const navToHome = () => {
-        navigate("/home")
-    }
+        navigate("/home");
+    };
 
     return (
         <main className={"RemindMeWrapper"}>

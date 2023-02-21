@@ -7,7 +7,6 @@ import Player from '../MusicPlayer/PlayerComp';
 
 const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playlist }) => {
 
-
     const [songs, setSongs] = useState(playlist);
     const [isplaying, setisplaying] = useState(true);
     const songIndex = playlist.findIndex(x => x.title == playlistName);

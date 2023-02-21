@@ -2,10 +2,11 @@
 
 
 .detailSection {
-    padding-bottom: 10vh;
+    padding-bottom: 15vh;
 
     .detailUppercase {
         text-transform: uppercase;
+        margin: 1rem 0 .5rem 0
     }
 
     h2 {
@@ -27,17 +28,24 @@
             display: flex;
             justify-content: center;
 
-            img {
+            video {
                 object-fit: cover;
                 width: 100%;
+                position: relative;
+
+                button {
+                    position: absolute;
+                    top: 30px;
+                    right: 30px;
+                    z-index: 3;
+                }
             }
 
         }
 
         .detailDescription {
             width: 80%;
-            height: 13rem;
-            margin: 1rem 0 3rem 2rem;
+            margin: 3rem 0 3rem 2rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -57,7 +65,6 @@
 
         .detailMeditationDescription {
             width: 80%;
-            height: 10rem;
             margin: 3rem 0 3rem 2rem;
             display: flex;
             flex-direction: column;

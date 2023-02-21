@@ -38,7 +38,7 @@ const Searchbar = (props) => {
                     });
                     const data = await response.json();
                     setData(data);
-                    console.log(data)
+                    console.log(data);
 
                     dispatch(uiActions.unsetLoadingComponent("searchbar"));
                 } catch (err) {
@@ -62,7 +62,7 @@ const Searchbar = (props) => {
                             id: user.userData._id,
                             type: "all"
                         })
-                    })
+                    });
                     const data = await response.json();
                     setDataFav(data.favorites);
 
@@ -122,10 +122,10 @@ const Searchbar = (props) => {
             <section className={`searchResults${props.visibility}`}>
                 {!searchResult || searchResult.length === 0 && searchValue !== "" ? <p>No results match your search.</p> : searchResult.map((element, index) => {
 
-
+                    const image = element.type === "yoga" ? element?.image?.imagePath.url : element?.image?.url;
                     return (
                         <div className='searchResultSmallCardWrapper' key={index} >
-                            <SmallCard link={`/detail/${element.type}/${element._id}`} image={element.image?.url} name={element.name} level={element.level} duration={element.duration} />
+                            <SmallCard link={`/detail/${element.type}/${element._id}`} image={image} name={element.name} level={element.level} duration={element.duration} />
                         </div>
                     );
                 })}

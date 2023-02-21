@@ -41,6 +41,7 @@ import HeartActive from "./heartTopNav-active.svg";
 import LogoutButton from './logoutButton.svg';
 import MusicThumbnail from './musicThumbnail.jpg';
 import Upwards from './upwards.png';
+import ProfileIcon from './profileIcon.png';
 
 
 
@@ -87,6 +88,7 @@ export {
     HeartActive,
     LogoutButton,
     MusicThumbnail,
-    Upwards
+    Upwards,
+    ProfileIcon
 };
 

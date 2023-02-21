@@ -7,8 +7,8 @@ import {
     CatFilterAnxietyActive,
     CatFilterFav,
     CatFilterFavActive,
-    CatFilterKids,
-    CatFilterKidsActive,
+    CatFilterRecovery,
+    CatFilterRecoveryActive,
     CatFilterSleep,
     CatFilterSleepActive
 } from "../../assets/img/";
@@ -50,11 +50,13 @@ const CategoryFilter = ({ activeCat, setActiveCat, setFilterCriteria }) => {
                 <p className={activeCat === "sleep" ? "pActive" : "pNotActive"}>Sleep</p>
             </article>
             <article onClick={() => {
-                setActiveCat("kids")
-                setFilterCriteria("kids")
+                setActiveCat("recovery")
+                setFilterCriteria("recovery")
             }}>
-                <img src={activeCat === "kids" ? CatFilterKidsActive : CatFilterKids} alt="child smiley" />
-                <p className={activeCat === "kids" ? "pActive" : "pNotActive"}>Kids</p>
+                <div className={activeCat === "recovery" ? "catFilterRecoveryBtnActive" : "catFilterRecoveryBtnNotActive"}>
+                    <img src={activeCat === "recovery" ? CatFilterRecoveryActive : CatFilterRecovery} alt="recovery" />
+                </div>
+                <p className={activeCat === "recovery" ? "pActive" : "pNotActive"}>Recovery</p>
             </article>
         </section>
     );

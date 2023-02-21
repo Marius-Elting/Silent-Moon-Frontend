@@ -13,6 +13,23 @@
 
         img {
             width: 100%;
+
+        }
+
+        .catFilterRecoveryBtnNotActive {
+            background-color: #A1A4B2;
+            border-radius: 23px;
+
+            width: 97%;
+            padding: 0.8rem 1rem;
+        }
+
+        .catFilterRecoveryBtnActive {
+            background-color: #8E9775;
+            border-radius: 23px;
+
+            width: 97%;
+            padding: 0.8rem 1rem;
         }
 
         .pNotActive {
@@ -25,5 +42,9 @@
             @include subtitle;
             color: $darkGreenColor;
         }
+
+
     }
+
+
 }

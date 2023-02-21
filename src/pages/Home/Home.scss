@@ -95,6 +95,18 @@
             overflow-x: scroll;
             overflow-y: hidden;
 
+            .homeShowMoreBtn {
+                padding: 2.8rem;
+                background-color: $beigeColor;
+                border-radius: 10px;
+                min-width: 25vw;
+
+                h5 {
+                    color: $darkGreenColor;
+                    font-size: 1.8rem;
+
+                }
+            }
         }
     }
 }

@@ -58,10 +58,12 @@ const CategoryPopUp = (props) => {
             {loadingComponent.includes("CatPopUp") && <Loading center="true" />}
             <section>
                 {dataCategory.filter(cat => cat.type === props.type).map((exercise) => {
+                    const image = exercise.type === "yoga" ? exercise?.image?.imagePath.url : exercise?.image?.url;
+
                     return (
                         <div>
                             <SmallCard
-                                key={exercise._id} name={exercise.name} image={exercise?.image?.url} link={`/detail/${props.type}/${exercise._id}`} />
+                                key={exercise._id} name={exercise.name} image={image} link={`/detail/${props.type}/${exercise._id}`} />
                         </div>
                     );
                 })}

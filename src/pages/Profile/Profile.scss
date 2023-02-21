@@ -5,9 +5,10 @@
 
     .profileLogout {
         width: 40px;
-        position: fixed;
+        position: absolute;
         top: 23px;
-        left: 20px
+        left: 20px;
+        // z-index: 6
     }
 
     h4 {

@@ -103,13 +103,15 @@ const Home = () => {
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
 
                     {
-                        data?.filter(element => element.type === 'yoga').map((element) => {
+                        data?.filter(element => element.type === 'yoga').slice(0, 3).map((element) => {
                             return (
                                 <SmallCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
-
                             );
                         })
                     }
+                    {data && <Link className='homeShowMoreBtn' to="/overview/yoga">
+                        <h5>See more</h5>
+                    </Link>}
                 </article>
 
             </article>
@@ -119,12 +121,15 @@ const Home = () => {
                 <article>
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
-                        data?.filter(element => element.type === 'meditation').map((element) => {
+                        data?.filter(element => element.type === 'meditation').slice(0, 3).map((element) => {
                             return (
                                 <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                             );
                         })
                     }
+                    {data && <Link className='homeShowMoreBtn' to="/overview/meditate">
+                        <h5>See more</h5>
+                    </Link>}
                 </article>
             </article>
 

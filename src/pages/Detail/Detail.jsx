@@ -10,6 +10,8 @@ import Loading from '../../components/Loading/Loading';
 import { uiActions } from '../../store/ui-slice';
 import Alert from '../../components/Alert/Alert';
 
+import { Upwards } from '../../assets/img';
+
 
 const Detail = () => {
     const user = useSelector(state => state.user);
@@ -110,6 +112,7 @@ const Detail = () => {
 
                             })
                         }
+                        <button className='musicDetailUpBtn' onClick={() => window.scrollTo({ top: 0 })}><img src={Upwards} alt="yoga pose indicating upwards movement"></img></button>
                         <Navbar />
                     </section>
             }

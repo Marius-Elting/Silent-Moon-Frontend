@@ -37,6 +37,9 @@ const uiSlice = createSlice({
             let a = state.loadingComponent.slice(0, i);
             let b = state.loadingComponent.slice(i + 1);
             state.loadingComponent = a.concat(b);
+        },
+        clearLoadingCompontent(state, action) {
+            state.loadingComponent = [];
         }
     }
 });

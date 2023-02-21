@@ -15,7 +15,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
     const audioElem = useRef();
 
     useEffect(() => {
-
+        audioElem.current.volume = .5;
         if (isplaying) {
             audioElem.current.play();
         }
@@ -60,7 +60,7 @@ const MusicPopUp = ({ toggleButtonHandler, preview, artist, playlistName, playli
 
     return (
         <section className='musicPopUpSection'>
-            <TopNav data="" symbol='arrow' handleClickFunction={toggleButtonHandler} />
+            <TopNav data="" page="false" symbol='arrow' handleClickFunction={toggleButtonHandler} />
             <div className="AudioWrapper">
                 <audio src={currentSong.preview} ref={audioElem} onTimeUpdate={onPlaying} />
                 <Player skiptoNext={skiptoNext} songs={songs} setSongs={setSongs} isplaying={isplaying} setisplaying={setisplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong} />

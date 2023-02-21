@@ -51,7 +51,7 @@ const Home = () => {
                     setData(data);
                 }
                 dispatch(uiActions.unshowAlert());
-                dispatch(uiActions.unsetLoadingComponent("home"));
+                dispatch(uiActions.clearLoadingCompontent("overview"));
 
             } catch (err) {
                 dispatch(uiActions.unShowLoading());
@@ -90,7 +90,7 @@ const Home = () => {
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
                         <p>3-10 MIN</p>
-                        <Link to={`/detail/meditation/63ee8a08cdddd46b7f88d18f`}>
+                        <Link to={`/detail/meditation/63f4c0217a6844761b2b553f`}>
                             <button>START</button>
                         </Link>
                     </div>

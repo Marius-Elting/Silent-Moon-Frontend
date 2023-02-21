@@ -158,8 +158,7 @@ const Overview = () => {
                         }]) : setDataCategories(getUserFavs.favorites);
                     }
 
-
-
+                    dispatch(uiActions.clearLoadingCompontent("overview"));
                     dispatch(uiActions.unsetLoadingComponent("overview"));
 
                 }
@@ -187,7 +186,7 @@ const Overview = () => {
                     } else {
                         setDataCategories(data);
                     }
-                    dispatch(uiActions.unsetLoadingComponent("overview"));
+                    dispatch(uiActions.clearLoadingCompontent("overview"));
 
                     return;
                 }

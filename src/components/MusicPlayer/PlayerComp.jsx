@@ -53,7 +53,7 @@ const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSon
                 {isplaying ? <BsFillPauseCircleFill className='btn_action pp' onClick={PlayPause} /> : <BsFillPlayCircleFill className='btn_action pp' onClick={PlayPause} />}
                 <BsFillSkipEndCircleFill className='btn_action' onClick={skiptoNext} />
             </div>
-            <input onChange={changeVol} type={"range"} max="10" min="0" ref={rangeRef}></input>
+            <input onChange={changeVol} defaultValue={5} type={"range"} max="10" min="0" ref={rangeRef}></input>
         </div>
 
     );

@@ -2,14 +2,13 @@
 
 .stats {
     display: flex;
-    width: 90%;
-    margin: 0 auto;
-    justify-content: space-between;
+
+    margin: 0 3rem;
+    gap: 1rem;
 
     div {
         display: flex;
         align-items: center;
-        width: 50%;
 
         img {
             width: 20px

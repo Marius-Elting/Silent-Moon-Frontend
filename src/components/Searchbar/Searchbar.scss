@@ -50,6 +50,7 @@
         position: absolute;
         background-color: #ecedf0;
         width: 100%;
+
         margin-top: 1.8rem;
         padding: 3rem 1rem;
         border-radius: 0 0 10px 10px;
@@ -59,6 +60,10 @@
         p {
             @include subtitle;
             font-size: 1.3rem;
+        }
+
+        .searchResultSmallCardWrapper {
+            width: 145px;
         }
     }
 

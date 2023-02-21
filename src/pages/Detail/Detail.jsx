@@ -20,7 +20,7 @@ const Detail = () => {
     const [data, setData] = useState();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const isLoading = useSelector(state => state.ui.isLoading);
+    const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const alertIsVisible = useSelector(state => state.ui.alertIsVisible);
     const handleBackButton = () => {
         navigate(-1);
@@ -30,7 +30,7 @@ const Detail = () => {
 
 
     useEffect(() => {
-        dispatch(uiActions.showLoading());
+        dispatch(uiActions.setLoadingComponent("detail"));
         async function getData() {
             const response = await fetch(process.env.REACT_APP_BACKEND_URL + `/api/getsingleexercise/${id}`, {
                 headers: {
@@ -40,7 +40,10 @@ const Detail = () => {
             });
             const data = await response.json();
             setData(data[0]);
-            dispatch(uiActions.unShowLoading());
+            setTimeout(() => {
+
+                dispatch(uiActions.unsetLoadingComponent("detail"));
+            }, 1000);
         }
         getData();
     }, []);
@@ -67,13 +70,13 @@ const Detail = () => {
         <section className='detailSection'>
             {alertIsVisible && <Alert />}
             <TopNav data={{ user, item: { id: data?._id, type: data?.type } }} symbol='arrow' handleClickFunction={handleBackButton} />
-            {isLoading && <Loading center={true} customStyle={{
+            {loadingComponent.includes("detail") && !data && <Loading center={true} customStyle={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 translate: "-50% -50%"
             }} />}
-            {
+            {data ?
                 data?.type === "yoga" ?
                     <section className='detailYoga'>
                         <article className='detailYogaBackground'>
@@ -115,6 +118,7 @@ const Detail = () => {
                         <button className='musicDetailUpBtn' onClick={() => window.scrollTo({ top: 0 })}><img src={Upwards} alt="yoga pose indicating upwards movement"></img></button>
                         <Navbar />
                     </section>
+                : null
             }
         </section>
     );

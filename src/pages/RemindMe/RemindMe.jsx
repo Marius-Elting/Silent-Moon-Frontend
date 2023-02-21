@@ -2,16 +2,7 @@ import "./RemindMe.scss";
 import React, { useEffect, useState } from 'react';
 import AppHeadline from "../../components/AppHeadline/AppHeadline.jsx";
 import SubmitBtn from "../../components/SubmitBtn/SubmitBtn.jsx";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/scss';
-// import { Pagination } from "@mui/material";
-// import EmblaTimePicker from "../../components/TimePicker/EmblaCarousel";
-// import EmblaCarousel from 'embla-carousel';
-// import emblaCarouselReact from "embla-carousel-react";
-
-
+import { Link, useNavigate } from "react-router-dom";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -21,23 +12,27 @@ import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRemindTime } from "../../store/user-actions";
 
-
+import Loading from "../../components/Loading/Loading";
 
 const RemindMe = () => {
 
     const navigate = useNavigate();
 
     const userData = useSelector(state => state.user.userData);
-
+    const isLoading = useSelector(state => state.ui.isLoading);
     const [chosenDate, setChosenDate] = useState([]);
 
 
     useEffect(() => {
-        if (userData.remindTime.days.length > 0) {
-            setChosenDate(userData.remindTime.days);
+        try {
+            if (userData.remindTime.days.length > 0) {
+                setChosenDate(userData.remindTime.days);
 
-            setValue(userData.remindTime.time);
-        };
+                setValue(userData.remindTime.time);
+            };
+        } catch (err) {
+            console.log(err);
+        }
     }, [userData]);
 
 
@@ -51,7 +46,6 @@ const RemindMe = () => {
     // const [thuClass, setThuClass] = useState("brightDay");
     // const [friClass, setFriClass] = useState("brightDay");
     // const [satClass, setSatClass] = useState("brightDay");
-
     // const [chosenTime, setChosenTime] = useState();
 
     const [value, setValue] = useState(dayjs());
@@ -140,33 +134,6 @@ const RemindMe = () => {
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </LocalizationProvider>
-                {/* <div className="swiperContainer">
-                    <Swiper
-                        className="swiper"
-                        {...paramsSwiper}
-                        pagination={{ clickable: true }}
-                        // modules={[Pagination]}
-
-                        onSlideChange={() =>  ('slide change')}
-                        onSwiper={(swiper) =>  (swiper)}
-                    >
-
-                        <SwiperSlide style={{ height: "10px" }}>Slide 1</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 2</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 3</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 4</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 5</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 6</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 7</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }} >Slide 8</SwiperSlide>
-                        <SwiperSlide style={{ height: "10px" }}>Slide 9</SwiperSlide>
-
-
-                    </Swiper>
-                </div> */}
-
-                {/* <EmblaTimePicker handleFunctionA={onchangeHandlerA} handleFunctionB={onchangeHandlerB} /> */}
-
             </section>
             <section className="RemindMeDayChoiceWrapper">
                 <h2>On which days would you like to meditate?</h2>
@@ -182,7 +149,7 @@ const RemindMe = () => {
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">
-                <SubmitBtn handleSubmit={submitHandler} >SAVE</SubmitBtn>
+                <SubmitBtn disabled={isLoading ? true : false} handleSubmit={submitHandler} >SAVE</SubmitBtn>
                 <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
         </main>

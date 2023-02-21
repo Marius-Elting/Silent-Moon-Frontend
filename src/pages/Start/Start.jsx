@@ -6,15 +6,15 @@ import { useEffect } from 'react';
 
 const Start = () => {
 
-    const remindTime = useSelector(state => state.user.userData.remindTime);
+    const userData = useSelector(state => state.user.userData);
     // console.log(remindTime.days.length)
     const [page, setPage] = useState("remindme");
 
     useEffect(() => {
-        if (remindTime?.days.length > 0 || !remindTime) {
-            setPage("home")
+        if (userData.remindTime?.days.length > 0 || userData.remindTime) {
+            setPage("home");
         }
-    }, [])
+    }, []);
 
 
     const firstname = useSelector(state => state.user.userData.firstname);

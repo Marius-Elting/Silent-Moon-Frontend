@@ -3,19 +3,22 @@
 .overviewPage {
     padding: 15px;
 
-    h2 {
-        @include headlineBig;
-        text-transform: capitalize;
-        text-align: center;
-        margin: 5rem auto 2rem auto;
-        letter-spacing: 2px;
+    div {
+        >h2 {
+            @include headlineBig;
+            text-transform: capitalize;
+            text-align: center;
+            margin: 5rem auto 2rem auto;
+            letter-spacing: 2px;
+        }
+
+        >h3 {
+            @include subtitle;
+            text-align: center;
+            margin: 0 auto 4rem auto;
+        }
     }
 
-    h3 {
-        @include subtitle;
-        text-align: center;
-        margin: 0 auto 4rem auto;
-    }
 
     .overviewDaily {
         width: 100%;

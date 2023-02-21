@@ -6,15 +6,15 @@ const Stats = () => {
     return (
         <article className='stats'>
             <div>
-                <img src={Heart}></img>
+                <img src={Heart} alt="Heart"></img>
                 <p className='stats'>24.234 Favorites</p>
             </div>
             <div>
-                <img src={Headphones}></img>
+                <img src={Headphones} alt="Headphones"></img>
                 <p>34.234 Listening</p>
             </div>
         </article>
-    )
-}
+    );
+};
 
-export default Stats
+export default Stats;

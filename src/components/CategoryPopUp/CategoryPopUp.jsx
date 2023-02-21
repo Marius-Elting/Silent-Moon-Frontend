@@ -38,7 +38,7 @@ const CategoryPopUp = (props) => {
                     color: "red"
                 }));
             };
-            dispatch(uiActions.unsetLoadingComponent("CatPopUp"));
+            dispatch(uiActions.clearLoadingCompontent("overview"));
 
         };
         getData();

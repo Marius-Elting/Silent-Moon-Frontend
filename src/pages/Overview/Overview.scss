@@ -18,6 +18,7 @@
     }
 
     .overviewDaily {
+        width: 100%;
         margin: 3rem auto;
         padding: 2.5rem;
         border-radius: 10px;
@@ -26,12 +27,14 @@
         background-image: url("../../assets/img/backgroundDailyCalm.png");
         background-repeat: no-repeat;
         object-fit: cover;
+        background-size: 100%;
 
         article {
 
 
             &:nth-of-type(1) {
                 width: 58%;
+                max-width: 220px;
 
                 h4 {
                     font-size: 1.6rem;

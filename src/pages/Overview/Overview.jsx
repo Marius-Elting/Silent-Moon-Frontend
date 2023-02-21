@@ -258,14 +258,17 @@ const Overview = () => {
             <section className='overviewThumbnails'>
                 {activeCat === "all" ?
                     dataCategories.map((category, index) => {
+
                         return (
                             <OverviewThumbnail key={index} type="cat" name={category.name} img={category?.img?.url} clickHandler={clickHandlerCat} />
                         );
                     }) :
                     dataCategories.map((category, index) => {
+                        const image = category.type === "yoga" ? category?.image?.imagePath.url : category?.image?.url;
+
                         return (
 
-                            <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={category?.image?.url} link={`/detail/${category.type}/${category._id}`} />
+                            <OverviewThumbnail key={index} type="ex" id={category._id} name={category.name} img={image} link={`/detail/${category.type}/${category._id}`} />
                         );
                     })
                 }

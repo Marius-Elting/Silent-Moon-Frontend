@@ -2,7 +2,7 @@ import "./RemindMe.scss";
 import React, { useState } from 'react';
 import AppHeadline from "../../components/AppHeadline/AppHeadline.jsx";
 import SubmitBtn from "../../components/SubmitBtn/SubmitBtn.jsx";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import 'swiper/scss';
@@ -19,10 +19,13 @@ import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { setRemindTime } from "../../store/user-actions"
 
 
 
 const RemindMe = () => {
+
+    const navigate = useNavigate();
 
     const userData = useSelector(state => state.user.userData);
 
@@ -89,12 +92,17 @@ const RemindMe = () => {
     };
 
     // dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     const submitHandler = () => {
         setChosenTime(value.$d);
-        // chosenTime && dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
+        chosenTime && dispatch(setRemindTime(chosenDate, chosenTime, userData._id, navToHome));
         chosenTime && console.log("submitHandler", chosenDate, chosenTime, userData._id);
+
+    }
+
+    const navToHome = () => {
+        navigate("/home")
     }
 
     return (
@@ -160,7 +168,7 @@ const RemindMe = () => {
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">
-                <Link to="/home" onClick={() => submitHandler}><SubmitBtn >SAVE</SubmitBtn></Link>
+                <SubmitBtn handleSubmit={submitHandler} >SAVE</SubmitBtn>
                 <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
         </main>

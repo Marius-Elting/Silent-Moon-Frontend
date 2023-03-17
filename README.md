@@ -29,4 +29,4 @@ This is a Full-Stack Project made by: Steffi, Janine und Marius.
 
 Try it yourself: [Silent Moon](https://silentmoon.up.railway.app/)
 
-See the repository of the [Server](https://github.com/Marius-Elting/Abschlussprojekt-Server)
+See the repository of the [Server](https://github.com/Marius-Elting/Silent-Moon-Server)

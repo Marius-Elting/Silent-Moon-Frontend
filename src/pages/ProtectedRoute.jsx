@@ -46,9 +46,10 @@ const ProtectedRoute = () => {
             color: "red"
         }));
         setTimeout(() => {
-
+            dispatch(uiActions.unShowLoading());
+            dispatch(uiActions.unshowAlert());
             // dispatch(logoutuser());
-        }, 500);
+        }, 100);
     }
 
     if (isAuth === null) {

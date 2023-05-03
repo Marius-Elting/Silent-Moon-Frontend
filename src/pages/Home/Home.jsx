@@ -11,6 +11,7 @@ import Loading from '../../components/Loading/Loading';
 import { userActions } from '../../store/user-slice';
 import { logoutuser } from '../../store/user-actions';
 import Alert from '../../components/Alert/Alert';
+import HomeTopCard from '../../components/HomeTopCards/HomeTopCard';
 
 
 
@@ -74,7 +75,7 @@ const Home = () => {
                 </p>
             </div>
             <article className='homeTopTilesWrapper'>
-                <div className='homeSingleTileWrapper'>
+                {/* <div className='homeSingleTileWrapper'>
                     <p className='homeSingleTileHeadline'>Healthy Back</p>
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
@@ -83,9 +84,11 @@ const Home = () => {
                             <button>START</button>
                         </Link>
                     </div>
-                </div>
+                </div> */}
+                <HomeTopCard name="Healthy Back" level="BEGINNER" time="3-10 MIN" image="http://res.cloudinary.com/de3tbljvy/image/upload/v1676972897/Images/zxil6kqjfuhjdw6tbey3.jpg" id="63f493622764ab9ff78b70ba" />
+                <HomeTopCard name="Meditation" level="BEGINNER" time="3-10 MIN" image="http://res.cloudinary.com/de3tbljvy/image/upload/v1676984352/Images/a7i1duf3w3pkgbu2bhrz.jpg" id="63f4c0217a6844761b2b553f" />
 
-                <div className='homeSingleTileWrapper'>
+                {/* <div className='homeSingleTileWrapper'>
                     <p className='homeSingleTileHeadline'>Meditation</p>
                     <p className='homeSingleTileLevel'>BEGINNER</p>
                     <div>
@@ -94,7 +97,7 @@ const Home = () => {
                             <button>START</button>
                         </Link>
                     </div>
-                </div>
+                </div> */}
             </article>
             <Searchbar visibility={visibility} setVisibility={setVisibility} />
             <article className='homeRecomended'>

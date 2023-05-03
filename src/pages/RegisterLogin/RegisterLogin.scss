@@ -4,39 +4,38 @@
     background-image: url('../../assets/img/loginRegisterImg.png');
     background-repeat: no-repeat;
 
+
     .registerLoginHeading {
         @include headlineBig;
         margin-bottom: 9vh;
-        padding-top: 5vh;
+        margin-top: 14vh;
         text-align: center;
     }
 
-    .login {
-        width: 90%;
-        margin: 0 auto;
-
-    }
 
     .registerLoginInput {
         width: 100%;
-        margin-bottom: 6%;
-        padding: 4% 0;
+        margin-bottom: 35px;
+        padding: 15px 25px;
         text-align: center;
         font-family: $SSP600;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         color: $grayColor;
         background-color: transparent;
         border: 1px solid $orangeColor;
         border-radius: 30px;
+        max-width: 400px;
     }
 
     .registerLoginText {
         @include subtitle;
         width: 80%;
         margin: 2vh auto;
+        text-align: center;
     }
 
     .registerLoginLink {
+        text-align: center;
         text-decoration: none;
         color: $orangeColor;
         font-size: 1.6rem;
@@ -45,13 +44,59 @@
     .register {
         width: 90%;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .returnBtnBox {
+        position: fixed;
+        // width: 175px;
+        top: 0;
+        left: 0
     }
 
 
     .AlertPlaceholder {
         height: 105px;
         width: 90%;
+        max-width: 400px;
         opacity: 0;
         user-select: none;
+    }
+
+
+    @media screen and (min-width: $small) {
+        .returnBtnBox {
+            width: 120px;
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        .returnBtnBox {
+            width: 140px;
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        .returnBtnBox {
+            width: 175px;
+        }
+    }
+
+    @media screen and (min-width: $Xlarge) {
+        .returnBtnBox {
+            width: 200px;
+        }
     }
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.scss';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Navbar from '../../components/Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,7 +23,9 @@ const Home = () => {
     const loadingComponent = useSelector(state => state.ui.loadingComponent);
     const alertShown = useSelector(state => state.ui.alertIsVisible);
     const [visibility, setVisibility] = useState("Hidden");
-
+    const [sliceStart, setSliceStart] = useState(0)
+    const [sliceCount, setSliceCount] = useState(0)
+    const [windowSize, setSize] = useState(0)
 
     useEffect(() => {
         dispatch(uiActions.setLoadingComponent("home"));
@@ -59,9 +61,44 @@ const Home = () => {
             }
         }
         getData();
+
     }, []);
 
+    const handleResize = () => {
+        setSize(window.outerWidth)
+    }
 
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    useEffect(() => {
+        console.log(window.outerWidth);
+        (() => {
+            const width = window.outerWidth
+            if (width >= 600) {
+                const count = Math.ceil(width / 220)
+                if (Math.ceil(width / 220) === sliceCount && !isNaN(sliceStart)) {
+                    return
+                }
+                setSliceCount(count)
+                const start = Math.ceil(Math.random() * (data?.length - Math.ceil(window.outerWidth / 220)))
+                setSliceStart(start)
+
+            } else {
+                if (2 === sliceCount) {
+                    return
+                }
+                setSliceCount(2)
+                const start = Math.floor(Math.random() * (data?.length - 2))
+                setSliceStart(start)
+            }
+        })();
+    }, [windowSize, data])
+    console.log(sliceStart)
+    console.log(sliceCount)
 
     return (
         <section className='homeSection'>
@@ -75,29 +112,19 @@ const Home = () => {
                 </p>
             </div>
             <article className='homeTopTilesWrapper'>
-                {/* <div className='homeSingleTileWrapper'>
-                    <p className='homeSingleTileHeadline'>Healthy Back</p>
-                    <p className='homeSingleTileLevel'>BEGINNER</p>
-                    <div>
-                        <p>3-10 MIN</p>
-                        <Link to={`/detail/yoga/63f493622764ab9ff78b70ba`}>
-                            <button>START</button>
-                        </Link>
-                    </div>
-                </div> */}
-                <HomeTopCard name="Healthy Back" level="BEGINNER" time="3-10 MIN" image="http://res.cloudinary.com/de3tbljvy/image/upload/v1676972897/Images/zxil6kqjfuhjdw6tbey3.jpg" id="63f493622764ab9ff78b70ba" />
-                <HomeTopCard name="Meditation" level="BEGINNER" time="3-10 MIN" image="http://res.cloudinary.com/de3tbljvy/image/upload/v1676984352/Images/a7i1duf3w3pkgbu2bhrz.jpg" id="63f4c0217a6844761b2b553f" />
 
-                {/* <div className='homeSingleTileWrapper'>
-                    <p className='homeSingleTileHeadline'>Meditation</p>
-                    <p className='homeSingleTileLevel'>BEGINNER</p>
-                    <div>
-                        <p>3-10 MIN</p>
-                        <Link to={`/detail/meditation/63f4c0217a6844761b2b553f`}>
-                            <button>START</button>
-                        </Link>
-                    </div>
-                </div> */}
+                {data?.slice(sliceStart, sliceStart + sliceCount).map(element => {
+                    if (element.type === "meditation") {
+                        return (
+                            <HomeTopCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} type={element.type} />
+                        )
+                    } else {
+
+                        return (
+                            <HomeTopCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} type={element.type} />
+                        )
+                    }
+                })}
             </article>
             <Searchbar visibility={visibility} setVisibility={setVisibility} />
             <article className='homeRecomended'>
@@ -107,6 +134,7 @@ const Home = () => {
 
                     {
                         data?.filter(element => element.type === 'yoga').slice(0, 3).map((element) => {
+
                             return (
                                 <SmallCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
                             );
@@ -124,7 +152,7 @@ const Home = () => {
                 <article>
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
-                        data?.filter(element => element.type === 'meditation').slice(0, 3).map((element) => {
+                        data?.filter(element => element.type === 'meditation').slice(0, Math.ceil(Math.random() * (data?.length - Math.ceil(window.outerWidth / 145)))).map((element) => {
                             return (
                                 <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                             );

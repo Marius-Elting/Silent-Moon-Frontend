@@ -1,0 +1,54 @@
+@import '../../App';
+
+
+.homeTopCardWrapper {
+    width: calc(100vw /2.3);
+    height: calc(100vw /2);
+    aspect-ratio: 1 / 1.2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px 10px 10px 10px;
+
+
+    .homeTopCardHeadline {
+        font-family: $SSP900;
+        font-size: 1.8rem;
+        padding: 35px 0 0 0;
+        width: 100px;
+        line-height: 20px;
+    }
+
+    .homeTopCardLevel {
+        font-family: $SSP600;
+        font-size: 1.4rem;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        font-family: $SSP400;
+        justify-content: space-between;
+        padding: 5px;
+
+        button {
+            border: transparent;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            background-color: $beigeColor;
+            color: $darkGreenColor;
+            padding: 12px 15px;
+        }
+    }
+
+    @media screen and (min-width: $small) {
+        width: 220px;
+        height: 245px;
+        margin: 10px;
+    }
+}

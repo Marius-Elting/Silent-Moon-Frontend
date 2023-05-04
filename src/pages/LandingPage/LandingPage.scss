@@ -13,7 +13,8 @@
 
         .landingPageHeading {
             @include headlineSmall;
-            text-align: center
+            text-align: center;
+            margin-top: 10px
         }
 
         h3 {
@@ -34,4 +35,67 @@
             font-size: 1.6rem;
         }
     }
+
+
+
+    @media screen and (min-width: $small) {
+        display: flex;
+        flex-direction: column;
+
+
+        .landingPageImg {
+            background-image: url('../../assets/img/landingImg2.jpeg');
+            height: 100vh;
+            z-index: 0;
+            background-position: center;
+        }
+
+        .brandName {
+            font-size: 3rem;
+        }
+
+        .landingBottomWrapper {
+            z-index: 1;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px gray;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .landingPageImg {
+            width: 60%;
+        }
+
+        .brandName {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .landingBottomWrapper {
+            width: 40%;
+            z-index: inherit;
+            position: relative;
+            box-shadow: none;
+            top: auto;
+            left: auto;
+            justify-content: center;
+            transform: translate(0, 0);
+        }
+    }
+
+
 }

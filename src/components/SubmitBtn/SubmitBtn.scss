@@ -2,6 +2,7 @@
 
 .submitBtnBox {
     width: 90vw;
+    max-width: 400px;
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -24,7 +25,7 @@
     }
 
     .loading {
-        position: absolute;
+        // position: absolute;
         // top: 50%;
         // // left: 50%;
         // // right: 50%;

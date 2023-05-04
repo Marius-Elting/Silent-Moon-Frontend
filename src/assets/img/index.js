@@ -1,6 +1,6 @@
 import landingImg from './landingImg.png';
 import LoginRegisterImg from './loginRegisterImg.png';
-import BackArrow from './backArrow.png';
+import BackArrow from './backArrow.svg';
 import StartImg from './startImg.png';
 import NavHome from './nav-home.svg';
 import NavMeditate from './nav-meditate.svg';

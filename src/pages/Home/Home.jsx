@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './Home.scss';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Navbar from '../../components/Navbar/Navbar';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import SmallCard from '../../components/SmallCard/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../store/ui-slice';
 import Loading from '../../components/Loading/Loading';
-import { userActions } from '../../store/user-slice';
 import { logoutuser } from '../../store/user-actions';
 import Alert from '../../components/Alert/Alert';
 import HomeTopCard from '../../components/HomeTopCards/HomeTopCard';
@@ -75,7 +74,6 @@ const Home = () => {
     }, [])
 
     useEffect(() => {
-        console.log(window.outerWidth);
         (() => {
             const width = window.outerWidth
             if (width >= 600) {
@@ -85,10 +83,12 @@ const Home = () => {
                 }
                 setSliceCount(count)
                 const start = Math.ceil(Math.random() * (data?.length - Math.ceil(window.outerWidth / 220)))
-                setSliceStart(start)
+                if (sliceCount === 0 || isNaN(sliceCount) || isNaN(sliceStart) || sliceCount + sliceStart > data.length) {
+                    setSliceStart(start)
+                }
 
             } else {
-                if (2 === sliceCount) {
+                if (2 === sliceCount && !isNaN(sliceStart)) {
                     return
                 }
                 setSliceCount(2)
@@ -98,7 +98,8 @@ const Home = () => {
         })();
     }, [windowSize, data])
     console.log(sliceStart)
-    console.log(sliceCount)
+    console.log(Math.ceil(Math.random() * (data?.length - Math.ceil(window.outerWidth / 145))))
+    // console.log(data?.filter(element => element.type === 'meditation').length)
 
     return (
         <section className='homeSection'>
@@ -133,7 +134,7 @@ const Home = () => {
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
 
                     {
-                        data?.filter(element => element.type === 'yoga').slice(0, 3).map((element) => {
+                        data?.filter(element => element.type === 'yoga').slice(0, 6).map((element) => {
 
                             return (
                                 <SmallCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/yoga/${element._id}`} />
@@ -152,7 +153,7 @@ const Home = () => {
                 <article>
                     {loadingComponent.includes("home") && !data && <Loading center={true} />}
                     {
-                        data?.filter(element => element.type === 'meditation').slice(0, Math.ceil(Math.random() * (data?.length - Math.ceil(window.outerWidth / 145)))).map((element) => {
+                        data?.filter(element => element.type === 'meditation').slice(0, 6).map((element) => {
                             return (
                                 <SmallCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} link={`/detail/meditation/${element._id}`} />
                             );

@@ -2,12 +2,15 @@
 
 .smallCard {
     width: 145px;
+    aspect-ratio: 29 / 34;
 
     img {
-        height: 100px;
+        // height: 100px;
         width: 145px;
         border-radius: 10px;
         object-fit: cover;
+        object-position: center;
+        aspect-ratio: 29 / 20;
     }
 
     h3 {
@@ -31,6 +34,42 @@
 
             &:nth-of-type(1) {
                 text-transform: uppercase;
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        width: 200px;
+
+        img {
+            width: 200px;
+        }
+
+        h3 {
+            font-size: 1.7rem;
+        }
+
+        .smallCardBottom {
+            p {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        width: 250px;
+
+        img {
+            width: 250px;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        .smallCardBottom {
+            p {
+                font-size: 1.7rem;
             }
         }
     }

@@ -34,6 +34,7 @@ function App() {
     <Router>
       <Suspense fallback={<Loading customStyle={{ position: "fixed", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }} />}>
         <Routes>
+          <Route exact path="/" element={<Navigate to="/home" replace={true} />}></Route>
           <Route path="/" element={<ProtectedRoute />} >
             <Route path="remindme" element={<RemindMe />}></Route>
             <Route path="start" element={<Start />}></Route>

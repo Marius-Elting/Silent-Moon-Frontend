@@ -117,12 +117,12 @@ const Home = () => {
                 {data?.slice(sliceStart, sliceStart + sliceCount).map(element => {
                     if (element.type === "meditation") {
                         return (
-                            <HomeTopCard key={element._id} image={element.image.url} name={element.name} level={element.level} duration={element.duration} type={element.type} />
+                            <HomeTopCard key={element._id} image={element.image.url} name={element.name} level={element.level} id={element._id} duration={element.duration} type={element.type} />
                         )
                     } else {
 
                         return (
-                            <HomeTopCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} duration={element.duration} type={element.type} />
+                            <HomeTopCard key={element._id} image={element.image.imagePath.url} name={element.name} level={element.level} id={element._id} duration={element.duration} type={element.type} />
                         )
                     }
                 })}

@@ -46,7 +46,7 @@ function App() {
           </Route>
           <Route path="/landing" element={<LandingPage />}></Route>
           <Route path="/user/:action" element={<RegisterLogin />}></Route>
-          <Route path="*" element={<Navigate to="/user/register" />}> </Route>
+          <Route path="*" element={<Navigate to="/home" />}> </Route>
         </Routes>
       </Suspense>
     </Router>

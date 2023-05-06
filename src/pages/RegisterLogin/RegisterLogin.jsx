@@ -33,8 +33,12 @@ const RegisterLogin = () => {
     };
 
     const navToHome = () => {
-        navigate("/start");
-    };
+        if (window.outerWidth >= 900) {
+            navigate("/home");
+        } else {
+            navigate("/start");
+        }
+    }
 
     const handleLoginSubmit = async () => {
         const user = {

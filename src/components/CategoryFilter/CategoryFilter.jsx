@@ -16,8 +16,6 @@ import "./CategoryFilter.scss";
 
 const CategoryFilter = ({ activeCat, setActiveCat, setFilterCriteria }) => {
 
-
-
     return (
         <section className='catFilter'>
             <article onClick={() => {

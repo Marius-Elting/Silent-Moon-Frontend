@@ -8,13 +8,17 @@ const Start = () => {
 
     const userData = useSelector(state => state.user.userData);
     // console.log(remindTime.days.length)
-    const [page, setPage] = useState("remindme");
+    // const [page, setPage] = useState("remindme");
 
-    useEffect(() => {
+    const getLink = () => {
         if (userData.remindTime?.days.length > 0 || userData.remindTime) {
-            setPage("home");
+            return "home";
+        } else {
+            return "remindme"
         }
-    }, []);
+
+    }
+
 
 
     const firstname = useSelector(state => state.user.userData.firstname);
@@ -26,7 +30,7 @@ const Start = () => {
                     Namasté {firstname}, welcome to Silent Moon
                 </p>
             </article>
-            <SubmitBtn type="link" link={`/${page}`}>GET STARTED</SubmitBtn>
+            <SubmitBtn type="link" link={`/${getLink()}`}>GET STARTED</SubmitBtn>
         </section>
     );
 };

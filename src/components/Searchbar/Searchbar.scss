@@ -2,7 +2,7 @@
 
 .searchBarDiv {
     margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     height: 4rem;
     position: relative;
 
@@ -35,10 +35,7 @@
         z-index: 3;
     }
 
-    input:focus {
-        outline: none;
-        box-shadow: inset 3px 3px 6px -4px rgb(162, 158, 158);
-    }
+
 
     .searchResultsHidden {
         display: none;
@@ -53,16 +50,17 @@
         background-color: #ecedf0;
         width: 100%;
 
-        &::after {
-            content: "";
-            flex: auto;
-        }
-
         margin-top: 1.8rem;
         padding: 3rem 1rem;
         border-radius: 0 0 10px 10px;
         box-shadow: 3px 3px 6px rgb(162, 158, 158);
         z-index: 1;
+
+        &::after {
+            content: "";
+            flex: auto;
+        }
+
 
         p {
             @include subtitle;
@@ -87,5 +85,24 @@
                 flex: auto;
             }
         }
+    }
+
+    @media screen and (min-width: $medium) {
+        height: calc(4rem + 20px);
+
+        .search {
+            padding: 20px;
+        }
+
+        &::before {
+            height: 40px;
+            right: 10px;
+            width: 40px;
+        }
+
+        .searchResultsShown {
+            margin-top: calc(1.8rem + 20px);
+        }
+
     }
 }

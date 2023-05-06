@@ -21,11 +21,13 @@
         padding: 35px 0 0 0;
         width: 100px;
         line-height: 20px;
+        filter: drop-shadow(0px 0px 5px black);
     }
 
     .homeTopCardLevel {
         font-family: $SSP600;
         font-size: 1.4rem;
+        filter: drop-shadow(0px 0px 5px black);
     }
 
     div {
@@ -35,6 +37,10 @@
         font-family: $SSP400;
         justify-content: space-between;
         padding: 5px;
+
+        p {
+            font-size: 1.1rem;
+        }
 
         button {
             border: transparent;
@@ -47,8 +53,60 @@
     }
 
     @media screen and (min-width: $small) {
-        width: 220px;
+        // width: 220px;
+
         height: 245px;
-        margin: 10px;
+        margin: 5px;
+
+        .homeTopCardHeadline {
+            font-size: 2rem;
+            // mix-blend-mode: exclusion;
+        }
+
+        .homeTopCardLevel {
+            font-size: 1.8rem;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-family: $SSP400;
+            justify-content: space-between;
+            padding: 5px;
+
+            p {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        // width: 300px;
+        height: 275px;
+        aspect-ratio: 1/ 1.1;
+        margin: 5px;
+
+        .homeTopCardHeadline {
+            font-size: 2rem;
+            // mix-blend-mode: exclusion;
+        }
+
+        .homeTopCardLevel {
+            font-size: 1.8rem;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-family: $SSP400;
+            justify-content: space-between;
+            padding: 5px;
+
+            p {
+                font-size: 1.3rem;
+            }
+        }
     }
 }

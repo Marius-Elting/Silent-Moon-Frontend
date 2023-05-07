@@ -24,6 +24,7 @@
             display: flex;
             justify-content: space-between;
 
+
             width: 80%;
             margin: 0 auto;
 
@@ -58,5 +59,35 @@
             }
         }
 
+    }
+
+    @media screen and (min-width: $small) {
+
+        section {
+            a {
+                width: 60%;
+                justify-content: space-around;
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+
+        section {
+            a {
+                width: 50%;
+                justify-content: space-around;
+            }
+        }
+    }
+
+    @media screen and (min-width: $large) {
+
+        section {
+            a {
+                width: 50%;
+                justify-content: center;
+            }
+        }
     }
 }

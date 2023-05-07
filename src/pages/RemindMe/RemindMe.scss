@@ -57,11 +57,40 @@
             border: none;
             border-radius: 30px;
             font-size: 1.6rem;
-            padding: 5% 0;
+            margin: 3rem 0;
             text-decoration: none;
             text-align: center;
             font-family: $SSP600;
         }
 
     }
+
+    @media screen and (min-width: $small) {
+
+        .RemindMeDaysWrapper {
+            button {
+                width: 6rem;
+                height: 6rem;
+                font-size: 1.3rem;
+
+
+            }
+
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+
+        .RemindMeDaysWrapper {
+            button {
+                width: 7.5rem;
+                height: 7.5rem;
+                font-size: 1.4rem;
+
+
+            }
+
+        }
+    }
+
 }

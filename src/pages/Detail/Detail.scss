@@ -115,4 +115,30 @@
             object-position: center;
         }
     }
+
+    @media screen and (min-width: $small) {
+        .detailMeditation {
+            .detailMeditationBackground {
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    max-height: 500px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        .detailMeditation {
+            .detailMeditationBackground {
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    height: 500px;
+                }
+            }
+        }
+    }
 }

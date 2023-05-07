@@ -7,11 +7,11 @@ const Stats = () => {
         <article className='stats'>
             <div>
                 <img src={Heart} alt="Heart"></img>
-                <p className='stats'>24.234 Favorites</p>
+                <p className='stats'>{Math.floor(Math.random() * 10000)} Favorites</p>
             </div>
             <div>
                 <img src={Headphones} alt="Headphones"></img>
-                <p>34.234 Listening</p>
+                <p>{Math.floor(Math.random() * 10000)} Listening</p>
             </div>
         </article>
     );

@@ -8,7 +8,11 @@
         position: absolute;
         top: 23px;
         left: 20px;
+
         // z-index: 6
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     h4 {

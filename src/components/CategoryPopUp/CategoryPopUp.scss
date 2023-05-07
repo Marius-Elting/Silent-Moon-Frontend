@@ -52,4 +52,11 @@
             width: 100%;
         }
     }
+
+    @media screen and (min-width: $large) {
+        section {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+    }
 }

@@ -29,7 +29,11 @@ const ProtectedRoute = () => {
                     user: data.user,
                     token: data.token
                 }))
+            }).catch(err => {
+                console.log(err)
+                setIsAuth(false)
             })
+
     }
     useEffect(() => {
         checkIsAuth()
@@ -58,7 +62,7 @@ const ProtectedRoute = () => {
         )
     } else if (!isAuth) {
         return (
-            <Navigate to="/landing" />
+            <Navigate to="/landing" replace={true} />
         )
     } else if (isAuth) {
         return (

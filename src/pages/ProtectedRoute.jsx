@@ -58,7 +58,7 @@ const ProtectedRoute = () => {
         )
     } else if (!isAuth) {
         return (
-            <Navigate to="/landing" />
+            <Navigate to="/landing" replace={true} />
         )
     } else if (isAuth) {
         return (

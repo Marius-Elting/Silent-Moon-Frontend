@@ -29,7 +29,11 @@ const ProtectedRoute = () => {
                     user: data.user,
                     token: data.token
                 }))
+            }).catch(err => {
+                console.log(err)
+                setIsAuth(false)
             })
+
     }
     useEffect(() => {
         checkIsAuth()

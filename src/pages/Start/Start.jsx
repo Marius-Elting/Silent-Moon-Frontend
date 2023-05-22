@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Start.scss';
 import SubmitBtn from '../../components/SubmitBtn/SubmitBtn';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 const Start = () => {
 
     const userData = useSelector(state => state.user.userData);
-    // console.log(remindTime.days.length)
-    // const [page, setPage] = useState("remindme");
 
     const getLink = () => {
         if (userData.remindTime?.days.length > 0 || userData.remindTime) {
@@ -18,8 +15,6 @@ const Start = () => {
         }
 
     }
-
-
 
     const firstname = useSelector(state => state.user.userData.firstname);
     return (

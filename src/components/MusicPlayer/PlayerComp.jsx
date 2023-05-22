@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './player.scss';
-import { BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsSkipEndCircleFill, BsFillSkipEndCircleFill } from 'react-icons/bs';
+import { BsFillPlayCircleFill, BsFillPauseCircleFill, BsFillSkipStartCircleFill, BsFillSkipEndCircleFill } from 'react-icons/bs';
 
 const Player = ({ audioElem, isplaying, setisplaying, currentSong, setCurrentSong, skiptoNext, songs }) => {
     const rangeRef = useRef();

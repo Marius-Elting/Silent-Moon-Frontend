@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Alert from '../../components/Alert/Alert';
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn';
 import SubmitBtn from '../../components/SubmitBtn/SubmitBtn';
-import { uiActions } from '../../store/ui-slice';
 import { loginUser, registerUser } from '../../store/user-actions';
-import { userActions } from '../../store/user-slice';
 import './RegisterLogin.scss';
 import Loading from '../../components/Loading/Loading';
 
@@ -18,9 +16,7 @@ const RegisterLogin = () => {
     const navigate = useNavigate();
     const { action } = useParams();
     const dispatch = useDispatch();
-    const userData = useSelector(state => state.user);
     const alert = useSelector(state => state.ui.alertIsVisible);
-    const alertType = useSelector(state => state.ui.alertType);
 
 
 

@@ -15,7 +15,7 @@ import { Upwards } from '../../assets/img';
 
 const Detail = () => {
     const user = useSelector(state => state.user);
-    let { id, playlist } = useParams();
+    let { id } = useParams();
     const [singleplaylist, setSinglePlaylist] = useState([]);
     const [data, setData] = useState();
     const navigate = useNavigate();

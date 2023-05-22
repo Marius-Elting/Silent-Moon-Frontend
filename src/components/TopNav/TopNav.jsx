@@ -2,7 +2,6 @@ import React from 'react';
 import './TopNav.scss';
 import { BackArrowTopNav, HeartActive } from '../../assets/img';
 import { HeartTopNav } from '../../assets/img';
-import { DownloadTopNav } from '../../assets/img';
 import { CloseTopNav } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../../store/user-actions';

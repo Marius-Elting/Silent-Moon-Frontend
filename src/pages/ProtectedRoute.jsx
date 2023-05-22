@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { uiActions } from '../store/ui-slice';
-import { logoutuser } from '../store/user-actions';
 import { userActions } from '../store/user-slice';
 import Loading from '../components/Loading/Loading';
 // import { useDispatch, useSelector } from "react-redux";
 
 const ProtectedRoute = () => {
-    // const token = useSelector(state => state.user.token);
-    // const userData = useSelector(state => state.user.userData);
+
     const [isAuth, setIsAuth] = useState(null)
     const dispatch = useDispatch();
     const location = useLocation()

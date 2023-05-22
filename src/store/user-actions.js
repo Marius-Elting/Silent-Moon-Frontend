@@ -114,10 +114,9 @@ export const registerUser = ({ navToHome, user }) => {
 export const logoutuser = () => {
     return async (dispatch) => {
         ("first");
-        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout", {
+        await fetch(process.env.REACT_APP_BACKEND_URL + "/api/logout", {
             credentials: "include"
         });
-        const message = await res.json();
         window.location = "/landing";
         dispatch(userActions.logout());
     };

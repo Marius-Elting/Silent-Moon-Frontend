@@ -7,7 +7,6 @@ import SongItem from '../../components/SongItem/SongItem';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../../components/Loading/Loading';
 import { uiActions } from '../../store/ui-slice';
 import { Upwards } from '../../assets/img';
 
@@ -16,10 +15,7 @@ import { Upwards } from '../../assets/img';
 const MusicDetail = () => {
 
     const dispatch = useDispatch();
-    const [dataCategories, setDataCategories] = useState([]);
     const user = useSelector(state => state.user);
-    const loadingComponent = useSelector(state => state.ui.loadingComponent);
-
     const params = useParams().id;
     const [singlePlaylist, setSinglePlaylist] = useState([]);
     const [tracks, setTracks] = useState([]);
@@ -48,8 +44,6 @@ const MusicDetail = () => {
         }
         getSinglePlaylist();
     }, []);
-
-    console.log(showNumber);
 
 
     return (

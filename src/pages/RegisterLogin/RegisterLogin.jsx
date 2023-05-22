@@ -1,13 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Alert from '../../components/Alert/Alert';
 import ReturnBtn from '../../components/ReturnBtn/ReturnBtn';
 import SubmitBtn from '../../components/SubmitBtn/SubmitBtn';
-import { uiActions } from '../../store/ui-slice';
 import { loginUser, registerUser } from '../../store/user-actions';
-import { userActions, userActionsd } from '../../store/user-slice';
 import './RegisterLogin.scss';
+import Loading from '../../components/Loading/Loading';
 
 const RegisterLogin = () => {
     const emailRef = useRef();
@@ -17,10 +16,15 @@ const RegisterLogin = () => {
     const navigate = useNavigate();
     const { action } = useParams();
     const dispatch = useDispatch();
-    const userData = useSelector(state => state.user);
     const alert = useSelector(state => state.ui.alertIsVisible);
-    const alertType = useSelector(state => state.ui.alertType);
 
+
+
+    useEffect(() => {
+        if (action === "guest") {
+            handleGuestMode()
+        }
+    }, [])
 
     const handleRegisterSubmit = async () => {
         const user = {
@@ -33,12 +37,8 @@ const RegisterLogin = () => {
     };
 
     const navToHome = () => {
-        if (window.outerWidth >= 900) {
-            navigate("/home");
-        } else {
-            navigate("/start");
-        }
-    }
+        navigate("/start");
+    };
 
     const handleLoginSubmit = async () => {
         const user = {
@@ -48,11 +48,22 @@ const RegisterLogin = () => {
         dispatch(loginUser({ user, navToHome }));
     };
 
+
+    const handleGuestMode = async () => {
+        const user = {
+            password: "SilentMoonGuest123",
+            email: "guest@silentMoonGuest.de"
+        }
+        dispatch(loginUser({ user, navToHome }));
+    }
+
     const checkEnterKey = (e) => {
         if (e.key === "Enter") {
             handleLoginSubmit();
         }
     };
+
+
 
     return (
         <section className='registerLoginSection'>
@@ -72,7 +83,7 @@ const RegisterLogin = () => {
                             <Link to="/user/register" className='registerLoginLink'> SIGN UP</Link>
                         </h3>
                     </article>
-                ) :
+                ) : action === "register" ? (
                     <article className='register'>
                         <ReturnBtn link={"/user/login"} />
                         <h2 className='registerLoginHeading'>Create your account</h2>
@@ -84,6 +95,13 @@ const RegisterLogin = () => {
                         <input onKeyDown={checkEnterKey} disabled={alert ? true : false} className='registerLoginInput' type='password' placeholder='PASSWORD' ref={passwordRef}></input>
                         <SubmitBtn disabled={alert ? true : false} handleSubmit={handleRegisterSubmit}> REGISTER</SubmitBtn>
                     </article>
+                ) : (
+                    <article className="register">
+                        <Loading customStyle={{ position: "fixed", transform: "translate(-50%,-50%)", top: "50%", left: "50%" }} />
+                        <h2 className='registerLoginHeading' style={{ position: "fixed", transform: "translate(-50%,-50%)", top: "55%", left: "50%", width: "100%" }}>Logging in...</h2>
+                    </article>
+                )
+
             }
         </section>
     );

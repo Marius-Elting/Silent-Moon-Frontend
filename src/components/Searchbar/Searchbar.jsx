@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Searchbar.scss';
 
 import SmallCard from '../../components/SmallCard/SmallCard';
@@ -11,14 +11,11 @@ import { uiActions } from '../../store/ui-slice';
 const Searchbar = (props) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
-    // console.log(user);
     const params = useParams().type;
     const [data, setData] = useState([]);
     const [dataFav, setDataFav] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-
     const [searchResult, setSearchResult] = useState();
-    const loadingComponent = useSelector(state => state.ui.loadingComponent);
 
     // Function to filter data
     const filterData = (data, search) => {

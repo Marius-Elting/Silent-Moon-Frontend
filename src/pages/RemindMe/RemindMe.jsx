@@ -12,8 +12,6 @@ import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRemindTime } from "../../store/user-actions";
 
-import Loading from "../../components/Loading/Loading";
-
 const RemindMe = () => {
 
     const navigate = useNavigate();
@@ -75,29 +73,6 @@ const RemindMe = () => {
     };
 
 
-
-
-    function elementsOverlap(el1, el2) {
-        const domRect1 = el1.getBoundingClientRect();
-        const domRect2 = el2.getBoundingClientRect();
-
-        return !(
-            domRect1.top > domRect2.bottom ||
-            domRect1.right < domRect2.left ||
-            domRect1.bottom < domRect2.top ||
-            domRect1.left > domRect2.right
-        );
-    };
-
-    const onchangeHandlerA = (ac) => {
-
-    };
-    const onchangeHandlerB = (ac) => {
-        const a = [...ac];
-        const filterd = a.filter((res) => res.opacity == "1");
-
-    };
-
     // dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
     const dispatch = useDispatch();
 
@@ -105,8 +80,6 @@ const RemindMe = () => {
         // setChosenTime(value.$d);
         value && dispatch(setRemindTime(chosenDate, value, userData._id, navToHome));
         value && console.log("submitHandler", chosenDate, value, userData._id);
-
-
     };
 
     const navToHome = () => {

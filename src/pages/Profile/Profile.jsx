@@ -3,7 +3,7 @@ import './Profile.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import AppHeadline from '../../components/AppHeadline/AppHeadline';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import { ProfileUser, ProfileIcon, LogoutButton } from '../../assets/img';
+import { ProfileIcon, LogoutButton } from '../../assets/img';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutuser } from '../../store/user-actions';
 import SmallCard from '../../components/SmallCard/SmallCard';

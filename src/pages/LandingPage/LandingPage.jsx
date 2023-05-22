@@ -24,6 +24,9 @@ const LandingPage = () => {
                     <h3>
                         ALREADY HAVE AN ACCOUNT? <Link to="/user/login" className='landingPageLink'>LOG IN</Link>
                     </h3>
+                    <h3>
+                        CONTINUE AS A  <Link to="/user/guest" className='landingPageLink'>GUEST</Link>
+                    </h3>
                 </article>
             </section>
 

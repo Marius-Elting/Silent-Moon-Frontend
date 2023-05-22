@@ -25,7 +25,7 @@ const TopNav = ({ handleClickFunction, symbol, data, page }) => {
                         favorites.filter(fav => fav?.id === data?.item?.id).length > 0 ? HeartActive : HeartTopNav
 
                     } alt='Heart'></img>
-                    <img src={DownloadTopNav} alt='Download'></img>
+
                 </div>}
         </article>
     );

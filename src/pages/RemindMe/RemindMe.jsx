@@ -36,7 +36,6 @@ const RemindMe = () => {
 
 
 
-
     // const [sunClass, setSunClass] = useState("brightDay");
     // const [monClass, setMonClass] = useState("brightDay");
     // const [tueClass, setTueClass] = useState("brightDay");

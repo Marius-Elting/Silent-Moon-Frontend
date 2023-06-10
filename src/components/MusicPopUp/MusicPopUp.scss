@@ -19,12 +19,21 @@
         height: 100vh;
     }
 
+    input[type='range']::-webkit-slider-thumb {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     input[type='range'] {
         overflow: hidden;
         width: 250px;
         accent-color: $darkGreenColor;
         height: 50px;
     }
+
+
+
 
     input[type='range']::-webkit-slider-runnable-track {
         -webkit-appearance: none;

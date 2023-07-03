@@ -1,0 +1,144 @@
+@import '../../App';
+
+
+.detailSection {
+    padding-bottom: 15vh;
+
+    .detailUppercase {
+        text-transform: uppercase;
+        margin: 1rem 0 .5rem 0
+    }
+
+    h2 {
+        @include headlineBig;
+        font-family: $SSP900;
+    }
+
+    p {
+        @include subtitle;
+        font-size: 1.4rem;
+        line-height: 20px;
+    }
+
+    // YOGA SECTION ---------------------------
+    .detailYoga {
+        .detailYogaBackground {
+            width: 100%;
+            height: 49rem;
+            display: flex;
+            justify-content: center;
+
+            video {
+                object-fit: cover;
+                width: 100%;
+                position: relative;
+
+                button {
+                    position: absolute;
+                    top: 30px;
+                    right: 30px;
+                    z-index: 3;
+                }
+            }
+
+        }
+
+        .detailDescription {
+            width: 80%;
+            margin: 3rem 0 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h2 {
+                margin: 1rem 0;
+            }
+
+            p {
+                margin: 0.5rem 0;
+            }
+        }
+    }
+
+
+    // MEDITATION SECTION --------------------
+    .detailMeditation {
+        .detailMeditationBackground {
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .detailMeditationDescription {
+            margin: 3rem 3rem 2rem 3rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h2 {
+                margin: 1rem 0;
+            }
+
+            p {
+                margin: 0.5rem 0;
+            }
+        }
+    }
+
+    .detailPlaylist {
+        margin: 5rem 0 3rem 2rem;
+
+        h3 {
+            font-family: $SSP900;
+            @include headlineMedium;
+        }
+    }
+
+    .musicDetailUpBtn {
+        width: 6rem;
+        height: 6rem;
+        position: fixed;
+        bottom: 10rem;
+        right: 1rem;
+        border-radius: 50%;
+        padding: 0.5rem;
+        border: 1px solid $grayColor;
+        background-color: whitesmoke;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    @media screen and (min-width: $small) {
+        .detailMeditation {
+            .detailMeditationBackground {
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    max-height: 500px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        .detailMeditation {
+            .detailMeditationBackground {
+
+                img {
+                    object-fit: cover;
+                    object-position: center;
+                    height: 500px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+@import "../../App";
+
+.overviewPage {
+    padding: 15px;
+
+    div {
+        >h2 {
+            @include headlineBig;
+            text-transform: capitalize;
+            text-align: center;
+            margin: 5rem auto 2rem auto;
+            letter-spacing: 2px;
+        }
+
+        >h3 {
+            @include subtitle;
+            text-align: center;
+            margin: 0 auto 4rem auto;
+        }
+    }
+
+
+    .overviewDaily {
+        width: 100%;
+        margin: 3rem auto;
+        padding: 2.5rem;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-image: url("../../assets/img/backgroundDailyCalm.png");
+        background-repeat: no-repeat;
+        object-fit: cover;
+        background-size: 100%;
+
+        article {
+
+
+            &:nth-of-type(1) {
+                width: 58%;
+                max-width: 220px;
+
+                h4 {
+                    font-size: 1.6rem;
+                    font-family: $SSP600;
+                    color: $darkGreenColor;
+                    margin-bottom: 0.5rem;
+                    letter-spacing: 1.5px;
+                }
+
+                div {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        font-size: 1.1rem;
+                        font-family: $SSP600;
+                        color: $grayColor;
+                        letter-spacing: 1.5px;
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                width: 30%;
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 1.5rem;
+            }
+        }
+    }
+
+    .overviewThumbnails {
+        margin: 3rem 0 10rem 0;
+        // position: absolute;
+        // left: 50%;
+        // transform: translateX(-50%);
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 48%);
+        grid-auto-rows: 10px;
+        gap: 15px;
+        justify-content: space-evenly;
+
+
+
+        .overviewSmallThumbnail {
+            grid-row: span 8;
+            background-repeat: no-repeat;
+            // object-fit: cover;
+            // background-position: center;
+            // background-size: cover;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+                text-transform: capitalize;
+                font-variant: small-caps;
+            }
+        }
+
+
+
+        .overviewMediumThumbnail {
+            grid-row: span 13;
+            background-repeat: no-repeat;
+            // object-fit: cover;
+            // background-position: center;
+            // background-size: cover;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+                text-transform: capitalize;
+                font-variant: small-caps;
+            }
+        }
+
+        .overviewLargeThumbnail {
+            grid-row: span 16;
+            background-repeat: no-repeat;
+            // object-fit: cover;
+            // background-position: center;
+            // background-size: cover;
+            width: 100%;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 1.5rem;
+
+            p {
+                font-family: $SSP700;
+                font-size: 1.6rem;
+                color: $beigeColor;
+                -webkit-text-stroke: 0.8px $grayColor;
+                text-transform: capitalize;
+                font-variant: small-caps;
+            }
+        }
+
+    }
+
+    @media screen and (min-width: $large) {
+        .overviewThumbnails {
+            grid-template-columns: repeat(3, 30%);
+        }
+    }
+}

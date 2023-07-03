@@ -1,0 +1,31 @@
+@import '../../App';
+
+.songItem {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    // margin-bottom: 20px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+
+    button {
+        background-color: transparent;
+        border: transparent;
+        margin-right: 5%;
+    }
+
+    article {
+
+        h3 {
+            font-family: $SSP600;
+            color: $darkGreenColor;
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: $grayColor;
+        }
+    }
+}

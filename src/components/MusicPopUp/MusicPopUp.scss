@@ -1,0 +1,139 @@
+@import '../../App';
+
+.musicPopUpSection {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../../assets/img/meditationPlayerBackground.jpg');
+    background-size: cover;
+    z-index: 3;
+    font-family: $SSP600;
+    margin: 0;
+
+    .AudioWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    input[type='range'] {
+        overflow: hidden;
+        width: 250px;
+        accent-color: $darkGreenColor;
+        height: 50px;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        color: #13bba4;
+        // margin-top: -px;
+    }
+
+    // input[type='range']::-webkit-slider-thumb {
+    //     width: 20px;
+    //     -webkit-appearance: none;
+    //     height: 20px;
+    //     cursor: ew-resize;
+    //     background: $darkGreenColor;
+    //     box-shadow: 0px 0 0 5px $darkGreenColor;
+    //     border-radius: 100px;
+    //     position: relative;
+    // }
+
+
+
+    .audioPlayer {
+        margin: 25rem auto 0 auto;
+        width: 90vw;
+        background-color: transparent;
+        box-shadow: none;
+
+        .rhap_progress-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            font-family: $SSP400;
+
+            .rhap_time.rhap_current-time,
+            .rhap_time.rhap_current-left-time {
+                color: $darkGreenColor;
+            }
+
+            .rhap_progress-bar.rhap_progress-bar-show-download {
+
+                .rhap_progress-indicator {
+                    background-color: $darkGreenColor;
+                }
+            }
+        }
+
+        .rhap_controls-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .rhap_additional-controls {
+                display: none;
+            }
+
+            .rhap_main-controls {
+                width: 50%;
+
+                .rhap_button-clear.rhap_main-controls-button.rhap_play-pause-button {
+                    height: 50px;
+                    width: 100px;
+                    margin: 0;
+
+                    svg {
+                        width: 50px;
+                        height: 50px;
+                        color: $darkGreenColor;
+                    }
+                }
+
+                .rhap_button-clear.rhap_main-controls-button.rhap_rewind-button {
+                    margin: 0;
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        color: $darkGreenColor;
+                        margin: 0;
+                    }
+                }
+
+
+                .rhap_button-clear.rhap_main-controls-button.rhap_forward-button {
+                    margin: 0;
+
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        color: $darkGreenColor;
+                        margin: 0;
+                    }
+                }
+
+            }
+
+            .rhap_volume-controls {
+                display: none;
+            }
+        }
+    }
+}
+
+.headerAudioPlayer {
+    height: 8rem;
+    text-align: center;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+
+    h3 {
+        @include headlineMedium;
+        margin-bottom: 1rem;
+    }
+}

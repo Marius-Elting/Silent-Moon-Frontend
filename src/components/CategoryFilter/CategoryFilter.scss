@@ -1,0 +1,58 @@
+@import "../../App.scss";
+
+.catFilter {
+
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    article {
+        width: 18%;
+        aspect-ratio: 1/1.2;
+        // height: 100%;
+
+        img {
+            width: 100%;
+        }
+
+        .catFilterRecoveryBtnNotActive {
+            background-color: #A1A4B2;
+            border-radius: 39%;
+
+            width: 97%;
+            padding: 0.8rem 1rem;
+        }
+
+        .catFilterRecoveryBtnActive {
+            background-color: #8E9775;
+            border-radius: 39%;
+
+            width: 97%;
+            padding: 0.8rem 1rem;
+        }
+
+        .pNotActive {
+            text-align: center;
+            @include subtitle;
+        }
+
+        .pActive {
+            text-align: center;
+            @include subtitle;
+            color: $darkGreenColor;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+
+    @media screen and (min-width: $medium) {
+        article {
+            width: 100px;
+            // height: 50px;
+        }
+    }
+}

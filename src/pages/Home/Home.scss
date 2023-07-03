@@ -1,0 +1,93 @@
+@import '../../App';
+
+.homeSection {
+    margin-bottom: 100px;
+    padding: 15px 15px 15px 15px;
+
+    .homeHeaderWrapper {
+        margin: 50px 0 0 0;
+
+        h2 {
+            @include headlineMedium;
+            margin-bottom: 17px
+        }
+
+        p {
+            @include subtitle;
+        }
+    }
+
+    .homeTopTilesWrapper {
+        margin: 25px 0 20px 0;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        color: $beigeColor;
+
+        @media screen and (min-width: $small) {
+            justify-content: flex-start;
+            overflow-x: scroll;
+            gap: 0px;
+        }
+    }
+
+
+    .homeRecomended {
+        p {
+            @include headlineMedium;
+            margin: 20px 0 20px 0;
+        }
+
+
+
+        article {
+            display: flex;
+            align-items: flex-start;
+            column-gap: 10px;
+            flex-direction: row;
+            overflow-x: scroll;
+            overflow-y: hidden;
+
+            .homeShowMoreBtn {
+                padding: 2.8rem;
+                width: 145px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $beigeColor;
+                border-radius: 10px;
+                // min-width: 25vw;
+                min-width: 145px;
+                aspect-ratio: 29 / 20;
+
+                h5 {
+                    color: $darkGreenColor;
+                    font-size: 1.8rem;
+
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $medium) {
+        .homeRecomended {
+            article {
+                .homeShowMoreBtn {
+                    min-width: 200px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        .homeRecomended {
+            article {
+                .homeShowMoreBtn {
+                    min-width: 250px;
+                }
+            }
+        }
+    }
+}

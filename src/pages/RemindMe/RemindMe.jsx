@@ -1,74 +1,136 @@
 import "./RemindMe.scss";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppHeadline from "../../components/AppHeadline/AppHeadline.jsx";
 import SubmitBtn from "../../components/SubmitBtn/SubmitBtn.jsx";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import TextField from '@mui/material/TextField';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { setRemindTime } from "../../store/user-actions";
 
+import Loading from "../../components/Loading/Loading";
 
 const RemindMe = () => {
-    const [chosenDate, setChosenDate] = useState(["Sun", "Mon", "Tue"]);
-    const [chosenTime, setChosenTime] = useState();
-    const [sunClass, setSunClass] = useState("brightDay");
-    const [monClass, setMonClass] = useState("brightDay");
-    const [tueClass, setTueClass] = useState("brightDay");
-    const [wedClass, setWedClass] = useState("brightDay");
-    const [thuClass, setThuClass] = useState("brightDay");
-    const [friClass, setFriClass] = useState("brightDay");
-    const [satClass, setSatClass] = useState("brightDay");
 
-    const [value, setValue] = React.useState(dayjs('2022-04-07'));
+    const navigate = useNavigate();
+
+    const userData = useSelector(state => state.user.userData);
+    const isLoading = useSelector(state => state.ui.isLoading);
+    const [chosenDate, setChosenDate] = useState([]);
+
+
+    useEffect(() => {
+        try {
+            if (userData.remindTime.days.length > 0) {
+                setChosenDate(userData.remindTime.days);
+                console.log("AKSJD");
+                setValue(userData.remindTime.time);
+            };
+        } catch (err) {
+            console.log(err);
+        }
+    }, [userData]);
+
+
+
+
+
+    // const [sunClass, setSunClass] = useState("brightDay");
+    // const [monClass, setMonClass] = useState("brightDay");
+    // const [tueClass, setTueClass] = useState("brightDay");
+    // const [wedClass, setWedClass] = useState("brightDay");
+    // const [thuClass, setThuClass] = useState("brightDay");
+    // const [friClass, setFriClass] = useState("brightDay");
+    // const [satClass, setSatClass] = useState("brightDay");
+    // const [chosenTime, setChosenTime] = useState();
+
+    const [value, setValue] = useState(dayjs());
+    console.log("Value: ", value);
 
     function dayChoice(day, currState, setState) {
-        console.log("Day: ", day);
+
         let index = chosenDate.findIndex((days) => days === day);
-        console.log(index);
 
-        console.log(setState);
-        console.log(currState);
 
-        if (currState === "brightDay") {
-            setState("darkDay")
-        } else if (currState === "darkDay") {
-            setState("brightDay")
-        };
+        // if (currState === "brightDay") {
+        //     setState("darkDay");
+        // } else if (currState === "darkDay") {
+        //     setState("brightDay");
+        // };
 
         if (index === -1) {
             setChosenDate(prev => [...prev, day]);
         } else {
             setChosenDate(prev => {
-                let array = [...prev]
-                array.splice(index, 1)
-                console.log(array)
-                return array
+                let array = [...prev];
+                array.splice(index, 1);
+
+                return array;
             });
         };
     };
 
-    console.log("Chosen Date: ", chosenDate);
+
+
+
+    function elementsOverlap(el1, el2) {
+        const domRect1 = el1.getBoundingClientRect();
+        const domRect2 = el2.getBoundingClientRect();
+
+        return !(
+            domRect1.top > domRect2.bottom ||
+            domRect1.right < domRect2.left ||
+            domRect1.bottom < domRect2.top ||
+            domRect1.left > domRect2.right
+        );
+    };
+
+    const onchangeHandlerA = (ac) => {
+
+    };
+    const onchangeHandlerB = (ac) => {
+        const a = [...ac];
+        const filterd = a.filter((res) => res.opacity == "1");
+
+    };
+
+    // dispatch(setRemindTime(chosenDate, chosenTime, userData._id));
+    const dispatch = useDispatch();
+
+    const submitHandler = () => {
+        // setChosenTime(value.$d);
+        value && dispatch(setRemindTime(chosenDate, value, userData._id, navToHome));
+        value && console.log("submitHandler", chosenDate, value, userData._id);
+
+
+    };
+
+    const navToHome = () => {
+        navigate("/home");
+    };
 
     return (
-        <>
+        <main className={"RemindMeWrapper"}>
             <AppHeadline />
-            <section className="ReminMeTimeChoiceWrapper">
-                <h2>What time would you like to meditate?</h2>
-                <h3>Feel free to choose the time that suits you best, but we recommend to make it the first thing you do in the morning.</h3>
-                <p> --- Platzhalter Zeitauswahl --- </p>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <section className="RemindMeTimeChoiceWrapper">
+                <h2>When would you like to meditate?</h2>
+                <h3>Feel free to choose the time that suits you best, but we recommend meditating first thing in the morning.</h3>
+
+                <LocalizationProvider dateAdapter={AdapterDayjs} className="timePicker">
                     <StaticTimePicker
                         ampm
-                        orientation="landscape"
-                        openTo="minutes"
+                        displayStaticWrapperAs="mobile"
+                        orientation="portrait"
+                        openTo="hours"
                         value={value}
                         onChange={(newValue) => {
-                            setValue(newValue);
+                            setValue(newValue.$d);
                         }}
+                        showButtonLabels={false}
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </LocalizationProvider>
@@ -77,20 +139,20 @@ const RemindMe = () => {
                 <h2>On which days would you like to meditate?</h2>
                 <h3>Making the meditation a daily routine would be the best option, but we recommend to meditate at least five times a week.</h3>
                 <section className="RemindMeDaysWrapper">
-                    <button type="button" className={sunClass} onClick={() => { dayChoice("Sun", sunClass, setSunClass) }}>Sun</button>
-                    <button type="button" className={monClass} onClick={() => { dayChoice("Mon", monClass, setMonClass) }}>Mon</button>
-                    <button type="button" className={tueClass} onClick={() => { dayChoice("Tue", tueClass, setTueClass) }}>Tue</button>
-                    <button type="button" className={wedClass} onClick={() => { dayChoice("Wed", wedClass, setWedClass) }}>Wed</button>
-                    <button type="button" className={thuClass} onClick={() => { dayChoice("Thu", thuClass, setThuClass) }}>Thu</button>
-                    <button type="button" className={friClass} onClick={() => { dayChoice("Fri", friClass, setFriClass) }}>Fri</button>
-                    <button type="button" className={satClass} onClick={() => { dayChoice("Sat", satClass, setSatClass) }}>Sat</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Sun") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Sun"); }}>Sun</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Mon") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Mon"); }}>Mon</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Tue") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Tue"); }}>Tue</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Wed") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Wed"); }}>Wed</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Thu") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Thu"); }}>Thu</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Fri") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Fri"); }}>Fri</button>
+                    <button type="button" className={chosenDate.findIndex((days) => days === "Sat") === -1 ? "brightDay" : "darkDay"} onClick={() => { dayChoice("Sat"); }}>Sat</button>
                 </section>
             </section>
             <section className="RemindMeBtnWrapper">
-                <SubmitBtn />
-                <Link to="/home">NO THANKS</Link>
+                <SubmitBtn disabled={isLoading ? true : false} handleSubmit={submitHandler} >SAVE</SubmitBtn>
+                <Link to="/home" className="noThxBtn">NO THANKS</Link>
             </section>
-        </>
+        </main>
     );
 };
 

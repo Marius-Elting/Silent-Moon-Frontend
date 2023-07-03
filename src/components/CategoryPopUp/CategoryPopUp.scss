@@ -1,0 +1,62 @@
+@import "../../App";
+
+.catPopupHidden {
+    display: none;
+}
+
+.catPopupShown {
+    margin-left: -15px;
+    // min-height: 100vh;
+    // max-height: 400vh;
+    width: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 6;
+    display: auto;
+
+    h2 {
+        @include headlineBig;
+        text-align: center;
+    }
+
+    h3 {
+        @include subtitle;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    button {
+        font-size: 2rem;
+        margin-left: 3rem;
+        margin-top: 3rem;
+        margin-bottom: -3rem;
+        background-color: transparent;
+        border: none;
+    }
+
+    section {
+        margin: 10rem auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: $large) {
+        section {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+    }
+}

@@ -1,21 +1,21 @@
 @font-face {
-  font-family: SourceSansPro400;
-  src: url("./assets/font/SourceSansPro-Regular.ttf");
+    font-family: SourceSansPro400;
+    src: url("./assets/font/SourceSansPro-Regular.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro600;
-  src: url("./assets/font/SourceSansPro-SemiBold.ttf");
+    font-family: SourceSansPro600;
+    src: url("./assets/font/SourceSansPro-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro700;
-  src: url("./assets/font/SourceSansPro-Bold.ttf");
+    font-family: SourceSansPro700;
+    src: url("./assets/font/SourceSansPro-Bold.ttf");
 }
 
 @font-face {
-  font-family: SourceSansPro900;
-  src: url("./assets/font/SourceSansPro-Black.ttf");
+    font-family: SourceSansPro900;
+    src: url("./assets/font/SourceSansPro-Black.ttf");
 }
 
 $grayColor: #A1A4B2;
@@ -25,34 +25,50 @@ $lightGreenColor: #8E9775;
 $whiteColor: #FEFCF8;
 $beigeColor: #FAF2DA;
 
-$SSP900: SourceSansPro900;
-$SSP700: SourceSansPro700;
-$SSP600: SourceSansPro600;
-$SSP500: SourceSansPro400;
+$SSP900: SourceSansPro900, sans-serif;
+$SSP700: SourceSansPro700, sans-serif;
+$SSP600: SourceSansPro600, sans-serif;
+$SSP400: SourceSansPro400, sans-serif;
+
+
+$small: 600px;
+$medium: 900px;
+$large: 1200px;
+$Xlarge: 1600px;
 
 * {
-  font-size: 10px;
-  margin: 0;
-  padding: 0;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 // ------------MIXINS-------------
 @mixin headlineSmall {
-  font-family: $SSP700;
-  text-align: center;
-  font-size: 3rem;
-  color: $darkGreenColor;
+    font-family: $SSP700;
+    font-size: 3rem;
+    color: $darkGreenColor;
+}
+
+@mixin headlineMedium {
+    font-family: $SSP900;
+    font-size: 2.4rem;
+    color: $darkGreenColor;
 }
 
 @mixin headlineBig {
-  font-family: $SSP900;
-  text-align: center;
-  font-size: 3.6rem;
-  color: $darkGreenColor;
+    font-family: $SSP900;
+    font-size: 3.6rem;
+    color: $darkGreenColor;
 }
 
 
 @mixin subtitle {
+<<<<<<< HEAD
   font-family: $SSP600;
   color: $grayColor;
   font-size: 1.6rem;
@@ -65,4 +81,30 @@ $SSP500: SourceSansPro400;
   left: 0;
   right: 0;
   font-size: 50px;
+=======
+    font-family: $SSP600;
+    color: $grayColor;
+    font-size: 1.6rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+:disabled {
+    cursor: not-allowed;
+    filter: grayscale(50%);
+}
+
+a {
+    text-decoration: initial;
+    color: initial;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    filter: grayscale(50%);
+    opacity: 0;
+>>>>>>> main
 }

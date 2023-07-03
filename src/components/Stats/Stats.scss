@@ -1,0 +1,25 @@
+@import '../../App';
+
+.stats {
+    display: flex;
+
+    margin: 0 3rem;
+    gap: 1rem;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 20px
+        }
+
+        p {
+            @include subtitle;
+            font-size: 1.3rem;
+            margin-left: 1rem;
+            margin-bottom: 0rem;
+        }
+    }
+
+}

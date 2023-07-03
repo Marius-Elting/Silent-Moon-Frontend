@@ -1,0 +1,70 @@
+@import '../../App';
+
+.profileSection {
+    padding: 15px;
+
+    .profileLogout {
+        width: 40px;
+        position: absolute;
+        top: 23px;
+        left: 20px;
+
+        // z-index: 6
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    h4 {
+        @include headlineMedium;
+        margin-bottom: 2rem;
+    }
+
+    .profileUser {
+        display: flex;
+        align-items: center;
+        margin: 6rem 0 4rem 5rem;
+
+        img {
+            width: 80px;
+        }
+
+        p {
+            @include headlineBig;
+            margin-left: 2rem;
+        }
+    }
+
+    .profileYoga {
+        margin-top: 4rem;
+
+        article {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 4rem;
+            overflow-x: scroll;
+        }
+    }
+
+    .profileMeditation {
+
+        article {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 4rem;
+            overflow-x: scroll;
+        }
+    }
+
+    .profileRemindmeChanger {
+        @include subtitle;
+        border: 1px solid dimgrey;
+        border-radius: 25px;
+        padding: 0.5rem 1rem;
+
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 12rem auto;
+        text-align: center;
+    }
+}
